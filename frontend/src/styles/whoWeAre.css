@@ -1,0 +1,155 @@
+.who-we-are {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+}
+
+.who-we-are-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  text-align: center;
+  color: #2d3748;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.section-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  color: #4a5568;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: #4361ee;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.feature-card p {
+  color: #4a5568;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.motto-section {
+  background: linear-gradient(135deg, #4361ee 0%, #3a45e7 100%);
+  padding: 4rem 2rem;
+  border-radius: 15px;
+  margin: 5rem 0;
+  color: white;
+  text-align: center;
+}
+
+.motto-section .section-title {
+  color: white;
+}
+
+.motto-content p {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.motto-description {
+  display: block;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.goal-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.goal-card:hover {
+  transform: translateY(-5px);
+}
+
+.goal-card h3 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.goal-card p {
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .who-we-are {
+    padding: 3rem 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .features-grid,
+  .goals-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .motto-content p {
+    font-size: 1.5rem;
+  }
+
+  .motto-description {
+    font-size: 1rem;
+  }
+} 
