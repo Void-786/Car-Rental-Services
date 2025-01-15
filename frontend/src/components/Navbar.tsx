@@ -11,7 +11,7 @@ const Navbar = () => {
         </Link>
         <div className="nav-links">
           <Link to="/" className="nav-link">Home</Link>
-          <Link to="/who-we-are" className="nav-link">Who we are</Link>
+          <Link to="/who-we-are" className="nav-link">Who We Are</Link>
           <Link to="/cars" className="nav-link">Cars</Link>
           <Link to="/packages" className="nav-link">Our Packages</Link>
           <Link to="/contact" className="nav-link">Contact Us</Link>
@@ -29,4 +29,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;

@@ -6,17 +6,17 @@ const HomeSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
     {
-      image: '/images/luxury-car-1.jpg',
+      image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&h=1080',
       title: 'Experience Luxury Like Never Before',
       subtitle: 'Premium cars for your premium journey'
     },
     {
-      image: '/images/luxury-car-2.jpg',
+      image: 'https://images.unsplash.com/photo-1494905998402-395d579af36f?auto=format&fit=crop&w=1920&h=1080',
       title: 'Drive Your Dreams',
       subtitle: 'Exceptional fleet for exceptional people'
     },
     {
-      image: '/images/luxury-car-3.jpg',
+      image: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1920&h=1080',
       title: 'Journey in Style',
       subtitle: 'Where luxury meets performance'
     }
@@ -36,7 +36,12 @@ const HomeSection = () => {
           <div
             key={index}
             className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
-            style={{ backgroundImage: `url(${slide.image})` }}
+            style={{ 
+              backgroundImage: `url(${slide.image})`,
+              backgroundPosition: 'center',
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat'
+            }}
           >
             <div className="overlay"></div>
             <div className="carousel-content">
@@ -63,4 +68,4 @@ const HomeSection = () => {
   );
 };
 
-export default HomeSection; 
+export default HomeSection;

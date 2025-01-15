@@ -1,71 +1,155 @@
-import { FaAward, FaHandshake, FaCar, FaUserTie } from 'react-icons/fa';
+import React from 'react';
+import { FaCar, FaAward, FaHandshake, FaClock, FaStar, FaCarSide, FaUserTie, FaShieldAlt } from 'react-icons/fa';
 import '../styles/whoWeAre.css';
 
 const WhoWeAre = () => {
+  const values = [
+    {
+      icon: <FaCarSide />,
+      title: "Premium Fleet",
+      description: "Experience luxury with our handpicked collection of premium vehicles",
+      bgColor: "#4361ee"
+    },
+    {
+      icon: <FaAward />,
+      title: "Excellence Guaranteed",
+      description: "Setting the gold standard in luxury car rentals since 2010",
+      bgColor: "#3a0ca3"
+    },
+    {
+      icon: <FaUserTie />,
+      title: "Personalized Service",
+      description: "Tailored solutions to meet your unique travel requirements",
+      bgColor: "#7209b7"
+    },
+    {
+      icon: <FaShieldAlt />,
+      title: "24/7 Support",
+      description: "Round-the-clock assistance for a seamless experience",
+      bgColor: "#4361ee"
+    }
+  ];
+
+  const stats = [
+    { number: "5000+", label: "Happy Customers" },
+    { number: "100+", label: "Luxury Vehicles" },
+    { number: "15+", label: "Years Experience" },
+    { number: "24/7", label: "Customer Support" }
+  ];
+
+  const mottos = [
+    {
+      text: "Drive Beyond Ordinary",
+      icon: <FaStar />
+    },
+    {
+      text: "Luxury at Your Command",
+      icon: <FaCar />
+    },
+    {
+      text: "Your Journey, Our Passion",
+      icon: <FaHandshake />
+    }
+  ];
+
   return (
-    <section className="who-we-are">
-      <div className="who-we-are-content">
-        <h2 className="section-title">Who We Are</h2>
-        <p className="section-description">
-          We are a premium car rental service committed to delivering exceptional travel experiences. 
-          With our diverse fleet of luxury vehicles and dedicated customer service, we transform ordinary 
-          journeys into extraordinary adventures.
-        </p>
+    <div className="who-we-are-container">
+      <div className="hero-section">
+        <div className="overlay"></div>
+        <div className="content">
+          <h1>Who We Are</h1>
+          <p className="tagline">Redefining Luxury Car Rental Experience</p>
+        </div>
+      </div>
 
-        <div className="features-grid">
-          <div className="feature-card">
-            <FaAward className="feature-icon" />
-            <h3>Best Price</h3>
-            <p>Provides best price that fits your budget & requirements</p>
-          </div>
-          <div className="feature-card">
-            <FaCar className="feature-icon" />
-            <h3>Unmatched Destinations</h3>
-            <p>Design truly remarkable travel experiences with selected destinations</p>
-          </div>
-          <div className="feature-card">
-            <FaHandshake className="feature-icon" />
-            <h3>Easy Installments</h3>
-            <p>Easy installments, partial payments & flexible options</p>
-          </div>
-          <div className="feature-card">
-            <FaUserTie className="feature-icon" />
-            <h3>24/7 Support</h3>
-            <p>Complete peace of mind during your vacation with 24/7 assistance</p>
+      <div className="mission-section">
+        <div className="container">
+          <h2>Our Mission</h2>
+          <p>
+            At Safari, we believe that every journey should be extraordinary. 
+            We're dedicated to providing exceptional luxury vehicles and unparalleled service, 
+            making every drive a memorable experience.
+          </p>
+        </div>
+      </div>
+
+      <div className="stats-section">
+        <div className="container">
+          <div className="stats-grid">
+            {stats.map((stat, index) => (
+              <div key={index} className="stat-card">
+                <div className="stat-number">{stat.number}</div>
+                <div className="stat-label">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
+      </div>
 
-        <div className="motto-section">
-          <h2 className="section-title">Our Motto</h2>
-          <div className="motto-content">
-            <p>"Driving Excellence, Delivering Dreams"</p>
-            <span className="motto-description">
-              We believe in turning every journey into a memorable experience, 
-              combining luxury with reliability to exceed your expectations.
-            </span>
+      <div className="values-section">
+        <div className="container">
+          <h2>Our Core Values</h2>
+          <div className="values-grid">
+            {values.map((value, index) => (
+              <div 
+                key={index} 
+                className="value-card"
+                style={{'--card-color': value.bgColor} as React.CSSProperties}
+              >
+                <div className="icon-wrapper">
+                  <div className="icon">{value.icon}</div>
+                </div>
+                <h3>{value.title}</h3>
+                <p>{value.description}</p>
+              </div>
+            ))}
           </div>
         </div>
+      </div>
 
-        <div className="goals-section">
-          <h2 className="section-title">Our Goals</h2>
-          <div className="goals-grid">
-            <div className="goal-card">
-              <h3>Customer Satisfaction</h3>
-              <p>Deliver exceptional service that creates lasting memories and loyal customers.</p>
-            </div>
-            <div className="goal-card">
-              <h3>Quality Assurance</h3>
-              <p>Maintain a premium fleet of vehicles that meets the highest standards of luxury and safety.</p>
-            </div>
-            <div className="goal-card">
-              <h3>Innovation</h3>
-              <p>Continuously improve our services with cutting-edge technology and customer-focused solutions.</p>
+      <div className="mottos-section">
+        <div className="container">
+          <div className="mottos-carousel">
+            {mottos.map((motto, index) => (
+              <div key={index} className="motto">
+                <div className="motto-icon">{motto.icon}</div>
+                <h2>{motto.text}</h2>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="story-section">
+        <div className="container">
+          <div className="story-content">
+            <h2>Our Story</h2>
+            <div className="story-grid">
+              <div className="story-text">
+                <p>
+                  Founded in 2010, Safari has grown from a small local rental service to 
+                  a premier luxury car rental provider. Our journey has been driven by a 
+                  singular focus: delivering exceptional experiences through premium vehicles 
+                  and outstanding service.
+                </p>
+                <p>
+                  Today, we proudly serve thousands of satisfied customers, from business 
+                  executives to luxury enthusiasts, all seeking the perfect blend of 
+                  sophistication and performance in their travel experiences.
+                </p>
+              </div>
+              <div className="story-image">
+                <img 
+                  src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&h=600" 
+                  alt="Luxury car showroom"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default WhoWeAre; 
+export default WhoWeAre;

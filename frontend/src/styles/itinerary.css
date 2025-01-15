@@ -1,0 +1,112 @@
+.itinerary-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.itinerary-container h1 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.duration-badge {
+  display: inline-block;
+  background: #4CAF50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+section h2 {
+  color: #444;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.highlights-section ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.highlights-section li {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.day-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+}
+
+.day-card h3 {
+  color: #2196F3;
+  margin-bottom: 1rem;
+}
+
+.inclusions-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.inclusions-section li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.inclusions-section li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #4CAF50;
+}
+
+.booking-section {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.price {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.book-now-button {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.book-now-button:hover {
+  background: #ff5252;
+}
+
+.not-found {
+  text-align: center;
+  padding: 4rem;
+  font-size: 1.5rem;
+  color: #666;
+}
