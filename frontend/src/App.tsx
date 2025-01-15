@@ -5,6 +5,7 @@ import WhoWeArePage from './pages/WhoWeArePage';
 import CarsPage from './pages/CarsPage';
 import Footer from './components/Footer';
 import ContactPage from './pages/ContactPage';
+import PackagesPage from './pages/PackagesPage';
 import './App.css'
 
 const App = () => {
@@ -18,7 +19,8 @@ const App = () => {
             <Route path="/who-we-are" element={<WhoWeArePage />} />
             <Route path="/cars" element={<CarsPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/packages" element={<div>Packages Page Coming Soon</div>} />
+            <Route path="/packages" element={<PackagesPage />} />
+            <Route path="/itinerary/:packageId" element={<div>Itinerary Page Coming Soon</div>} />
           </Routes>
         </main>
         <Footer />
