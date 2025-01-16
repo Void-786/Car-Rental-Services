@@ -1,0 +1,17 @@
+server:
+  port: 8807
+
+spring:
+  application:
+    name: Car Rental Services
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/client_project
+    username: root
+    password: Void@786
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
