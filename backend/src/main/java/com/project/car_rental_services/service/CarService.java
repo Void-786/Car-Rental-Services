@@ -15,7 +15,7 @@ public class CarService {
         this.carRepo = carRepo;
     }
 
-    public Car addNewCar(String name, String type, String transmissionType, Double price, byte[] image, List<String> highlights, Car.Specs specs) {
+    public void addNewCar(String name, String type, String transmissionType, Double price, byte[] image, List<String> highlights, Car.Specs specs) {
         Car car = new Car();
         car.setName(name);
         car.setType(type);
@@ -24,7 +24,7 @@ public class CarService {
         car.setImage(image);
         car.setHighlights(highlights);
         car.setSpecs(specs);
-        return carRepo.save(car);
+        carRepo.save(car);
     }
 
 }
