@@ -18,7 +18,7 @@ public class Car {
 
     private String transmissionType;
 
-    private Integer price;
+    private Double price;
 
     @Lob
     private byte[] image;
@@ -30,7 +30,7 @@ public class Car {
     @Embedded
     private Specs specs;
 
-    public Car(Integer id, String name, String type, String transmission, Integer price, byte[] image, List<String> highlights, Specs specs) {
+    public Car(Integer id, String name, String type, String transmissionType, Double price, byte[] image, List<String> highlights, Specs specs) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -68,19 +68,19 @@ public class Car {
         this.type = type;
     }
 
-    public String getTransmission() {
+    public String getTransmissionType() {
         return transmissionType;
     }
 
-    public void setTransmission(String transmission) {
+    public void setTransmissionType(String transmissionType) {
         this.transmissionType = transmissionType;
     }
 
-    public Integer getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import '../styles/cars.css';
 import { FaCar, FaCog, FaUsers, FaGasPump, FaTachometerAlt, FaRoad, FaArrowRight } from 'react-icons/fa';
+import { addNewCar } from '../api/carApiFunctions';
 
 const CarsPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [carImages, setCarImages] = useState([0, 0, 0, 0]);
-
+  
   const cars = [
     {
       id: 1,
