@@ -1,7 +1,5 @@
 package com.project.car_rental_services.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.project.car_rental_services.modal.Car;
 import com.project.car_rental_services.service.CarService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.List;
 
 @RestController
 @RequestMapping("/cars")
@@ -22,6 +19,25 @@ public class CarController {
     }
 
     @PostMapping("/add/new-car")
+    public ResponseEntity<?> addCar(@RequestParam("name") String name, @RequestParam("image") MultipartFile image) {
+        byte[] imageBytes;
+        try {
+            imageBytes = image.getBytes();
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+
+        carService.addCar(name, imageBytes);
+        return ResponseEntity.ok("Car Added Successfully");
+    }
+
+    @DeleteMapping("/delete/delete-car")
+    public ResponseEntity<?> deleteCar(@RequestParam("carId") Integer id) {
+        carService.deleteCarById(id);
+        return ResponseEntity.ok("Car deleted Successfully");
+    }
+
+    /*
     public ResponseEntity<?> addNewCar(@RequestParam("name") String name, @RequestParam("type") String type, @RequestParam("transmission_type") String transmissionType, @RequestParam("price") Double price,@RequestParam("image") MultipartFile image,@RequestParam("highlights") List<String> highlights,@RequestPart("specs") String specsJson) {
         byte[] imageBytes;
         try {
@@ -48,4 +64,5 @@ public class CarController {
             return null;
         }
     }
+     */
 }
