@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 import '../styles/contact.css';
+import QueryForm from '../components/QueryForm';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +19,12 @@ const ContactPage = () => {
 
   return (
     <div className="contact-page">
+      {/* Query Form Section */}
+      <div className="form-section">
+        <h2 className="main-title">Submit Your <span>Query</span></h2>
+        <QueryForm />
+      </div>
+
       <div className="contact-header">
         <h1>Contact Us</h1>
         <p>We'd love to hear from you</p>
@@ -52,37 +59,40 @@ const ContactPage = () => {
                 <input
                   type="text"
                   placeholder="Your Name"
+                  name="name"
                   value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
                 />
               </div>
 
-              <div className="form-row">
-                <div className="form-group">
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="tel"
-                    placeholder="Your Phone"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    required
-                  />
-                </div>
+              <div className="form-group">
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  name="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <input
+                  type="tel"
+                  placeholder="Your Phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  required
+                />
               </div>
 
               <div className="form-group">
                 <select
+                  name="service"
                   value={formData.service}
-                  onChange={(e) => setFormData({...formData, service: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                 >
                   <option value="luxury-rental">Luxury Car Rental</option>
                   <option value="chauffeur">Chauffeur Service</option>
@@ -94,15 +104,14 @@ const ContactPage = () => {
               <div className="form-group">
                 <textarea
                   placeholder="Your Message"
+                  name="message"
                   value={formData.message}
-                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
                 ></textarea>
               </div>
 
-              <button type="submit" className="submit-btn">
-                Send Message
-              </button>
+              <button type="submit" className="submit-btn">Send Message</button>
             </form>
           </div>
         </div>
@@ -115,4 +124,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage; 
+export default ContactPage;

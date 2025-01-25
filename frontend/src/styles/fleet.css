@@ -5,35 +5,36 @@
 }
 
 .fleet-hero {
-  height: 60vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url('/images/fleet-hero.jpg');
+  height: 80vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('/images/fleet-bg.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
+  justify-content: space-around;
+  padding: 0 5%;
   margin-top: -64px;
 }
 
 .fleet-hero-content {
-  max-width: 800px;
+  max-width: 600px;
   padding: 2rem;
+  text-align: left;
 }
 
 .fleet-hero-content h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .fleet-hero-content p {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   opacity: 0.9;
+  max-width: 500px;
 }
 
 .fleet-intro {
@@ -165,19 +166,25 @@
   background: #3a0ca3;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .fleet-hero {
+    flex-direction: column;
+    height: auto;
+    padding: 100px 20px 40px;
+    gap: 40px;
+  }
+
+  .fleet-hero-content {
+    text-align: center;
+    padding: 0;
+  }
+
   .fleet-hero-content h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
+}
 
-  .fleet-hero-content p {
-    font-size: 1.2rem;
-  }
-
-  .fleet-intro h2 {
-    font-size: 2rem;
-  }
-
+@media (max-width: 768px) {
   .fleet-grid {
     grid-template-columns: 1fr;
     padding: 1rem;

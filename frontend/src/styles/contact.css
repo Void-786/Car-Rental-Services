@@ -1,12 +1,24 @@
 .contact-page {
-  padding: 2rem 1rem;
+  padding: 1rem;
   background-color: #f8f9fa;
   min-height: calc(100vh - 64px);
 }
 
+.main-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2d3436;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.main-title span {
+  color: #C19A6B;
+}
+
 .contact-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   padding: 2rem 0;
 }
 
@@ -151,6 +163,75 @@ textarea {
   transform: translateY(-2px);
 }
 
+/* Query Form Styles */
+.query-form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+}
+
+.query-form-container h3 {
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.cities-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.add-city-btn {
+  padding: 0.75rem 1rem;
+  background-color: #4361ee;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.add-city-btn:hover {
+  background-color: #3651d4;
+}
+
+.personal-details {
+  margin: 2rem 0;
+}
+
+.personal-details h4 {
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.phone-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.country-code {
+  width: 80px;
+}
+
+/* Query Form Container Styles */
+.contact-page .query-form-container {
+  padding: 0;
+  margin: 0 auto;
+}
+
+.contact-page .query-form-wrapper {
+  margin: 0;
+}
+
+.contact-page .form-content {
+  height: auto;
+  min-height: 300px;
+}
+
 @media (max-width: 992px) {
   .contact-container {
     grid-template-columns: 1fr;
@@ -176,4 +257,4 @@ textarea {
   .contact-header h1 {
     font-size: 2rem;
   }
-} 
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCar, FaAward, FaHandshake, FaClock, FaStar, FaCarSide, FaUserTie, FaShieldAlt } from 'react-icons/fa';
+import { FaCar, FaAward, FaHandshake, FaClock, FaStar, FaCarSide, FaUserTie, FaShieldAlt, FaHistory, FaTrophy, FaUsers } from 'react-icons/fa';
 import '../styles/whoWeAre.css';
 
 const WhoWeAre = () => {
@@ -40,15 +40,42 @@ const WhoWeAre = () => {
   const mottos = [
     {
       text: "Drive Beyond Ordinary",
-      icon: <FaStar />
+      icon: <FaStar />,
+      color: "#4361ee"
     },
     {
       text: "Luxury at Your Command",
-      icon: <FaCar />
+      icon: <FaCar />,
+      color: "#3a0ca3"
     },
     {
       text: "Your Journey, Our Passion",
-      icon: <FaHandshake />
+      icon: <FaHandshake />,
+      color: "#7209b7"
+    }
+  ];
+
+  const timeline = [
+    {
+      year: "2010",
+      icon: <FaHistory />,
+      title: "The Beginning",
+      description: "Started with a fleet of 5 luxury cars",
+      color: "#4361ee"
+    },
+    {
+      year: "2015",
+      icon: <FaTrophy />,
+      title: "Market Leader",
+      description: "Expanded to 50+ premium vehicles",
+      color: "#3a0ca3"
+    },
+    {
+      year: "2020",
+      icon: <FaUsers />,
+      title: "Growing Community",
+      description: "Serving 5000+ happy customers",
+      color: "#7209b7"
     }
   ];
 
@@ -86,6 +113,17 @@ const WhoWeAre = () => {
         </div>
       </div>
 
+      <div className="mottos-banner">
+        <div className="mottos-grid">
+          {mottos.map((motto, index) => (
+            <div key={index} className="motto-item" style={{ backgroundColor: motto.color }}>
+              <span className="motto-icon">{motto.icon}</span>
+              <h3>{motto.text}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className="values-section">
         <div className="container">
           <h2>Our Core Values</h2>
@@ -107,44 +145,20 @@ const WhoWeAre = () => {
         </div>
       </div>
 
-      <div className="mottos-section">
-        <div className="container">
-          <div className="mottos-carousel">
-            {mottos.map((motto, index) => (
-              <div key={index} className="motto">
-                <div className="motto-icon">{motto.icon}</div>
-                <h2>{motto.text}</h2>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       <div className="story-section">
         <div className="container">
-          <div className="story-content">
-            <h2>Our Story</h2>
-            <div className="story-grid">
-              <div className="story-text">
-                <p>
-                  Founded in 2010, Safari has grown from a small local rental service to 
-                  a premier luxury car rental provider. Our journey has been driven by a 
-                  singular focus: delivering exceptional experiences through premium vehicles 
-                  and outstanding service.
-                </p>
-                <p>
-                  Today, we proudly serve thousands of satisfied customers, from business 
-                  executives to luxury enthusiasts, all seeking the perfect blend of 
-                  sophistication and performance in their travel experiences.
-                </p>
+          <h2>Our Journey</h2>
+          <div className="timeline">
+            {timeline.map((item, index) => (
+              <div key={index} className="timeline-item" style={{ backgroundColor: item.color }}>
+                <div className="timeline-icon">{item.icon}</div>
+                <div className="timeline-content">
+                  <div className="year">{item.year}</div>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
               </div>
-              <div className="story-image">
-                <img 
-                  src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&h=600" 
-                  alt="Luxury car showroom"
-                />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
