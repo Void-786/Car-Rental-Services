@@ -420,6 +420,108 @@
   box-shadow: 0 6px 16px rgba(255, 71, 87, 0.3);
 }
 
+.open-fleet-btn {
+  background: linear-gradient(135deg, #e6a55e, #d4813a);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(228, 165, 94, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.open-fleet-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(228, 165, 94, 0.4);
+  background: linear-gradient(135deg, #d4813a, #e6a55e);
+}
+
+.open-fleet-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(228, 165, 94, 0.3);
+}
+
+.book-now-btn {
+  background: linear-gradient(135deg, #4169e1, #3451b2);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(65, 105, 225, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.book-now-btn i {
+  font-size: 1.1em;
+}
+
+.book-now-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(65, 105, 225, 0.4);
+  background: linear-gradient(135deg, #3451b2, #4169e1);
+}
+
+.book-now-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(65, 105, 225, 0.3);
+}
+
+.booking-section {
+  position: relative;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.booking-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.booking-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: white;
+  padding: 10px 15px;
+  font-size: 0.95rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.booking-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.booking-input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+
 @media (max-width: 768px) {
   .packages-grid {
     grid-template-columns: 1fr;

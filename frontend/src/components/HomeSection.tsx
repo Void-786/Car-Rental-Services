@@ -14,8 +14,8 @@ const HomeSection = () => {
   const slides = [
     {
       image: 'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=1920&q=100',
-      title: 'Limousine',
-      subtitle: 'VIP Transfers',
+      title: 'daddy',
+      subtitle: 'is here',
       car: 'Mercedes-Maybach S-Class',
       description: 'Welcome to our limousine rental website! We offer luxury transportation services for any occasion, from weddings and proms to corporate events and airport transfers.'
     },
