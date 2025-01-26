@@ -45,12 +45,12 @@ public class CarController {
     }
 
     @GetMapping("/all-cars")
-    public ResponseEntity<?> getAllCars() {
+    public ResponseEntity<List<Car>> getAllCars() {
         try {
             List<Car> cars = carService.getAllCars();
             return ResponseEntity.ok(cars);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error fetching cars");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 

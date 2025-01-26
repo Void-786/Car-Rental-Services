@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../styles/add-car.css'
+import '../styles/add-car.css';
 import { apiClient } from '../api/apiClient';
 
 const AddCar: React.FC = () => {
   const [name, setName] = useState("");
-  const [image, setImage] = useState<File | null>(null)
+  const [image, setImage] = useState<File | null>(null);
   const [type, setType] = useState("");
-  const [seats, setSeats] = useState();
+  const [seats, setSeats] = useState<number | undefined>();
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
@@ -16,9 +16,11 @@ const AddCar: React.FC = () => {
 
     const formData = new FormData();
     formData.append("name", name);
-    formData.append("image", image);
+    if (image) {
+      formData.append("image", image);
+    }
     formData.append("type", type);
-    formData.append("seats", seats);
+    formData.append("seats", seats?.toString() || "");
 
     try {
       const response = await axios.post(
@@ -28,10 +30,12 @@ const AddCar: React.FC = () => {
           headers: { "Content-Type": "multipart/form-data" },
         }
       );
-      setMessage(response.data); // Display success message
+      setMessage("Car added successfully!"); // Success message
+      setError(""); // Clear error message
       resetForm();
     } catch (err) {
-      setError("Error adding car. Please try again.");// Clear success message
+      setError("Error adding car. Please try again.");
+      setMessage(""); // Clear success message
       console.error(err);
     }
   };
@@ -40,7 +44,7 @@ const AddCar: React.FC = () => {
     setName("");
     setImage(null);
     setType("");
-    setSeats();
+    setSeats(undefined);
   };
 
   return (
@@ -94,14 +98,18 @@ const AddCar: React.FC = () => {
             type="number"
             id="seats"
             placeholder="Enter number of seats"
-            value={seats}
+            value={seats || ""}
             onChange={(e) => setSeats(Number(e.target.value))}
             required
             className="input-field"
           />
         </div>
 
+        {/* Error Message */}
         {error && <p className="error-message">{error}</p>}
+
+        {/* Success Message */}
+        {message && <p className="success-message">{message}</p>}
 
         <div className="button-container">
           <button

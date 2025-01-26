@@ -12,6 +12,9 @@ import Car from './admin/Car';
 import Package from './admin/Package';
 import AddCar from './admin/AddCar';
 import './App.css'
+import UpdateCar from './admin/UpdateCar';
+import DeleteCar from './admin/DeleteCar';
+import CarList from './admin/CarList';
 
 const App = () => {
   return (
@@ -31,6 +34,9 @@ const App = () => {
               <Route path="packages" element={<Package />} />
             </Route >
             <Route path="/admin/cars/add-car" element={<AddCar />} />
+            <Route path="/admin/cars/update-car" element={<CarList />} />
+            <Route path="/admin/cars/delete-car" element={<DeleteCar />} />
+            <Route path="/admin/cars/update-car/:id" element={<UpdateCar car={null} onClose={() => {}} />} />
           </Routes>
         </main>
         <Footer />
