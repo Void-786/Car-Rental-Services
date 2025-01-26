@@ -11,7 +11,7 @@ const ItineraryPage: React.FC = () => {
     days: [
       {
         day: 1,
-        title: "Arriving in Delhi – The Capital of India",
+        title: "Arriving in Delhi - The Capital of India",
         description: "Will arrive at Delhi Airport for a seamless hotel transfer and to feel revitalised.",
         breakfast: false
       },

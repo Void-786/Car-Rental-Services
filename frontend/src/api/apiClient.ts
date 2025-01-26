@@ -1,7 +1,1 @@
-import axios from "axios";
-
-export const apiClient = axios.create(
-    {
-        baseURL: "http://localhost:8807",
-    }
-);
+export const apiClient = "http://localhost:8807";

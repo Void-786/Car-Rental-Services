@@ -1,14 +1,17 @@
 import React from "react";
 import '../styles/admin-package.css';
+import { useNavigate } from "react-router-dom";
 
 const Car: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="cars-container">
       <h1 className="header">Cars Management</h1>
       <div className="button-container">
-        <button className="action-button">Add Car</button>
-        <button className="action-button">Update Car</button>
-        <button className="action-button">Remove Car</button>
+        <button onClick={() => navigate("/admin/cars/add-car")} className="action-button">Add Car</button>
+        <button onClick={() => navigate("/admin/cars/update-car")} className="action-button">Update Car</button>
+        <button onClick={() => navigate("/admin/cars/delete-car")} className="action-button">Remove Car</button>
       </div>
     </div>
   );
