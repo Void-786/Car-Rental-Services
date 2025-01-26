@@ -43,10 +43,11 @@ const Footer = () => {
             <a href="#" className="social-icon"><FaYoutube /></a>
             <a href="#" className="social-icon"><FaInstagram /></a>
           </div>
+          <Link to="/admin" className="admin-login-btn">Login as Admin</Link>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>© 2024 Travel Explorers.</p>
+        <p> 2024 Travel Explorers.</p>
       </div>
     </footer>
   );
