@@ -3,7 +3,9 @@ package com.project.car_rental_services.service;
 import com.project.car_rental_services.modal.Car;
 import com.project.car_rental_services.repository.CarRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,10 +18,11 @@ public class CarService {
         this.carRepo = carRepo;
     }
 
-    public void addCar(String name, byte[] image, String type, Integer seats) {
+    public void addCar(String name, MultipartFile image, String type, Integer seats) throws IOException {
+        byte[] imageBytes = image.getBytes();
         Car car = new Car();
         car.setName(name);
-        car.setImage(image);
+        car.setImage(imageBytes);
         car.setType(type);
         car.setSeats(seats);
         carRepo.save(car);

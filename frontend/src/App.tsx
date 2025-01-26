@@ -7,6 +7,10 @@ import Footer from './components/Footer';
 import ContactPage from './pages/ContactPage';
 import PackagesPage from './pages/PackagesPage';
 import PackageItinerary from './pages/PackageItinerary';
+import AdminPanel from './admin/AdminPanel';
+import Car from './admin/Car';
+import Package from './admin/Package';
+import AddCar from './admin/AddCar';
 import './App.css'
 
 const App = () => {
@@ -22,6 +26,11 @@ const App = () => {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/packages" element={<PackagesPage />} />
             <Route path="/itinerary/:id" element={<PackageItinerary />} />
+            <Route path="/admin" element={<AdminPanel />} >
+              <Route path="cars" element={<Car />} />
+              <Route path="packages" element={<Package />} />
+            </Route >
+            <Route path="/admin/cars/add-car" element={<AddCar />} />
           </Routes>
         </main>
         <Footer />

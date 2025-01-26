@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+
 @RestController
 @RequestMapping("/cars")
 public class CarController {
@@ -22,16 +23,13 @@ public class CarController {
     }
 
     @PostMapping("/add/new-car")
-    public ResponseEntity<?> addCar(@RequestParam("name") String name, @RequestParam("image") MultipartFile image, @RequestParam("type") String type, @RequestParam("seats") Integer seats) {
-        byte[] imageBytes;
+    public ResponseEntity<?> addCar(@RequestParam("name") String name, @RequestParam("image") MultipartFile image, @RequestParam("type") String type, @RequestParam("seats") Integer seats) throws IOException {
         try {
-            imageBytes = image.getBytes();
+            carService.addCar(name, image, type, seats);
+            return ResponseEntity.ok("Car Added Successfully");
         } catch (IOException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error uploading image: " + e.getMessage());
         }
-
-        carService.addCar(name, imageBytes, type, seats);
-        return ResponseEntity.ok("Car Added Successfully");
     }
 
     @GetMapping("/get-car")
