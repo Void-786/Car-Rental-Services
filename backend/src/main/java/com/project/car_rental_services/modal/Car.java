@@ -17,10 +17,16 @@ public class Car {
     @Lob
     private byte[] image;
 
-    public Car(Integer id, String name, byte[] image) {
+    private String type;
+
+    private Integer seats;
+
+    public Car(Integer id, String name, byte[] image, String type, Integer seats) {
         this.id = id;
         this.name = name;
         this.image = image;
+        this.type = type;
+        this.seats = seats;
     }
 
     public Car() {
@@ -48,5 +54,21 @@ public class Car {
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Integer getSeats() {
+        return seats;
+    }
+
+    public void setSeats(Integer seats) {
+        this.seats = seats;
     }
 }

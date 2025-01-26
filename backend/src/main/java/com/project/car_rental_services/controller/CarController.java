@@ -1,5 +1,6 @@
 package com.project.car_rental_services.controller;
 
+import com.project.car_rental_services.modal.Car;
 import com.project.car_rental_services.service.CarService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/cars")
@@ -19,7 +22,7 @@ public class CarController {
     }
 
     @PostMapping("/add/new-car")
-    public ResponseEntity<?> addCar(@RequestParam("name") String name, @RequestParam("image") MultipartFile image) {
+    public ResponseEntity<?> addCar(@RequestParam("name") String name, @RequestParam("image") MultipartFile image, @RequestParam("type") String type, @RequestParam("seats") Integer seats) {
         byte[] imageBytes;
         try {
             imageBytes = image.getBytes();
@@ -27,14 +30,58 @@ public class CarController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
 
-        carService.addCar(name, imageBytes);
+        carService.addCar(name, imageBytes, type, seats);
         return ResponseEntity.ok("Car Added Successfully");
+    }
+
+    @GetMapping("/get-car")
+    public ResponseEntity<Car> getCarById(@RequestParam("carId") Integer id) {
+        Optional<Car> car = carService.getCarById(id);
+        return car.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
     }
 
     @DeleteMapping("/delete/delete-car")
     public ResponseEntity<?> deleteCar(@RequestParam("carId") Integer id) {
         carService.deleteCarById(id);
         return ResponseEntity.ok("Car deleted Successfully");
+    }
+
+    @GetMapping("/all-cars")
+    public ResponseEntity<?> getAllCars() {
+        try {
+            List<Car> cars = carService.getAllCars();
+            return ResponseEntity.ok(cars);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error fetching cars");
+        }
+    }
+
+    @PutMapping("/update-car")
+    public ResponseEntity<?> updateCar(@RequestParam("carId") Integer id, @RequestParam("name") String name, @RequestParam("image") MultipartFile image, @RequestParam("type") String type, @RequestParam("seats") Integer seats) {
+        byte[] imageBytes;
+        try {
+            imageBytes = image.getBytes();
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+
+        try {
+            Optional<Car> existingCar = carService.getCarById(id);
+            if(existingCar.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Car not found");
+            }
+
+            existingCar.get().setName(name);
+            existingCar.get().setImage(imageBytes);
+            existingCar.get().setType(type);
+            existingCar.get().setSeats(seats);
+
+            Car updatedCar = carService.updateCar(id, existingCar.get());
+            return ResponseEntity.ok(updatedCar);
+
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating car");
+        }
     }
 
     /*

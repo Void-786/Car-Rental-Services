@@ -16,14 +16,16 @@ public class CarService {
         this.carRepo = carRepo;
     }
 
-    public void addCar(String name, byte[] image) {
+    public void addCar(String name, byte[] image, String type, Integer seats) {
         Car car = new Car();
         car.setName(name);
         car.setImage(image);
+        car.setType(type);
+        car.setSeats(seats);
         carRepo.save(car);
     }
 
-    public Optional<Car> findCarById(Integer id) {
+    public Optional<Car> getCarById(Integer id) {
         return carRepo.findById(id);
     }
 
@@ -42,6 +44,8 @@ public class CarService {
             Car existingCar = existingCarOptional.get();
             existingCar.setName(updatedCar.getName());
             existingCar.setImage(updatedCar.getImage());
+            existingCar.setType(updatedCar.getType());
+            existingCar.setSeats(updatedCar.getSeats());
             return carRepo.save(existingCar);
         }
         else {
