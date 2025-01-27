@@ -11,7 +11,6 @@ const Car: React.FC = () => {
       <div className="button-container">
         <button onClick={() => navigate("/admin/cars/add-car")} className="action-button">Add Car</button>
         <button onClick={() => navigate("/admin/cars/update-car")} className="action-button">Update Car</button>
-        <button onClick={() => navigate("/admin/cars/delete-car")} className="action-button">Remove Car</button>
       </div>
     </div>
   );

@@ -45,42 +45,56 @@ public class CarController {
     }
 
     @GetMapping("/all-cars")
-    public ResponseEntity<?> getAllCars() {
+    public ResponseEntity<List<Car>> getAllCars() {
         try {
             List<Car> cars = carService.getAllCars();
             return ResponseEntity.ok(cars);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error fetching cars");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 
-    @PutMapping("/update-car")
-    public ResponseEntity<?> updateCar(@RequestParam("carId") Integer id, @RequestParam("name") String name, @RequestParam("image") MultipartFile image, @RequestParam("type") String type, @RequestParam("seats") Integer seats) {
-        byte[] imageBytes;
-        try {
-            imageBytes = image.getBytes();
-        } catch (IOException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-        }
-
+    @PutMapping("/update/update-car")
+    public ResponseEntity<?> updateCar(
+            @RequestParam("carId") Integer id,
+            @RequestParam("name") String name,
+            @RequestParam(value = "newImage", required = false) MultipartFile newImage,
+            @RequestParam("type") String type,
+            @RequestParam("seats") Integer seats
+    ) {
         try {
             Optional<Car> existingCar = carService.getCarById(id);
-            if(existingCar.isEmpty()) {
+            if (existingCar.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Car not found");
             }
 
-            existingCar.get().setName(name);
-            existingCar.get().setImage(imageBytes);
-            existingCar.get().setType(type);
-            existingCar.get().setSeats(seats);
+            Car car = existingCar.get();
 
-            Car updatedCar = carService.updateCar(id, existingCar.get());
+            car.setName(name);
+            car.setType(type);
+            car.setSeats(seats);
+
+            if (newImage != null && !newImage.isEmpty()) {
+                byte[] newImageBytes = newImage.getBytes();
+                car.setImage(newImageBytes);
+            } else {
+                byte[] currentImageBytes = car.getImage();
+                if (currentImageBytes == null) {
+                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No image found for the car in the database");
+                }
+                car.setImage(currentImageBytes);
+            }
+
+            Car updatedCar = carService.updateCar(id, car);
             return ResponseEntity.ok(updatedCar);
 
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error processing image");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating car");
         }
     }
+
 
     /*
     public ResponseEntity<?> addNewCar(@RequestParam("name") String name, @RequestParam("type") String type, @RequestParam("transmission_type") String transmissionType, @RequestParam("price") Double price,@RequestParam("image") MultipartFile image,@RequestParam("highlights") List<String> highlights,@RequestPart("specs") String specsJson) {
