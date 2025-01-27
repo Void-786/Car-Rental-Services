@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 import '../styles/contact.css';
 import QueryForm from '../components/QueryForm';
+import FeedbackSection from '../components/FeedbackSection';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -117,6 +118,7 @@ const ContactPage = () => {
         </div>
       </div>
 
+      <FeedbackSection />
       <a href="https://wa.me/1234567890" className="whatsapp-button">
         <FaWhatsapp /> Chat on WhatsApp
       </a>
