@@ -8,6 +8,7 @@ interface Car {
   name: string;
   type: string;
   seats: number;
+  image?: File | string; // Update to handle File or string
 }
 
 const CarsList: React.FC = () => {
@@ -69,12 +70,24 @@ const CarsList: React.FC = () => {
     event.preventDefault();
     if (editCar) {
       try {
-        await axios.put(`${apiClient}/cars/update/update-car`, editCar);
+        const formData = new FormData();
+        formData.append("carId", String(editCar.id));
+        formData.append("name", editCar.name);
+        if (editCar.image instanceof File) {
+          formData.append("image", editCar.image); // Handle image as a File object
+        }
+        formData.append("type", editCar.type);
+        formData.append("seats", String(editCar.seats));
+
+        await axios.put(`${apiClient}/cars/update/update-car`, formData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+
         alert("Car updated successfully");
         setCars((prevCars) =>
           prevCars.map((car) => (car.id === editCar.id ? editCar : car))
         );
-        setShowEditForm(false); // Hide the form after update
+        setShowEditForm(false);
       } catch (err) {
         setError("Error updating car");
       }
@@ -92,22 +105,21 @@ const CarsList: React.FC = () => {
       {error && <p className="error">{error}</p>}
       <div className="cars-list">
         {cars.length > 0 ? (
-            cars.map((car) => (
-                <div className="car-item" key={car.id}>
-                <span>{car.name}</span>
-                <button className="button-edit" onClick={() => handleEditClick(car)}>
-                    Edit
-                </button>
-                <button className="button-delete" onClick={() => handleDeleteClick(car.id)}>
-                    Delete
-                </button>
+          cars.map((car) => (
+            <div className="car-item" key={car.id}>
+              <span>{car.name}</span>
+              <button className="button-edit" onClick={() => handleEditClick(car)}>
+                Edit
+              </button>
+              <button className="button-delete" onClick={() => handleDeleteClick(car.id)}>
+                Delete
+              </button>
+            </div>
+          ))
+        ) : (
+          <p>No cars found</p>
+        )}
       </div>
-    ))
-  ) : ( 
-    <p>No cars found</p>
-  )}
-</div>
-
 
       {/* Edit Form */}
       {showEditForm && editCar && (
@@ -144,6 +156,17 @@ const CarsList: React.FC = () => {
                 value={editCar.seats}
                 onChange={(e) => setEditCar({ ...editCar, seats: Number(e.target.value) })}
                 required
+              />
+            </div>
+
+            <div className="form-field">
+              <label htmlFor="image">Car Image</label>
+              <input
+                type="file"
+                id="image"
+                onChange={(e) =>
+                  setEditCar({ ...editCar, image: e.target.files?.[0] || null })
+                }
               />
             </div>
 
