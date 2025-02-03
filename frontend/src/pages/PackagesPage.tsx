@@ -87,13 +87,6 @@ const PackagesPage: React.FC = () => {
 
   return (
     <div className="packages-container">
-      <div className="packages-hero">
-        <div className="hero-content">
-          <h1>Exclusive Travel</h1>
-          <p>Discover India's finest curated experiences</p>
-        </div>
-      </div>
-
       <div className="section-divider"></div>
 
       <div className="best-packages">

@@ -19,7 +19,6 @@ const CarsPage: React.FC = () => {
       name: "Maruti Suzuki Ciaz",
       type: "Sedan",
       transmission: "Automatic",
-      price: "₹2000/day",
       image: "https://imgd.aeplcdn.com/664x374/n/cw/ec/48542/ciaz-exterior-right-front-three-quarter-2.jpeg?q=80",
       highlights: ["Comfortable Seating", "Fuel Efficient", "Smart Features"],
       specs: {
@@ -34,7 +33,6 @@ const CarsPage: React.FC = () => {
       name: "Maruti Suzuki Dzire",
       type: "Sedan",
       transmission: "Manual",
-      price: "₹1800/day",
       image: "https://imgd.aeplcdn.com/664x374/n/cw/ec/45691/dzire-exterior-right-front-three-quarter-3.jpeg?q=80",
       highlights: ["Compact Design", "Great Mileage", "Easy to Drive"],
       specs: {
@@ -49,7 +47,6 @@ const CarsPage: React.FC = () => {
       name: "Maruti Suzuki Ertiga",
       type: "MUV",
       transmission: "Automatic",
-      price: "₹2500/day",
       image: "https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=800&auto=format&fit=crop&q=80",
       highlights: [
         "Spacious 7-Seater",
@@ -69,7 +66,6 @@ const CarsPage: React.FC = () => {
       name: "Toyota Innova Crysta",
       type: "MUV",
       transmission: "Automatic",
-      price: "₹3500/day",
       image: "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=800&auto=format&fit=crop&q=80",
       highlights: [
         "Luxurious Interior",
@@ -125,100 +121,13 @@ const CarsPage: React.FC = () => {
         <div className="car-type">{car.type}</div>
         <h3 className="car-name">{car.name}</h3>
         <img src={car.image} alt={car.name} className="car-image" />
-        <div className="car-price">{car.price}</div>
       </div>
     );
   };
 
   return (
     <div className="cars-page">
-      <div className="booking-section">
-        <div className="trip-type-tabs">
-          <button
-            className={`tab ${bookingDetails.tripType === 'outstation' ? 'active' : ''}`}
-            onClick={() => setBookingDetails(prev => ({ ...prev, tripType: 'outstation' }))}
-          >
-            Outstation
-          </button>
-          <button
-            className={`tab ${bookingDetails.tripType === 'local' ? 'active' : ''}`}
-            onClick={() => setBookingDetails(prev => ({ ...prev, tripType: 'local' }))}
-          >
-            Local / Airport
-          </button>
-        </div>
-
-        <form onSubmit={handleSubmit} className="booking-form">
-          <div className="journey-type">
-            <label className={`radio-label ${bookingDetails.journeyType === 'roundTrip' ? 'selected' : ''}`}>
-              <input
-                type="radio"
-                name="journeyType"
-                value="roundTrip"
-                checked={bookingDetails.journeyType === 'roundTrip'}
-                onChange={handleInputChange}
-              />
-              Round Trip
-            </label>
-            <label className={`radio-label ${bookingDetails.journeyType === 'oneWay' ? 'selected' : ''}`}>
-              <input
-                type="radio"
-                name="journeyType"
-                value="oneWay"
-                checked={bookingDetails.journeyType === 'oneWay'}
-                onChange={handleInputChange}
-              />
-              One Way Trip
-            </label>
-          </div>
-
-          <div className="input-group">
-            <FaMapMarkerAlt className="input-icon" />
-            <input
-              type="text"
-              name="pickupLocation"
-              placeholder="Enter pickup city"
-              value={bookingDetails.pickupLocation}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
-          <div className="input-group">
-            <FaMapMarkerAlt className="input-icon" />
-            <input
-              type="text"
-              name="dropLocation"
-              placeholder="Enter destination city"
-              value={bookingDetails.dropLocation}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
-          <button type="button" className="add-city-btn">
-            + Add More City
-            <span>•</span>
-          </button>
-
-          <div className="input-group">
-            <FaUsers className="input-icon" />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Enter mobile number"
-              value={bookingDetails.phone}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
-          <button type="submit" className="book-now-button">
-            Check Price & Book Cab
-          </button>
-        </form>
-      </div>
-
+      <h2 className="fleet-title">Our Fleet</h2>
       <div className="category-filter">
         <button 
           className={`filter-btn ${activeCategory === 'all' ? 'active' : ''}`}
@@ -257,14 +166,6 @@ const CarsPage: React.FC = () => {
                 <div className="spec">
                   <FaGasPump className="icon" />
                   <span>{car.specs.mileage}</span>
-                </div>
-                <div className="spec">
-                  <FaCog className="icon" />
-                  <span>{car.specs.transmission}</span>
-                </div>
-                <div className="spec">
-                  <FaCar className="icon" />
-                  <span>{car.specs.engine}</span>
                 </div>
               </div>
             </div>

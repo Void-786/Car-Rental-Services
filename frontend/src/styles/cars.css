@@ -345,7 +345,7 @@
   justify-content: center;
   gap: 1rem;
   padding: 2rem;
-  margin-top: 2rem;
+  margin: 1.5rem 0 2.5rem 0;
 }
 
 .filter-btn {
@@ -600,6 +600,30 @@
 
 .book-now-btn:hover .btn-arrow {
   transform: translateX(5px);
+}
+
+.fleet-title {
+  text-align: center;
+  font-size: 2.8rem;
+  color: #2d2420;
+  margin: 2rem 0 1.5rem 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.fleet-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #C19A6B, #2d2420);
+  border-radius: 2px;
 }
 
 @media (max-width: 1200px) {

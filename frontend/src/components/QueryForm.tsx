@@ -36,9 +36,9 @@ const QueryForm = () => {
       <div className="query-form-wrapper">
         <div className="form-background">
           <div className="background-images">
-            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1421&q=80" alt="Travel 1" className="bg-image-1" />
-            <img src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Travel 2" className="bg-image-2" />
-            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Travel 3" className="bg-image-3" />
+            <img src="https://images.unsplash.com/photo-1516939884455-1445c8652f83?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Travel 1" className="bg-image-1" />
+            <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Travel 2" className="bg-image-2" />
+            <img src="https://images.unsplash.com/photo-1503314885798-a70f8f9027d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Travel 3" className="bg-image-3" />
           </div>
         </div>
         <div className="form-content">

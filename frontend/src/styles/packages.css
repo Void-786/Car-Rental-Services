@@ -20,11 +20,11 @@
   justify-content: center;
   text-align: center;
   color: white;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .hero-content {
-  padding: 2rem;
+  padding: 1rem;
   max-width: 800px;
   animation: fadeIn 1s ease-out;
 }
@@ -60,6 +60,7 @@
 .best-packages {
   padding: 2rem;
   margin-bottom: 3rem;
+  margin-top: 0.5rem;
 }
 
 .best-packages h2 {
@@ -67,6 +68,7 @@
   font-size: 2rem;
   color: #2c3e50;
   margin-bottom: 2rem;
+  margin-top: 0;
 }
 
 .best-packages-grid {

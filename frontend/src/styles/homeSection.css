@@ -451,3 +451,19 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     grid-column: auto;
   }
 }
+
+.best-selling-packages {
+  padding: 20px 8%;
+  background-color: #fff;
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.best-selling-packages h2 {
+  font-size: 2rem;
+  color: #2d2420;
+  text-align: center;
+  margin: 0;
+  font-weight: 600;
+}

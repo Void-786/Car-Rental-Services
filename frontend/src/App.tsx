@@ -15,6 +15,7 @@ import './App.css'
 import UpdateCar from './admin/UpdateCar';
 import DeleteCar from './admin/DeleteCar';
 import CarList from './admin/CarList';
+import MainPage from './pages/MainPage';
 
 const App = () => {
   return (
@@ -23,7 +24,7 @@ const App = () => {
         <Navbar />
         <main>
           <Routes>
-            <Route path="/" element={<HomeSection />} />
+            <Route path="/" element={<MainPage />} />
             <Route path="/who-we-are" element={<WhoWeArePage />} />
             <Route path="/cars" element={<CarsPage />} />
             <Route path="/contact" element={<ContactPage />} />

@@ -1,0 +1,47 @@
+.landing-page {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.landing-sections {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.section {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#home {
+  margin-top: -64px; /* Offset navbar height */
+}
+
+#query {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+/* Remove any potential margins that might cause gaps */
+.section > div {
+  margin: 0;
+  width: 100%;
+}
+
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Reset any conflicting styles */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}

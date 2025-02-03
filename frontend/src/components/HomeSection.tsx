@@ -4,12 +4,6 @@ import '../styles/homeSection.css';
 
 const HomeSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [bookingData, setBookingData] = useState({
-    pickupAddress: '',
-    dropoffAddress: '',
-    pickupDate: '',
-    pickupTime: ''
-  });
 
   const slides = [
     {
@@ -42,13 +36,12 @@ const HomeSection = () => {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  const handleBookingSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Booking details:', bookingData);
-  };
-
   return (
     <div className="home-section">
+      <div className="best-selling-packages">
+        <h2>Best Selling Packages</h2>
+      </div>
+
       <div className="hero-slider">
         {slides.map((slide, index) => (
           <div
@@ -69,65 +62,6 @@ const HomeSection = () => {
             </div>
           </div>
         ))}
-
-        <div className="booking-bar">
-          <form onSubmit={handleBookingSubmit}>
-            <div className="input-group">
-              <div className="input-wrapper">
-                <FaMapMarkerAlt className="input-icon" />
-                <input
-                  type="text"
-                  placeholder="Pick Up Address"
-                  value={bookingData.pickupAddress}
-                  onChange={(e) => setBookingData({ ...bookingData, pickupAddress: e.target.value })}
-                />
-              </div>
-              <span className="input-label">From: address, airport, hotel...</span>
-            </div>
-
-            <div className="input-group">
-              <div className="input-wrapper">
-                <FaMapMarkerAlt className="input-icon" />
-                <input
-                  type="text"
-                  placeholder="Drop Off Address"
-                  value={bookingData.dropoffAddress}
-                  onChange={(e) => setBookingData({ ...bookingData, dropoffAddress: e.target.value })}
-                />
-              </div>
-              <span className="input-label">Distance, Hourly, Flat Rate</span>
-            </div>
-
-            <div className="input-group">
-              <div className="input-wrapper">
-                <FaCalendarAlt className="input-icon" />
-                <input
-                  type="date"
-                  value={bookingData.pickupDate}
-                  onChange={(e) => setBookingData({ ...bookingData, pickupDate: e.target.value })}
-                  placeholder="dd-mm-yyyy"
-                />
-              </div>
-            </div>
-
-            <div className="input-group">
-              <div className="input-wrapper">
-                <FaClock className="input-icon" />
-                <input
-                  type="time"
-                  value={bookingData.pickupTime}
-                  onChange={(e) => setBookingData({ ...bookingData, pickupTime: e.target.value })}
-                  placeholder="--:--"
-                />
-              </div>
-            </div>
-
-            <button type="submit" className="book-now-btn">
-              <FaCalendarAlt className="btn-icon" />
-              BOOK NOW
-            </button>
-          </form>
-        </div>
       </div>
 
       <div className="slide-indicators">
