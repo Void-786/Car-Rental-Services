@@ -5,7 +5,6 @@ import { FaCar, FaCog, FaUsers, FaGasPump, FaRupeeSign } from 'react-icons/fa';
 interface CarOption {
   id: number;
   name: string;
-  type: string;
   image: string;
   pricePerDay: number;
   specs: {
@@ -13,6 +12,7 @@ interface CarOption {
     mileage: string;
     transmission: string;
     fuelType: string;
+    type: string;
   };
 }
 
@@ -24,39 +24,39 @@ const CarCatalog: React.FC = () => {
     {
       id: 1,
       name: 'Ciaz',
-      type: 'Sedan',
       image: '/images/ciaz.jpg',
       pricePerDay: 2500,
       specs: {
         seats: '5 Seater',
         mileage: '20.65 kmpl',
         transmission: 'Manual',
-        fuelType: 'Petrol'
+        fuelType: 'Petrol',
+        type: 'Sedan'
       }
     },
     {
       id: 2,
       name: 'Dzire',
-      type: 'Compact Sedan',
       image: '/images/dzire.jpg',
       pricePerDay: 2000,
       specs: {
         seats: '5 Seater',
         mileage: '23.26 kmpl',
         transmission: 'Manual',
+        type: 'Compact Sedan',
         fuelType: 'Petrol'
       }
     },
     {
       id: 3,
       name: 'Ertiga',
-      type: 'MUV',
       image: '/images/ertiga.jpg',
       pricePerDay: 3000,
       specs: {
         seats: '7 Seater',
         mileage: '20.51 kmpl',
         transmission: 'Manual',
+        type: 'MUV',
         fuelType: 'Petrol'
       }
     }
@@ -92,7 +92,7 @@ const CarCatalog: React.FC = () => {
           >
             <div className="car-image">
               <img src={car.image} alt={car.name} />
-              <span className="car-type">{car.type}</span>
+              {/* <span className="car-type">{car.type}</span> */}
             </div>
             
             <div className="car-details">
@@ -121,6 +121,10 @@ const CarCatalog: React.FC = () => {
                 <div className="spec-item">
                   <FaCar className="spec-icon" />
                   <span>{car.specs.fuelType}</span>
+                </div>
+                <div className="spec-item">
+                  <FaCar className="spec-icon" />
+                  <span>{car.specs.type}</span>
                 </div>
               </div>
             </div>

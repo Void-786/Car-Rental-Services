@@ -8,4 +8,5 @@ import java.util.List;
 
 @Repository
 public interface CarRepository extends JpaRepository<Car, Integer> {
+    List<Car> findByType(String type);
 }

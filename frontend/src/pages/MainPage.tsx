@@ -11,6 +11,12 @@ const MainPage = () => {
       {/* 1. Home */}
       <HomeSection />
 
+      {/* 4. Packages */}
+      <PackagesPage />
+
+      {/* 3. Cars */}
+      <CarsPage />
+
       {/* 2. Query Form from Contact Page */}
       <div className="query-section">
         <div className="form-section">
@@ -18,12 +24,6 @@ const MainPage = () => {
           <QueryForm />
         </div>
       </div>
-
-      {/* 3. Cars */}
-      <CarsPage />
-
-      {/* 4. Packages */}
-      <PackagesPage />
 
       {/* 5. Contact */}
       <ContactPage />

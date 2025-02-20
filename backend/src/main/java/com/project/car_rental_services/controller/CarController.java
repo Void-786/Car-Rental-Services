@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-
 @RestController
 @RequestMapping("/cars")
 public class CarController {
@@ -52,6 +51,12 @@ public class CarController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
+    }
+
+    @GetMapping("/{type}")
+    public ResponseEntity<List<Car>> getCarByType(@PathVariable("type") String type) {
+        List<Car> cars = carService.getCarByType(type);
+        return ResponseEntity.ok(cars);
     }
 
     @PutMapping("/update/update-car")

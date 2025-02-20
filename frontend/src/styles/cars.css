@@ -152,9 +152,14 @@
 
 .cars-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   padding: 2rem 0;
+}
+
+.cars-grid:has(.car-card:only-child) {
+  display: flex;
+  justify-content: center;
 }
 
 .car-card {
@@ -165,6 +170,8 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease;
   cursor: pointer;
+  width: 450px;
+  max-width: 100%;
 }
 
 .car-card:hover {
@@ -199,9 +206,10 @@
 
 .car-image {
   width: 100%;
-  height: 220px;
+  height: auto;
   object-fit: cover;
   display: block;
+  max-height: 220px;
 }
 
 .car-price {

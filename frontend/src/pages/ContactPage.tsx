@@ -21,10 +21,12 @@ const ContactPage = () => {
   return (
     <div className="contact-page">
       {/* Query Form Section */}
-      <div className="form-section">
+      {/* <div className="form-section">
         <h2 className="main-title">Submit Your <span>Query</span></h2>
         <QueryForm />
-      </div>
+      </div> */}
+
+      <FeedbackSection />
 
       <div className="contact-header">
         <h1>Contact Us</h1>
@@ -118,7 +120,6 @@ const ContactPage = () => {
         </div>
       </div>
 
-      <FeedbackSection />
       <a href="https://wa.me/1234567890" className="whatsapp-button">
         <FaWhatsapp /> Chat on WhatsApp
       </a>

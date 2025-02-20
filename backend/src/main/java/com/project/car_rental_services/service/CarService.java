@@ -40,6 +40,10 @@ public class CarService {
         return carRepo.findAll();
     }
 
+    public List<Car> getCarByType(String type) {
+        return carRepo.findByType(type);
+    }
+
     public Car updateCar(Integer id, Car updatedCar) {
         Optional<Car> existingCarOptional = carRepo.findById(id);
 
