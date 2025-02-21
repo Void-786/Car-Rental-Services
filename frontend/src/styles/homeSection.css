@@ -260,6 +260,7 @@
 }
 
 .book-now-btn {
+  border: none;
   height: 52px;
   min-width: 160px;
   background: linear-gradient(135deg, #4361ee 0%, #3730a3 100%);

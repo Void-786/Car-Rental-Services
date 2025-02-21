@@ -23,76 +23,132 @@ const packages: Package[] = [
   {
     id: 1,
     title: "Royal Himalayan Expedition",
-    image: "https://images.unsplash.com/photo-1516616370751-86d6bd8b0651?w=800&auto=format&fit=crop&q=80",
-    location: "Delhi",
+    image: "/src/assets/images/packages/iStock-1280487202 RFE.jpg",
+    location: "Rishikesh",
     duration: "6 Days | 5 Nights",
-    startDate: "2024-01-20",
+    startDate: "2024-03-01",
     maxPeople: 12,
     price: 74999,
     rating: 4.9,
     reviews: 128,
-    highlight: "Sunrise view of Taj Mahal with professional photography session",
-    description: "Experience the majestic Himalayas in royal style. Journey through ancient monasteries, pristine lakes, and snow-capped peaks. Includes luxury camping under the stars and traditional Himalayan cuisine experiences.",
+    highlight: "Experience the majestic Himalayas with luxury camping under the stars",
+    description: "Journey through the breathtaking Himalayan landscapes, pristine lakes, and snow-capped peaks. Enjoy luxury camping, traditional cuisine, and unforgettable mountain views.",
     details: [
       { icon: "calendar", text: "6 Days | 5 Nights" },
-      { icon: "location", text: "Delhi" },
+      { icon: "location", text: "Rishikesh" },
       { icon: "group", text: "Max 12 people" },
-      { icon: "calendar", text: "Jan 20, 2024" }
+      { icon: "calendar", text: "Mar 1, 2024" }
     ]
   },
   {
     id: 2,
     title: "Spiritual Himalayan Odyssey",
-    image: "https://images.unsplash.com/photo-1506604900144-7360175909e2?w=800&auto=format&fit=crop&q=80",
-    location: "Shimla",
+    image: "/src/assets/images/packages/blissful-rishikesh-rafting-and-camping-with-haridwar-tour_TN9MC.jpeg",
+    location: "Haridwar",
     duration: "8 Days | 7 Nights",
-    startDate: "2024-01-25",
+    startDate: "2024-03-10",
     maxPeople: 8,
     price: 89999,
     rating: 4.8,
     reviews: 96,
-    highlight: "Private audience with Buddhist monks and meditation sessions",
-    description: "Embark on a spiritual journey through ancient monasteries and sacred sites. Experience traditional Buddhist ceremonies, meditation sessions, and learn about Tibetan medicine and philosophy.",
+    highlight: "Spiritual journey through sacred temples and meditation retreats",
+    description: "Immerse yourself in the spiritual essence of the Himalayas. Experience Ganga Aarti, meditation sessions, and visit ancient temples while staying in comfortable retreats.",
     details: [
       { icon: "calendar", text: "8 Days | 7 Nights" },
-      { icon: "location", text: "Shimla" },
+      { icon: "location", text: "Haridwar" },
       { icon: "group", text: "Max 8 people" },
-      { icon: "calendar", text: "Jan 25, 2024" }
+      { icon: "calendar", text: "Mar 10, 2024" }
     ]
   },
   {
     id: 3,
     title: "Heritage & Culture Explorer",
-    image: "https://images.unsplash.com/photo-1477587458883-47145ed94245?w=800&auto=format&fit=crop&q=80",
-    location: "Shimla",
+    image: "/src/assets/images/packages/AGRAA.jpg",
+    location: "Agra",
     duration: "6 Days | 5 Nights",
-    startDate: "2024-02-01",
+    startDate: "2024-03-15",
     maxPeople: 10,
     price: 69999,
     rating: 4.7,
     reviews: 84,
-    highlight: "Exclusive tour of centuries-old palaces with local historians",
-    description: "Discover the rich cultural heritage of India through its magnificent palaces, ancient temples, and historic markets. Includes traditional art workshops and cultural performances.",
+    highlight: "Explore the magnificent Taj Mahal and Agra Fort with expert guides",
+    description: "Discover the rich Mughal heritage through Agra's iconic monuments. Experience the grandeur of Taj Mahal, explore the mighty Agra Fort, and enjoy traditional Mughlai cuisine.",
     details: [
       { icon: "calendar", text: "6 Days | 5 Nights" },
-      { icon: "location", text: "Shimla" },
+      { icon: "location", text: "Agra" },
       { icon: "group", text: "Max 10 people" },
-      { icon: "calendar", text: "Feb 1, 2024" }
+      { icon: "calendar", text: "Mar 15, 2024" }
+    ]
+  },
+  {
+    id: 4,
+    title: "Varanasi Sacred Tour",
+    image: "/src/assets/images/packages/Ganga-Aarti-Varanasi.webp",
+    location: "Varanasi",
+    duration: "5 Days | 4 Nights",
+    startDate: "2024-03-20",
+    maxPeople: 8,
+    price: 59999,
+    rating: 4.8,
+    reviews: 92,
+    highlight: "Experience the divine Ganga Aarti and ancient ghats of Varanasi",
+    description: "Discover the spiritual heart of India in Varanasi. Witness the mesmerizing Ganga Aarti, explore ancient temples, and experience the rich cultural heritage of this sacred city.",
+    details: [
+      { icon: "calendar", text: "5 Days | 4 Nights" },
+      { icon: "location", text: "Varanasi" },
+      { icon: "group", text: "Max 8 people" },
+      { icon: "calendar", text: "Mar 20, 2024" }
+    ]
+  },
+  {
+    id: 5,
+    title: "Mathura Vrindavan Yatra",
+    image: "/src/assets/images/packages/iskcon-temple-vrindavan-1566483573.jpg",
+    location: "Mathura",
+    duration: "4 Days | 3 Nights",
+    startDate: "2024-03-25",
+    maxPeople: 12,
+    price: 45999,
+    rating: 4.6,
+    reviews: 76,
+    highlight: "Visit sacred Krishna temples and experience spiritual bliss",
+    description: "Embark on a divine journey through the holy cities of Mathura and Vrindavan. Visit ancient temples, participate in traditional ceremonies, and explore the birthplace of Lord Krishna.",
+    details: [
+      { icon: "calendar", text: "4 Days | 3 Nights" },
+      { icon: "location", text: "Mathura" },
+      { icon: "group", text: "Max 12 people" },
+      { icon: "calendar", text: "Mar 25, 2024" }
+    ]
+  },
+  {
+    id: 6,
+    title: "Ayodhya Darshan",
+    image: "/src/assets/images/packages/ram-temple-1.webp",
+    location: "Ayodhya",
+    duration: "3 Days | 2 Nights",
+    startDate: "2024-03-30",
+    maxPeople: 15,
+    price: 39999,
+    rating: 4.9,
+    reviews: 64,
+    highlight: "Visit the magnificent Ram Mandir and explore sacred sites",
+    description: "Experience the divine atmosphere of Ayodhya, the city of Lord Ram. Visit the grand Ram Mandir, explore ancient temples, and learn about the rich mythology and history of this sacred city.",
+    details: [
+      { icon: "calendar", text: "3 Days | 2 Nights" },
+      { icon: "location", text: "Ayodhya" },
+      { icon: "group", text: "Max 15 people" },
+      { icon: "calendar", text: "Mar 30, 2024" }
     ]
   }
 ];
 
 const PackagesPage: React.FC = () => {
-  const [activePackage, setActivePackage] = useState<number | null>(null);
-
   return (
     <div className="packages-container">
-      <div className="section-divider"></div>
-
       <div className="best-packages">
         <h2>Best-Selling Packages</h2>
         <div className="best-packages-grid">
-          {packages.slice(0, 3).map((pkg) => (
+          {packages.map((pkg) => (
             <div key={pkg.id} className="best-package-card">
               <img src={pkg.image} alt={pkg.title} />
               <div className="best-package-overlay">
@@ -105,110 +161,6 @@ const PackagesPage: React.FC = () => {
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="packages-grid">
-        {packages.map((pkg) => (
-          <div 
-            key={pkg.id}
-            className={`package-card ${activePackage === pkg.id ? 'expanded' : ''}`}
-            onClick={() => setActivePackage(activePackage === pkg.id ? null : pkg.id)}
-          >
-            <div className="package-image-wrapper">
-              <img src={pkg.image} alt={pkg.title} className="package-image" />
-              <div className="image-overlay"></div>
-              <div className="package-title-overlay">
-                <h2>{pkg.title}</h2>
-                <p>{pkg.duration}</p>
-              </div>
-              <Link to={`/itinerary/${pkg.id}`} className="explore-button">Explore Now</Link>
-            </div>
-            
-            <div className="package-content">
-              <div className="package-details">
-                <div className="detail-item">
-                  <FaClock />
-                  <span>{pkg.duration}</span>
-                </div>
-                <div className="detail-item">
-                  <FaMapMarkerAlt />
-                  <span>{pkg.location}</span>
-                </div>
-                <div className="detail-item">
-                  <FaCalendarCheck />
-                  <span>{pkg.startDate}</span>
-                </div>
-                <div className="detail-item">
-                  <FaUsers />
-                  <span>Max {pkg.maxPeople}</span>
-                </div>
-              </div>
-              
-              <div className="package-description">
-                {pkg.description}
-              </div>
-              
-              <div className="package-highlights">
-                <span className="highlight-tag">{pkg.highlight}</span>
-              </div>
-
-              <div className="package-meta">
-                <div className="meta-left">
-                  <div className="price">
-                    <span className="price-symbol">₹</span>
-                    {pkg.price.toLocaleString()}
-                  </div>
-                  <div className="rating">
-                    <FaStar />
-                    <span>{pkg.rating}</span>
-                    <span className="rating-count">({pkg.reviews} reviews)</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="package-details-expanded">
-              <div className="details-grid">
-                <div className="details-section">
-                  <h4><FaRoute /> Package Highlights</h4>
-                  <div className="highlights-list">
-                    <div className="highlight-item">
-                      <span>1</span>
-                      {pkg.highlight}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="details-section">
-                  <h4><FaImages /> Gallery</h4>
-                  <div className="gallery-grid">
-                    <img src={pkg.image} alt="Gallery 1" />
-                  </div>
-                </div>
-
-                <div className="details-section">
-                  <h4><FaInfoCircle /> What's Included</h4>
-                  <div className="included-list">
-                    {pkg.details.map((detail, index) => (
-                      <div key={index} className="included-item">
-                        <FaCheck /> {detail.text}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="details-section">
-                  <h4><FaMapMarkerAlt /> Destinations</h4>
-                  <div className="locations-list">
-                    <div className="location-item">
-                      {pkg.location}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   );

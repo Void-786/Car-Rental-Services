@@ -36,15 +36,15 @@ const QueryForm = () => {
       <div className="query-form-wrapper">
         <div className="form-background">
           <div className="background-images">
-            <img src="https://images.unsplash.com/photo-1516939884455-1445c8652f83?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Travel 1" className="bg-image-1" />
-            <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Travel 2" className="bg-image-2" />
-            <img src="https://images.unsplash.com/photo-1503314885798-a70f8f9027d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Travel 3" className="bg-image-3" />
+            <img src="/src/assets/images/carousel/Varanasi-Ghats.jpg" alt="Varanasi Ghat" className="bg-image-1" />
+            <img src="/src/assets/images/carousel/Haridwar-Rishikesh-Tour-package.jpg" alt="Rishikesh Adventure" className="bg-image-2" />
+            <img src="/src/assets/images/carousel/taj-photo-yamuna-river-scaled.webp" alt="Taj Mahal" className="bg-image-3" />
           </div>
         </div>
         <div className="form-content">
           <div className="form-header">
             <div className="header-content">
-              <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80" alt="Travel" className="header-image" />
+              <img src="/src/assets/images/carousel/PTI01-22-2024-000010B-0_1705901965915_1705919545381.webp" alt="Ram Temple" className="header-image" />
               <h2 className="form-title">Submit Your <span>Query</span></h2>
             </div>
           </div>

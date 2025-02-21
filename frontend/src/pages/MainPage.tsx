@@ -9,16 +9,22 @@ const MainPage = () => {
   return (
     <>
       {/* 1. Home */}
-      <HomeSection />
+      <div id="home">
+        <HomeSection />
+      </div>
 
       {/* 4. Packages */}
-      <PackagesPage />
+      <div id="packages">
+        <PackagesPage />
+      </div>
 
       {/* 3. Cars */}
-      <CarsPage />
+      <div id="cars">
+        <CarsPage />
+      </div>
 
       {/* 2. Query Form from Contact Page */}
-      <div className="query-section">
+      <div id="who-we-are" className="query-section">
         <div className="form-section">
           <h2 className="main-title">CUSTOMIZED FOR YOU, <span>SERVED BY US</span></h2>
           <QueryForm />
@@ -26,7 +32,9 @@ const MainPage = () => {
       </div>
 
       {/* 5. Contact */}
-      <ContactPage />
+      <div id="contact">
+        <ContactPage />
+      </div>
     </>
   );
 };

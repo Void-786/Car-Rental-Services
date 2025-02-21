@@ -7,21 +7,21 @@ const HomeSection = () => {
 
   const slides = [
     {
-      image: 'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=1920&q=100',
+      image: '/src/assets/images/carousel/taj-photo-yamuna-river-scaled.webp',
       title: 'daddy',
       subtitle: 'is here',
       car: 'Mercedes-Maybach S-Class',
       description: 'Welcome to our limousine rental website! We offer luxury transportation services for any occasion, from weddings and proms to corporate events and airport transfers.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1920&q=100',
+      image: '/src/assets/images/carousel/ram-temple-1.webp',
       title: 'Experience',
       subtitle: 'Luxury Travel',
       car: 'Rolls-Royce Phantom',
       description: 'Experience unmatched comfort and sophistication with our premium fleet of luxury vehicles.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1920&q=100',
+      image: '/src/assets/images/carousel/Varanasi-Ghats.jpg',
       title: 'Premium',
       subtitle: 'Fleet Service',
       car: 'Bentley Flying Spur',
@@ -38,10 +38,6 @@ const HomeSection = () => {
 
   return (
     <div className="home-section">
-      <div className="best-selling-packages">
-        <h2>Best Selling Packages</h2>
-      </div>
-
       <div className="hero-slider">
         {slides.map((slide, index) => (
           <div
