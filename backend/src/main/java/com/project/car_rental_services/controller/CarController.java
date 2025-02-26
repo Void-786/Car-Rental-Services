@@ -22,7 +22,7 @@ public class CarController {
     }
 
     @PostMapping("/add/new-car")
-    public ResponseEntity<?> addCar(@RequestParam("name") String name, @RequestParam("image") MultipartFile image, @RequestParam("type") String type, @RequestParam("seats") Integer seats) throws IOException {
+    public ResponseEntity<?> addCar(@RequestParam("name") String name, @RequestParam("image") MultipartFile image, @RequestParam("type") String type, @RequestParam("seats") Integer seats) {
         try {
             carService.addCar(name, image, type, seats);
             return ResponseEntity.ok("Car Added Successfully");
@@ -99,34 +99,4 @@ public class CarController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating car");
         }
     }
-
-
-    /*
-    public ResponseEntity<?> addNewCar(@RequestParam("name") String name, @RequestParam("type") String type, @RequestParam("transmission_type") String transmissionType, @RequestParam("price") Double price,@RequestParam("image") MultipartFile image,@RequestParam("highlights") List<String> highlights,@RequestPart("specs") String specsJson) {
-        byte[] imageBytes;
-        try {
-            imageBytes = image.getBytes();
-        } catch (IOException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-        }
-
-        Car.Specs specs = convertJsonToSpecs(specsJson);
-        if (specs == null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(null);
-        }
-
-        carService.addNewCar(name, type, transmissionType, price, imageBytes, highlights, specs);
-        return ResponseEntity.ok("Car Added Successfully!");
-    }
-
-    private Car.Specs convertJsonToSpecs(String specsJson) {
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(specsJson, Car.Specs.class);
-        } catch (Exception e) {
-            return null;
-        }
-    }
-     */
 }

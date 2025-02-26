@@ -120,7 +120,7 @@ const ContactPage = () => {
         </div>
       </div>
 
-      <a href="https://wa.me/1234567890" className="whatsapp-button">
+      <a href="https://wa.me/+918920046623" className="whatsapp-button">
         <FaWhatsapp /> Chat on WhatsApp
       </a>
     </div>

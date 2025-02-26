@@ -37,14 +37,14 @@ const Navbar = () => {
           <div onClick={() => scrollToSection('packages')} className="nav-link">Our Packages</div>
           <div onClick={() => scrollToSection('contact')} className="nav-link">Contact Us</div>
         </div>
-        <div className="nav-icons">
+        {/* <div className="nav-icons">
           <button className="theme-toggle" aria-label="Toggle theme">
             <FaMoon />
           </button>
           <button className="user-profile" aria-label="User profile">
             <FaUser />
           </button>
-        </div>
+        </div> */}
       </div>
     </nav>
   );

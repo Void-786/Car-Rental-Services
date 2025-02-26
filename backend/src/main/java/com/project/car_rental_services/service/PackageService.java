@@ -3,6 +3,7 @@ package com.project.car_rental_services.service;
 import com.project.car_rental_services.modal.Packages;
 import com.project.car_rental_services.repository.PackageRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 import java.util.List;

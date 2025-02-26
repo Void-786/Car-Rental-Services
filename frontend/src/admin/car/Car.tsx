@@ -1,6 +1,6 @@
 import React from "react";
-import '../styles/admin-package.css';
 import { useNavigate } from "react-router-dom";
+import "../../styles/car-management.css";
 
 const Car: React.FC = () => {
   const navigate = useNavigate();

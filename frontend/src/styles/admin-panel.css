@@ -1,42 +1,37 @@
+/* Admin Panel Styles */
 .container {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #f5f5f5;
-    padding: 20px;
-}
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+  }
   
-.header {
-    font-size: 2.5rem;
-    font-weight: bold;
+  .header {
+    font-size: 2rem;
     margin-bottom: 20px;
     color: #333;
-}
+  }
   
-.button-container {
+  .button-container {
     display: flex;
     gap: 20px;
-}
+  }
   
-.button {
+  .button {
     padding: 10px 20px;
     font-size: 1rem;
-    font-weight: bold;
     color: #fff;
-    background-color: #007bff !important;
+    background-color: #007bff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
+  }
   
-.button:hover {
-    background-color: #0056b3 !important;
-}
-  
-.button:active {
-    background-color: #004085 !important;
-}
+  .button:hover {
+    background-color: #0056b3;
+  }
   

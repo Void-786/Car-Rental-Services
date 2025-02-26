@@ -47,30 +47,15 @@ public class CarService {
     public Car updateCar(Integer id, Car updatedCar) {
         Optional<Car> existingCarOptional = carRepo.findById(id);
 
-        if(existingCarOptional.isPresent()) {
+        if (existingCarOptional.isPresent()) {
             Car existingCar = existingCarOptional.get();
             existingCar.setName(updatedCar.getName());
             existingCar.setImage(updatedCar.getImage());
             existingCar.setType(updatedCar.getType());
             existingCar.setSeats(updatedCar.getSeats());
             return carRepo.save(existingCar);
-        }
-        else {
+        } else {
             throw new RuntimeException("Car with Id " + id + " not found");
         }
     }
-
-/*
-    public void addNewCar(String name, String type, String transmissionType, Double price, byte[] image, List<String> highlights, Car.Specs specs) {
-        Car car = new Car();
-        car.setName(name);
-        car.setType(type);
-        car.setTransmissionType(transmissionType);
-        car.setPrice(price);
-        car.setImage(image);
-        car.setHighlights(highlights);
-        car.setSpecs(specs);
-        carRepo.save(car);
-    }
-*/
 }

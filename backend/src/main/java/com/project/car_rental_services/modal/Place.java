@@ -2,11 +2,9 @@ package com.project.car_rental_services.modal;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
-@Table(name = "cars")
-public class Car {
+@Table(name = "places")
+public class Place {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,19 +15,13 @@ public class Car {
     @Lob
     private byte[] image;
 
-    private String type;
+    public Place() {
+    }
 
-    private Integer seats;
-
-    public Car(Integer id, String name, byte[] image, String type, Integer seats) {
+    public Place(Integer id, String name, byte[] image) {
         this.id = id;
         this.name = name;
         this.image = image;
-        this.type = type;
-        this.seats = seats;
-    }
-
-    public Car() {
     }
 
     public Integer getId() {
@@ -54,21 +46,5 @@ public class Car {
 
     public void setImage(byte[] image) {
         this.image = image;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Integer getSeats() {
-        return seats;
-    }
-
-    public void setSeats(Integer seats) {
-        this.seats = seats;
     }
 }

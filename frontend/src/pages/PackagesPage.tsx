@@ -153,7 +153,6 @@ const PackagesPage: React.FC = () => {
               <img src={pkg.image} alt={pkg.title} />
               <div className="best-package-overlay">
                 <h3>{pkg.title}</h3>
-                <p>{pkg.duration}</p>
                 <Link to={`/itinerary/${pkg.id}`} className="view-package">
                   Explore Now
                 </Link>

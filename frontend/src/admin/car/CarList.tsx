@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { apiClient } from "../api/apiClient";
-import "../styles/admin-car-list.css"; // Ensure proper styling
+import apiClient from "../../api/apiClient";
+import "../../styles/admin-car-list.css";
 
 interface Car {
   id: string;
   name: string;
   type: string;
   seats: number;
-  image?: File | string; // Update to handle File or string
+  image?: File | string;
 }
 
 const CarsList: React.FC = () => {
@@ -16,9 +16,9 @@ const CarsList: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [showConfirmDelete, setShowConfirmDelete] = useState<boolean>(false);
-  const [carToDelete, setCarToDelete] = useState<string | null>(null); // Store the car ID to delete
+  const [carToDelete, setCarToDelete] = useState<string | null>(null);
   const [showEditForm, setShowEditForm] = useState<boolean>(false);
-  const [editCar, setEditCar] = useState<Car | null>(null); // Store the car being edited
+  const [editCar, setEditCar] = useState<Car | null>(null);
 
   const fetchCars = async () => {
     try {

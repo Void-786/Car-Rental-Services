@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import HomeSection from './components/HomeSection';
 import WhoWeArePage from './pages/WhoWeArePage';
 import CarsPage from './pages/CarsPage';
 import Footer from './components/Footer';
@@ -8,14 +7,15 @@ import ContactPage from './pages/ContactPage';
 import PackagesPage from './pages/PackagesPage';
 import PackageItinerary from './pages/PackageItinerary';
 import AdminPanel from './admin/AdminPanel';
-import Car from './admin/Car';
-import Package from './admin/Package';
-import AddCar from './admin/AddCar';
+import Car from './admin/car/Car';
+import Place from './admin/package/Place';
+import AddCar from './admin/car/AddCar';
 import './App.css'
-import UpdateCar from './admin/UpdateCar';
-import DeleteCar from './admin/DeleteCar';
-import CarList from './admin/CarList';
+import CarList from './admin/car/CarList';
 import MainPage from './pages/MainPage';
+import AddPlace from './admin/package/AddPlace';
+import PlaceList from './admin/package/PlaceList';
+import Package from './admin/package/Package';
 
 const App = () => {
   return (
@@ -30,14 +30,21 @@ const App = () => {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/packages" element={<PackagesPage />} />
             <Route path="/itinerary/:id" element={<PackageItinerary />} />
-            <Route path="/admin" element={<AdminPanel />} >
-              <Route path="cars" element={<Car />} />
-              <Route path="packages" element={<Package />} />
-            </Route >
+
+            <Route path="/admin" element={<AdminPanel />} />
+            <Route path="/admin/cars" element={<Car />} />
+            <Route path="/admin/places" element={<Place />} />
+
             <Route path="/admin/cars/add-car" element={<AddCar />} />
             <Route path="/admin/cars/update-car" element={<CarList />} />
-            <Route path="/admin/cars/delete-car" element={<DeleteCar />} />
-            <Route path="/admin/cars/update-car/:id" element={<UpdateCar car={null} onClose={() => {}} />} />
+
+            <Route path="/admin/places/add-place" element={<AddPlace />} />
+            <Route path="/admin/places/update-place" element={<PlaceList />} />
+
+            <Route path="/admin/places/:id" element={<Package />} />
+            {/* <Route path="/admin/places/:id/add-package" element={<AddPackage />} />
+            <Route path="/admin/places/:id/update-package" element={<UpdatePackage />} /> */}
+
           </Routes>
         </main>
         <Footer />

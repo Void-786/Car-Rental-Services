@@ -23,6 +23,8 @@ interface TourPackage {
 const PackageItinerary: React.FC = () => {
   const { id } = useParams();
   const [selectedPackage, setSelectedPackage] = useState<string>('option1');
+  const [includeAccommodations, setIncludeAccommodations] = useState<boolean>(true);
+  const [includeFood, setIncludeFood] = useState<boolean>(true);
 
   const tourPackages: { [key: string]: TourPackage } = {
     option1: {
@@ -137,6 +139,10 @@ const PackageItinerary: React.FC = () => {
 
   const selectedTour = tourPackages[selectedPackage];
 
+  const handleBookNow = () => {
+    alert(`Booking ${selectedTour.title} with accommodations: ${includeAccommodations}, food & beverages: ${includeFood}`);
+  };
+
   const renderIcon = (name: string) => {
     switch (name) {
       case 'duration':
@@ -160,20 +166,20 @@ const PackageItinerary: React.FC = () => {
     }
   };
 
-  const packageFeatures = {
-    option1: [
-      { icon: 'duration', text: 'Extended 16-day journey' },
-      { icon: 'stay', text: 'Luxury accommodations' },
-      { icon: 'culture', text: 'Rich cultural experiences' },
-      { icon: 'food', text: 'Traditional cuisines' }
-    ],
-    option2: [
-      { icon: 'duration', text: 'Compact 7-day tour' },
-      { icon: 'taj', text: 'Taj Mahal visit' },
-      { icon: 'fort', text: 'Historic forts' },
-      { icon: 'transport', text: 'Comfortable transfers' }
-    ]
-  };
+  // const packageFeatures = {
+  //   option1: [
+  //     { icon: 'duration', text: 'Extended 16-day journey' },
+  //     { icon: 'stay', text: 'Luxury accommodations' },
+  //     { icon: 'culture', text: 'Rich cultural experiences' },
+  //     { icon: 'food', text: 'Traditional cuisines' }
+  //   ],
+  //   option2: [
+  //     { icon: 'duration', text: 'Compact 7-day tour' },
+  //     { icon: 'taj', text: 'Taj Mahal visit' },
+  //     { icon: 'fort', text: 'Historic forts' },
+  //     { icon: 'transport', text: 'Comfortable transfers' }
+  //   ]
+  // };
 
   return (
     <div className="itinerary-container">
@@ -194,22 +200,22 @@ const PackageItinerary: React.FC = () => {
                 </div>
               </div>
 
-              <div className="package-stays">
+              {/* <div className="package-stays">
                 {pkg.stays.map((stay, index) => (
                   <span key={index} className="stay-badge">
                     {renderIcon('stay')} {stay}
                   </span>
                 ))}
-              </div>
+              </div> */}
 
-              <div className="feature-grid">
+              {/* <div className="feature-grid">
                 {packageFeatures[pkg.id as keyof typeof packageFeatures].map((feature, index) => (
                   <div key={index} className="feature-item">
                     <span className="feature-icon">{renderIcon(feature.icon)}</span>
                     <span className="feature-text">{feature.text}</span>
                   </div>
                 ))}
-              </div>
+              </div> */}
 
               <button className="select-package-btn">
                 {selectedPackage === pkg.id ? (
@@ -241,19 +247,19 @@ const PackageItinerary: React.FC = () => {
               <React.Fragment key={city}>
                 <span className="city">{city}</span>
                 {index < selectedTour.route.length - 1 && (
-                  <span className="route-dots">•••••</span>
+                  <span className="route-dots">•••••➣</span>
                 )}
               </React.Fragment>
             ))}
           </div>
         </div>
-        <div className="map-container">
+        {/* <div className="map-container">
           <img 
             src="/images/india-map.png" 
             alt="India Tour Map" 
             className="india-map"
           />
-        </div>
+        </div> */}
       </div>
 
       {/* Itinerary Section */}
@@ -270,11 +276,30 @@ const PackageItinerary: React.FC = () => {
               <div className="timeline-content">
                 <h3>{day.title}</h3>
                 <p>{day.description}</p>
-                {day.breakfast && <div className="breakfast-tag">Breakfast Included</div>}
+                {/* {day.breakfast && <div className="breakfast-tag">Breakfast Included</div>} */}
               </div>
             </div>
           ))}
         </div>
+      </div>
+      <div className="booking-options">
+        <label>
+          <input
+            type="checkbox"
+            checked={includeAccommodations}
+            onChange={() => setIncludeAccommodations(!includeAccommodations)}
+          />
+          Include Accommodations (Extra Charges Apply)*
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={includeFood}
+            onChange={() => setIncludeFood(!includeFood)}
+          />
+          Include Food & Beverages (Extra Charges Apply)*
+        </label>
+        <button className="book-now-btn" onClick={handleBookNow}>Book Now</button>
       </div>
     </div>
   );

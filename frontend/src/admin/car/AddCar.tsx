@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../styles/add-car.css';
-import { apiClient } from '../api/apiClient';
+import apiClient from '../../api/apiClient';
+import "../../styles/admin-add-car.css";
 
 const AddCar: React.FC = () => {
+  
   const [name, setName] = useState("");
   const [image, setImage] = useState<File | null>(null);
   const [type, setType] = useState("");
