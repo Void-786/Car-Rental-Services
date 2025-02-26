@@ -26,7 +26,7 @@ const packages: Package[] = [
   {
     id: 'shimla-manali-agra',
     title: 'Royal Himalayan Expedition',
-    duration: '6 Days | 5 Nights',
+    duration: ' 6 Days | 5 Nights',
     image: 'https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?w=800&q=80',
     gallery: [
       'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&q=80',

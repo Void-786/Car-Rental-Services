@@ -8,24 +8,24 @@ const HomeSection = () => {
   const slides = [
     {
       image: '/src/assets/images/carousel/taj-photo-yamuna-river-scaled.webp',
-      title: 'daddy',
-      subtitle: 'is here',
-      car: 'Mercedes-Maybach S-Class',
-      description: 'Welcome to our limousine rental website! We offer luxury transportation services for any occasion, from weddings and proms to corporate events and airport transfers.'
+      title: 'Timeless',
+      subtitle: 'Wonder',
+      // car: 'Mercedes-Maybach S-Class',
+      description: 'Experience the epitome of love and architecture in Agra.'
     },
     {
       image: '/src/assets/images/carousel/ram-temple-1.webp',
-      title: 'Experience',
-      subtitle: 'Luxury Travel',
-      car: 'Rolls-Royce Phantom',
-      description: 'Experience unmatched comfort and sophistication with our premium fleet of luxury vehicles.'
+      title: 'Royal ',
+      subtitle: 'Rajasthan',
+      // car: 'Rolls-Royce Phantom',
+      description: 'Embark on a majestic journey through the vibrant cities and timeless deserts of Rajasthan.'
     },
     {
       image: '/src/assets/images/carousel/Varanasi-Ghats.jpg',
-      title: 'Premium',
-      subtitle: 'Fleet Service',
-      car: 'Bentley Flying Spur',
-      description: 'Our professional chauffeurs ensure a seamless and elegant journey for all your transportation needs.'
+      title: "Nature's ",
+      subtitle: 'Retreat',
+      // car: 'Bentley Flying Spur',
+      description: 'Escape to the serene heights and embrace the tranquility of the mountains.'
     }
   ];
 
@@ -53,14 +53,14 @@ const HomeSection = () => {
                   <span className="subtitle">{slide.subtitle}</span>
                 </h1>
                 <p>{slide.description}</p>
-                <button className="open-fleet-btn">Open Fleet</button>
+                {/* <button className="open-fleet-btn">Open Fleet</button> */}
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="slide-indicators">
+      {/* <div className="slide-indicators">
         {slides.map((_, index) => (
           <div
             key={index}
@@ -68,7 +68,7 @@ const HomeSection = () => {
             onClick={() => setCurrentSlide(index)}
           ></div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

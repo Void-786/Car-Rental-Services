@@ -25,7 +25,7 @@ const packages: Package[] = [
     title: "Royal Himalayan Expedition",
     image: "/src/assets/images/packages/iStock-1280487202 RFE.jpg",
     location: "Rishikesh",
-    duration: "6 Days | 5 Nights",
+    duration: " Days | 5 Nights",
     startDate: "2024-03-01",
     maxPeople: 12,
     price: 74999,
