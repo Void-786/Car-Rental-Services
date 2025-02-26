@@ -41,9 +41,9 @@ const Navbar = () => {
           <button className="theme-toggle" aria-label="Toggle theme">
             <FaMoon />
           </button>
-          <button className="user-profile" aria-label="User profile">
+          {/* <button className="user-profile" aria-label="User profile">
             <FaUser />
-          </button>
+          </button> */}
         </div>
       </div>
     </nav>
