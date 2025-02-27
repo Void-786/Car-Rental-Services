@@ -1,38 +1,53 @@
 package com.project.car_rental_services.service;
 
-import com.project.car_rental_services.modal.Packages;
+import com.project.car_rental_services.modal.TourPackage;
+import com.project.car_rental_services.modal.Place;
 import com.project.car_rental_services.repository.PackageRepository;
+import com.project.car_rental_services.repository.PlaceRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Date;
 import java.util.List;
 
 @Service
 public class PackageService {
 
     private final PackageRepository packageRepo;
+    private final PlaceRepository placeRepo;
 
-    public PackageService(PackageRepository packageRepo) {
+    public PackageService(PackageRepository packageRepo, PlaceRepository placeRepo) {
         this.packageRepo = packageRepo;
+        this.placeRepo = placeRepo;
     }
 
-    public void addNewPackage(String title, String duration, byte[] image, List<byte[]> images, String description, List<String> highlights, Double price, List<String> locations, Double rating, Integer reviews, List<String> included, String category, Date date, Integer maxGroupSize) {
-        Packages packages = new Packages();
-        packages.setTitle(title);
-        packages.setDuration(duration);
-        packages.setImage(image);
-        packages.setImages(images);
-        packages.setDescription(description);
-        packages.setHighlights(highlights);
-        packages.setPrice(price);
-        packages.setLocations(locations);
-        packages.setRating(rating);
-        packages.setReviews(reviews);
-        packages.setIncluded(included);
-        packages.setCategory(category);
-        packages.setDate(date);
-        packages.setMaxGroupSize(maxGroupSize);
-        packageRepo.save(packages);
+    public void addPackage(int placeId, TourPackage tourPackage) {
+        Place place = placeRepo.findById(placeId).orElseThrow(() -> new RuntimeException("Place not found"));
+        tourPackage.setPlace(place);
+        packageRepo.save(tourPackage);
+    }
+
+    public void updatePackage(int packageId, TourPackage updatedPackage){
+        TourPackage existingPackage = packageRepo.findById(packageId).orElseThrow(() -> new RuntimeException("Package not found"));
+
+        existingPackage.setTitle(updatedPackage.getTitle());
+        existingPackage.setDuration(updatedPackage.getDuration());
+        existingPackage.setPrice(updatedPackage.getPrice());
+        existingPackage.setTour_highlight(updatedPackage.getTour_highlight());
+        existingPackage.setLocations(updatedPackage.getLocations());
+        existingPackage.setItinerary_heading(updatedPackage.getItinerary_heading());
+        existingPackage.setItinerary(updatedPackage.getItinerary());
+
+        packageRepo.save(existingPackage);
+    }
+
+    public void removePackage(int packageId){
+        if(!packageRepo.existsById(packageId)) {
+            throw new RuntimeException("Package not found");
+        }
+
+        packageRepo.deleteById(packageId);
+    }
+
+    public List<TourPackage> getAllPackages(){
+        return packageRepo.findAll();
     }
 }

@@ -16,6 +16,8 @@ import MainPage from './pages/MainPage';
 import AddPlace from './admin/package/AddPlace';
 import PlaceList from './admin/package/PlaceList';
 import Package from './admin/package/Package';
+import AddPackage from './admin/package/AddPackage';
+import PackageList from './admin/package/PackageList';
 
 const App = () => {
   return (
@@ -42,8 +44,8 @@ const App = () => {
             <Route path="/admin/places/update-place" element={<PlaceList />} />
 
             <Route path="/admin/places/:id" element={<Package />} />
-            {/* <Route path="/admin/places/:id/add-package" element={<AddPackage />} />
-            <Route path="/admin/places/:id/update-package" element={<UpdatePackage />} /> */}
+            <Route path="/admin/places/packages/add-package" element={<AddPackage />} />
+            <Route path="/admin/places/packages/update-package" element={<PackageList />} />
 
           </Routes>
         </main>

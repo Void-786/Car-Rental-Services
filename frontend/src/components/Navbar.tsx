@@ -43,13 +43,8 @@ const Navbar = () => {
           </button>
           {/* <button className="user-profile" aria-label="User profile">
             <FaUser />
-<<<<<<< HEAD
           </button>
         </div> */}
-=======
-          </button> */}
-        </div>
->>>>>>> 74b1d7f7ad9735ee4356b389a83414a3384d6660
       </div>
     </nav>
   );

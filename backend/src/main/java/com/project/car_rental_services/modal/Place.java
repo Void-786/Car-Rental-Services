@@ -1,6 +1,9 @@
 package com.project.car_rental_services.modal;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "places")
@@ -15,13 +18,18 @@ public class Place {
     @Lob
     private byte[] image;
 
+    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<TourPackage> packages;
+
     public Place() {
     }
 
-    public Place(Integer id, String name, byte[] image) {
+    public Place(Integer id, String name, byte[] image, List<TourPackage> packages) {
         this.id = id;
         this.name = name;
         this.image = image;
+        this.packages = packages;
     }
 
     public Integer getId() {
@@ -46,5 +54,13 @@ public class Place {
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public List<TourPackage> getPackages() {
+        return packages;
+    }
+
+    public void setPackages(List<TourPackage> packages) {
+        this.packages = packages;
     }
 }
