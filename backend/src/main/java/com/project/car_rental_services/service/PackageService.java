@@ -6,6 +6,7 @@ import com.project.car_rental_services.repository.PackageRepository;
 import com.project.car_rental_services.repository.PlaceRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -50,4 +51,13 @@ public class PackageService {
     public List<TourPackage> getAllPackages(){
         return packageRepo.findAll();
     }
+
+    public TourPackage getPackageById(int id) {
+        return packageRepo.findById(id).orElseThrow(() -> new RuntimeException("Package not found"));
+    }
+
+    public List<TourPackage> filterPackageByPlace(int placeId) {
+        return packageRepo.findByPlaceId(placeId);
+    }
+
 }

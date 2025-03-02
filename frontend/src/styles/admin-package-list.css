@@ -1,7 +1,12 @@
 /* Admin Package List Styles */
 .package-list-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
     padding: 20px;
     font-family: Arial, sans-serif;
+    margin-top: 65px;
+    text-align: center;
   }
   
   .package-list-container h1 {
@@ -29,7 +34,7 @@
     font-size: 16px;
   }
   
-  .button-edit,
+  .package-button-edit,
   .button-delete {
     padding: 5px 10px;
     border: none;
@@ -38,22 +43,22 @@
     font-size: 14px;
   }
   
-  .button-edit {
+  .package-button-edit {
     background-color: #4CAF50;
     color: white;
     margin-right: 10px;
   }
   
-  .button-edit:hover {
+  .package-button-edit:hover {
     background-color: #45a049;
   }
   
-  .button-delete {
+  .package-button-delete {
     background-color: #f44336;
     color: white;
   }
   
-  .button-delete:hover {
+  .package-button-delete:hover {
     background-color: #e53935;
   }
   
@@ -73,8 +78,9 @@
   }
   
   .edit-package-form h2 {
-    font-size: 20px;
+    text-align: center;
     margin-bottom: 20px;
+    margin-top: 20px;
   }
   
   .form-field {
@@ -132,11 +138,13 @@
     background-color: #1e88e5;
   }
   
-  .button-container {
-    margin-top: 20px;
+  .package-button-container {
+    display: flex;
+    justify-content: center; /* Horizontally center the button */
+    margin-top: 20px; /* Add some space above the button */
   }
   
-  .button-container button {
+  .package-button-container button {
     padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
@@ -146,7 +154,7 @@
     font-size: 16px;
   }
   
-  .button-container button:hover {
+  .package-button-container button:hover {
     background-color: #45a049;
   }
   
@@ -156,48 +164,44 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20px;
     background-color: white;
-    border: 1px solid #ddd;
     border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
     text-align: center;
-  }
-  
-  .delete-confirmation p {
-    font-size: 16px;
-    margin-bottom: 20px;
+    z-index: 10;
   }
   
   .confirm-buttons {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
   }
   
   .confirm-button,
   .cancel-button {
-    padding: 5px 10px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 14px;
+    transition: background-color 0.3s ease;
   }
   
   .confirm-button {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .cancel-button {
     background-color: #f44336;
     color: white;
   }
   
   .confirm-button:hover {
-    background-color: #e53935;
-  }
-  
-  .cancel-button {
-    background-color: #ddd;
-    color: #333;
+    background-color: #45a049;
   }
   
   .cancel-button:hover {
-    background-color: #ccc;
+    background-color: #e53935;
   }

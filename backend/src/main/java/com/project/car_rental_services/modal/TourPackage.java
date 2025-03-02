@@ -1,5 +1,7 @@
 package com.project.car_rental_services.modal;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -26,12 +28,13 @@ public class TourPackage {
 
     private String itinerary_heading;
 
-    @ElementCollection
-    @CollectionTable(name = "package_itinerary", joinColumns = @JoinColumn(name = "package_id"))
+    @OneToMany(mappedBy = "tourPackage", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<Itinerary> itinerary;
 
     @ManyToOne
     @JoinColumn(name = "place_id", nullable = false)
+    @JsonBackReference
     private Place place;
 
     public TourPackage() {

@@ -1,21 +1,40 @@
 package com.project.car_rental_services.modal;
 
-import jakarta.persistence.Embeddable;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
-@Embeddable
+@Entity
 public class Itinerary {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     private Integer day;
     private String heading;
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "package_id", nullable = false)
+    @JsonBackReference
+    private TourPackage tourPackage;
+
     public Itinerary() {
     }
 
-    public Itinerary(Integer day, String heading, String description) {
+    public Itinerary(Integer id, Integer day, String heading, String description) {
+        this.id = id;
         this.day = day;
         this.heading = heading;
         this.description = description;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getDay() {

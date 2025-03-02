@@ -2,7 +2,7 @@ import React from 'react';
 import HomeSection from '../components/HomeSection';
 import QueryForm from '../components/QueryForm';
 import CarsPage from './CarsPage';
-import PackagesPage from './PackagesPage';
+import PlacesPage from './PlacesPage';
 import ContactPage from './ContactPage';
 import '../styles/landing.css';
 
@@ -26,7 +26,7 @@ const LandingPage: React.FC = () => {
         </section>
 
         <section id="packages" className="section">
-          <PackagesPage />
+          <PlacesPage />
         </section>
 
         <section id="contact" className="section">

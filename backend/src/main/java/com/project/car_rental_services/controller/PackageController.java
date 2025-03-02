@@ -50,4 +50,16 @@ public class PackageController {
         }
         return ResponseEntity.ok(tourPackage);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getPackageById(@PathVariable int id) {
+        return ResponseEntity.ok(packageService.getPackageById(id));
+    }
+
+    @GetMapping("/filter-by-place/{placeId}")
+    public ResponseEntity<List<TourPackage>> filterPackageByPlace(@PathVariable int placeId) {
+        List<TourPackage> tourPackages = packageService.filterPackageByPlace(placeId);
+        return ResponseEntity.ok(tourPackages);
+    }
+
 }

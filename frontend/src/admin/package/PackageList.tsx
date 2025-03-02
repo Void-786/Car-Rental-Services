@@ -155,7 +155,7 @@ const PackageList: React.FC = () => {
           packages.map((pkg) => (
             <div className="package-item" key={pkg.id}>
               <span>{pkg.title}</span>
-              <button className="button-edit" onClick={() => handleEditClick(pkg)}>
+              <button className="package-button-edit" onClick={() => handleEditClick(pkg)}>
                 Edit
               </button>
               <button className="button-delete" onClick={() => handleDeleteClick(pkg.id)}>
@@ -214,14 +214,25 @@ const PackageList: React.FC = () => {
               />
             </div>
             <div className="form-field">
-              <label htmlFor="locations">Locations (comma separated)</label>
-              <input
-                type="text"
-                id="locations"
-                value={editPackage.locations.join(', ')}
-                onChange={(e) => setEditPackage({ ...editPackage, locations: e.target.value.split(',') })}
-              />
-            </div>
+  <label htmlFor="locations">Locations (comma separated)</label>
+  <input
+    type="text"
+    id="locations"
+    value={editPackage.locations.join(', ')} // Display locations as a comma-separated string
+    onChange={(e) => {
+      // Allow free typing (no trimming or splitting here)
+      setEditPackage({ ...editPackage, locations: [e.target.value] });
+    }}
+    onBlur={(e) => {
+      // Clean the data when the input loses focus
+      const cleanedLocations = e.target.value
+        .split(',') // Split by comma
+        .map((location) => location.trim()) // Trim spaces from each location
+        .filter((location) => location !== ''); // Remove empty strings
+      setEditPackage({ ...editPackage, locations: cleanedLocations });
+    }}
+  />
+</div>
             <div className="form-field">
               <label htmlFor="itinerary_heading">Itinerary Heading</label>
               <input
@@ -273,7 +284,7 @@ const PackageList: React.FC = () => {
               </button>
             </div>
 
-            <div className="button-container">
+            <div className="package-button-container">
               <button type="submit">Update Package</button>
             </div>
           </form>

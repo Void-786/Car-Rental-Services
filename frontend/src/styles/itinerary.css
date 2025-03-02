@@ -46,6 +46,20 @@
   max-width: 800px;
 }
 
+.no-packages-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 1.5rem;
+  color: #555;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .timeline {
   position: relative;
   padding: 0;
@@ -331,6 +345,7 @@ section h2 {
   font-weight: 800;
   color: #333;
   margin-bottom: 16px;
+  margin-top: 0;
   background: linear-gradient(120deg, #f2e123 0%, #f2e123 100%);
   background-repeat: no-repeat;
   background-size: 100% 0.3em;
@@ -516,6 +531,7 @@ section h2 {
   font-weight: 800;
   color: #333;
   margin-bottom: 30px;
+  margin-top: -20px;
   text-align: center;
   background: linear-gradient(45deg, #333, #666);
   -webkit-background-clip: text;

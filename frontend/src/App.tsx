@@ -4,7 +4,7 @@ import WhoWeArePage from './pages/WhoWeArePage';
 import CarsPage from './pages/CarsPage';
 import Footer from './components/Footer';
 import ContactPage from './pages/ContactPage';
-import PackagesPage from './pages/PackagesPage';
+import PackagesPage from './pages/PlacesPage';
 import PackageItinerary from './pages/PackageItinerary';
 import AdminPanel from './admin/AdminPanel';
 import Car from './admin/car/Car';
@@ -31,7 +31,7 @@ const App = () => {
             <Route path="/cars" element={<CarsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/packages" element={<PackagesPage />} />
-            <Route path="/itinerary/:id" element={<PackageItinerary />} />
+            <Route path="/itinerary/:placeId" element={<PackageItinerary />} />
 
             <Route path="/admin" element={<AdminPanel />} />
             <Route path="/admin/cars" element={<Car />} />
