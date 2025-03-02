@@ -9,9 +9,10 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Know Travel Explorers</h3>
           <ul>
-            <li><Link to="/about">About Us</Link></li>
-            <li><Link to="/agent">Travel Agent</Link></li>
-            <li><Link to="/careers">Careers</Link></li>
+            <li><Link to="/about">Home</Link></li>
+            <li><Link to="/agent">Who We Are</Link></li>
+            <li><Link to="/careers">Packages</Link></li>
+            <li><Link to="/careers">Cars</Link></li>
             <li><Link to="/contact">Contact Us</Link></li>
           </ul>
         </div>
@@ -19,7 +20,7 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Policies & FAQ's</h3>
           <ul>
-            <li><a href="/terms">Terms & Conditions</a></li>
+            <li><a href="/terms"></a></li>
             <li><a href="/privacy">Privacy Policy</a></li>
             <li><a href="/bookings">Bookings & Refund Policy</a></li>
             <li><a href="/faqs">FAQ's</a></li>

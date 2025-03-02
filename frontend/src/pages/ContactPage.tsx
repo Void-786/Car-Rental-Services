@@ -39,7 +39,7 @@ const ContactPage = () => {
             <div className="info-card">
               <FaPhoneAlt className="info-icon" />
               <h3>Phone</h3>
-              <p>+1 (555) 123-4567</p>
+              <p>8920046623</p>
             </div>
 
             <div className="info-card">
