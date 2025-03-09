@@ -161,19 +161,24 @@ textarea {
 .phone-input {
   display: flex;
   gap: 6px;
+  
 }
 
 .phone-input select {
-  width: 70px;
+  width: 90px;
+  background-color: #fff;
 }
 
 .phone-input input {
   flex: 1;
+  background-color: #fff;
+
 }
 
 textarea {
-  height: 50px;
+  height: 0px;
   resize: none;
+  /* background-color: #fff; */
 }
 
 .cities-section {

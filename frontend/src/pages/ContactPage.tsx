@@ -39,19 +39,19 @@ const ContactPage = () => {
             <div className="info-card">
               <FaPhoneAlt className="info-icon" />
               <h3>Phone</h3>
-              <p>8920046623</p>
+              <p>+91 8920046623</p>
             </div>
 
             <div className="info-card">
               <FaEnvelope className="info-icon" />
               <h3>Email</h3>
-              <p>info@luxuryrentals.com</p>
+              <p>tvistatour@gmail.com</p>
             </div>
 
             <div className="info-card">
               <FaMapMarkerAlt className="info-icon" />
               <h3>Address</h3>
-              <p>123 Luxury Avenue, Beverly Hills, CA 90210</p>
+              <p>817-A, Mehrauli, New Delhi, India</p>
             </div>
           </div>
 
@@ -91,7 +91,7 @@ const ContactPage = () => {
                 />
               </div>
 
-              <div className="form-group">
+              {/* <div className="form-group">
                 <select
                   name="service"
                   value={formData.service}
@@ -102,7 +102,7 @@ const ContactPage = () => {
                   <option value="airport">Airport Transfer</option>
                   <option value="event">Event Transportation</option>
                 </select>
-              </div>
+              </div> */}
 
               <div className="form-group">
                 <textarea

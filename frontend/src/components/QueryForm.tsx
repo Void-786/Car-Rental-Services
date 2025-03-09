@@ -178,9 +178,9 @@ const QueryForm = () => {
                   <div className="phone-input">
                     <select>
                       <option value="+91">+91</option>
-                      <option value="+1">+1</option>
+                      {/* <option value="+1">+1</option>
                       <option value="+44">+44</option>
-                      <option value="+81">+81</option>
+                      <option value="+81">+81</option> */}
                     </select>
                     <input 
                       type="tel" 
