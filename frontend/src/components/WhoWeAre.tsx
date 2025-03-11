@@ -1,138 +1,239 @@
-import React from 'react';
-import { FaCar, FaAward, FaHandshake, FaClock, FaStar, FaCarSide, FaUserTie, FaShieldAlt, FaHistory, FaTrophy, FaUsers } from 'react-icons/fa';
-import '../styles/whoWeAre.css';
+import React, { useEffect, useRef } from "react";
+import {
+  FaHandshake,
+  FaUsers,
+  FaRoute,
+  FaHeart,
+  FaMountain,
+  FaMoneyBillWave,
+  FaHistory,
+  FaCarSide,
+  FaPhone,
+} from "react-icons/fa";
+import "../styles/whoWeAre.css";
 
 const WhoWeAre = () => {
-  const values = [
-    {
-      icon: <FaCarSide />,
-      title: "Premium Fleet",
-      description: "Experience luxury with our handpicked collection of premium vehicles",
-      bgColor: "#4361ee"
-    },
-    {
-      icon: <FaAward />,
-      title: "Excellence Guaranteed",
-      description: "Setting the gold standard in luxury car rentals since 2010",
-      bgColor: "#3a0ca3"
-    },
-    {
-      icon: <FaUserTie />,
-      title: "Personalized Service",
-      description: "Tailored solutions to meet your unique travel requirements",
-      bgColor: "#7209b7"
-    },
-    {
-      icon: <FaShieldAlt />,
-      title: "24/7 Support",
-      description: "Round-the-clock assistance for a seamless experience",
-      bgColor: "#4361ee"
-    }
-  ];
+  const sectionRefs = useRef<(HTMLElement | null)[]>([]);
 
-  const stats = [
-    { number: "5000+", label: "Happy Customers" },
-    { number: "100+", label: "Luxury Vehicles" },
-    { number: "15+", label: "Years Experience" },
-    { number: "24/7", label: "Customer Support" }
-  ];
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in-section");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
-  const mottos = [
-    {
-      text: "Drive Beyond Ordinary",
-      icon: <FaStar />,
-      color: "#4361ee"
-    },
-    {
-      text: "Luxury at Your Command",
-      icon: <FaCar />,
-      color: "#3a0ca3"
-    },
-    {
-      text: "Your Journey, Our Passion",
-      icon: <FaHandshake />,
-      color: "#7209b7"
-    }
-  ];
+    sectionRefs.current.forEach((section) => {
+      if (section) observer.observe(section);
+    });
 
-  const timeline = [
+    return () => {
+      sectionRefs.current.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
+
+  const coreValues = [
     {
-      year: "2010",
-      icon: <FaHistory />,
-      title: "The Beginning",
-      description: "Started with a fleet of 5 luxury cars",
-      color: "#4361ee"
-    },
-    {
-      year: "2015",
-      icon: <FaTrophy />,
-      title: "Market Leader",
-      description: "Expanded to 50+ premium vehicles",
-      color: "#3a0ca3"
-    },
-    {
-      year: "2020",
       icon: <FaUsers />,
-      title: "Growing Community",
-      description: "Serving 5000+ happy customers",
-      color: "#7209b7"
-    }
+      title: "Family First",
+      description:
+        "As a family business, we treat every customer like our own, providing personalized service that makes your journey special.",
+      color: "#ff6b6b",
+    },
+    {
+      icon: <FaHandshake />,
+      title: "Trust & Reliability",
+      description:
+        "We believe in building lasting relationships through honest pricing and dependable service every step of the way.",
+      color: "#ff9f43",
+    },
+    {
+      icon: <FaMoneyBillWave />,
+      title: "Best Price Guarantee",
+      description:
+        "We're committed to offering the most competitive prices without compromising on quality or service.",
+      color: "#36ae7c",
+    },
+    {
+      icon: <FaRoute />,
+      title: "Seamless Experience",
+      description:
+        "From booking to drop-off, we ensure a smooth journey with our easy-to-use platform and professional service.",
+      color: "#4361ee",
+    },
+  ];
+
+  const milestones = [
+    {
+      year: "2005",
+      title: "Humble Beginnings",
+      description:
+        "Started as a small family business with just 2 cars, driven by a passion for travel and quality service.",
+      image:
+        "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      year: "2012",
+      title: "Growing Together",
+      description:
+        "Expanded our fleet to 20 vehicles and started offering specialized tour packages across popular destinations.",
+      image:
+        "https://images.unsplash.com/photo-1551522435-a13afa10f103?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      year: "2018",
+      title: "Digital Transformation",
+      description:
+        "Launched our online booking platform to make travel planning easier and more accessible for our customers.",
+      image:
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      year: "2023",
+      title: "Looking Forward",
+      description:
+        "Continuously expanding our services and destinations with a focus on sustainable tourism and authentic experiences.",
+      image:
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    },
   ];
 
   return (
     <div className="who-we-are-container">
+      {/* Hero Section */}
       <div className="hero-section">
         <div className="overlay"></div>
         <div className="content">
-          <h1>Who We Are</h1>
-          <p className="tagline">Redefining Luxury Car Rental Experience</p>
-        </div>
-      </div>
-
-      <div className="mission-section">
-        <div className="container">
-          <h2>Our Mission</h2>
-          <p>
-            At Safari, we believe that every journey should be extraordinary. 
-            We're dedicated to providing exceptional luxury vehicles and unparalleled service, 
-            making every drive a memorable experience.
+          <h1>Our Story</h1>
+          <p className="tagline">
+            A Family Journey of Passion, Service, and Excellence
           </p>
         </div>
       </div>
 
-      <div className="stats-section">
+      {/* Our Story Section */}
+      <section
+        className="story-section"
+        ref={(el) => (sectionRefs.current[0] = el)}
+      >
         <div className="container">
-          <div className="stats-grid">
-            {stats.map((stat, index) => (
-              <div key={index} className="stat-card">
-                <div className="stat-number">{stat.number}</div>
-                <div className="stat-label">{stat.label}</div>
-              </div>
-            ))}
+          <div className="section-header">
+            <h2>The Safari Family</h2>
+            <div className="accent-line"></div>
+          </div>
+          <div className="story-content">
+            <div className="story-image">
+              <img
+                src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="Family business"
+              />
+            </div>
+            <div className="story-text">
+              <p>
+                <strong>Safari</strong> began as a humble family venture in
+                2005, born from our deep love for travel and our home's
+                breathtaking landscapes. What started with just two cars and
+                endless enthusiasm has blossomed into one of the region's most
+                trusted travel companies.
+              </p>
+              <p>
+                As a family-owned business, we understand the importance of
+                creating meaningful connections and unforgettable experiences.
+                Every journey we facilitate is infused with the same care and
+                attention we would offer our own family members.
+              </p>
+              <p>
+                Over the years, our mission has remained consistent: to make
+                exceptional travel experiences accessible to everyone through
+                personalized service, transparent pricing, and genuine
+                hospitality that reflects our family values.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="mottos-banner">
-        <div className="mottos-grid">
-          {mottos.map((motto, index) => (
-            <div key={index} className="motto-item" style={{ backgroundColor: motto.color }}>
-              <span className="motto-icon">{motto.icon}</span>
-              <h3>{motto.text}</h3>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="values-section">
+      {/* Our Mission Section */}
+      <section
+        className="mission-section"
+        ref={(el) => (sectionRefs.current[1] = el)}
+      >
         <div className="container">
-          <h2>Our Core Values</h2>
+          <div className="mission-content">
+            <div className="mission-text">
+              <div className="section-header">
+                <h2>Our Mission</h2>
+                <div className="accent-line"></div>
+              </div>
+              <p>
+                We believe travel should be{" "}
+                <strong>effortless, enriching, and economical</strong>. Our
+                mission is to simplify your journey while maximizing your
+                experience through:
+              </p>
+              <ul className="mission-list">
+                <li>
+                  <span className="icon">
+                    <FaHeart />
+                  </span>
+                  Providing personalized travel experiences that connect you
+                  with the heart of each destination
+                </li>
+                <li>
+                  <span className="icon">
+                    <FaMountain />
+                  </span>
+                  Showcasing the natural beauty and cultural richness of our
+                  incredible landscapes
+                </li>
+                <li>
+                  <span className="icon">
+                    <FaMoneyBillWave />
+                  </span>
+                  Offering transparent, competitive pricing without hidden
+                  charges
+                </li>
+                <li>
+                  <span className="icon">
+                    <FaCarSide />
+                  </span>
+                  Ensuring comfort and safety with our well-maintained fleet and
+                  experienced drivers
+                </li>
+              </ul>
+            </div>
+            <div className="mission-image">
+              <img
+                src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="Our mission"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values Section */}
+      <section
+        className="values-section"
+        ref={(el) => (sectionRefs.current[2] = el)}
+      >
+        <div className="container">
+          <div className="section-header">
+            <h2>Our Core Values</h2>
+            <div className="accent-line"></div>
+          </div>
           <div className="values-grid">
-            {values.map((value, index) => (
-              <div 
-                key={index} 
+            {coreValues.map((value, index) => (
+              <div
+                key={index}
                 className="value-card"
-                style={{'--card-color': value.bgColor} as React.CSSProperties}
+                style={{ "--card-color": value.color } as React.CSSProperties}
               >
                 <div className="icon-wrapper">
                   <div className="icon">{value.icon}</div>
@@ -143,25 +244,119 @@ const WhoWeAre = () => {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="story-section">
+      {/* Our Journey Timeline */}
+      <section
+        className="timeline-section"
+        ref={(el) => (sectionRefs.current[3] = el)}
+      >
         <div className="container">
-          <h2>Our Journey</h2>
+          <div className="section-header">
+            <h2>Our Journey</h2>
+            <div className="accent-line"></div>
+          </div>
           <div className="timeline">
-            {timeline.map((item, index) => (
-              <div key={index} className="timeline-item" style={{ backgroundColor: item.color }}>
-                <div className="timeline-icon">{item.icon}</div>
+            {milestones.map((milestone, index) => (
+              <div key={index} className="timeline-item">
+                <div className="timeline-marker">
+                  <div className="year">{milestone.year}</div>
+                  <div className="timeline-dot"></div>
+                </div>
                 <div className="timeline-content">
-                  <div className="year">{item.year}</div>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
+                  <div className="timeline-image">
+                    <img
+                      src={milestone.image}
+                      alt={milestone.title}
+                      loading="lazy"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src =
+                          "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80";
+                      }}
+                    />
+                  </div>
+                  <div className="timeline-info">
+                    <h3>{milestone.title}</h3>
+                    <p>{milestone.description}</p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Vision for the Future */}
+      <section
+        className="vision-section"
+        ref={(el) => (sectionRefs.current[4] = el)}
+      >
+        <div className="container">
+          <div className="vision-content">
+            <div className="vision-text">
+              <div className="section-header">
+                <h2>Our Vision</h2>
+                <div className="accent-line"></div>
+              </div>
+              <p>
+                As we continue to grow, our vision is to become the most trusted
+                name in travel services across India while staying true to our
+                family roots. We aim to:
+              </p>
+              <ul className="vision-list">
+                <li>
+                  <span className="number">01</span>Expand our reach to more
+                  breathtaking destinations while maintaining our personalized
+                  approach
+                </li>
+                <li>
+                  <span className="number">02</span>Make package booking simpler
+                  and more accessible through technological innovation
+                </li>
+                <li>
+                  <span className="number">03</span>Continue offering the best
+                  prices without compromising on quality or experience
+                </li>
+                <li>
+                  <span className="number">04</span>Contribute to sustainable
+                  tourism practices that protect the places we love
+                </li>
+              </ul>
+            </div>
+            <div className="vision-image">
+              <img
+                src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="Our vision"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section
+        className="cta-section"
+        ref={(el) => (sectionRefs.current[5] = el)}
+      >
+        <div className="container">
+          <div className="cta-content">
+            <h2>Join Our Family of Happy Travelers</h2>
+            <p>
+              Experience the Safari difference with our personalized service and
+              competitive pricing.
+            </p>
+            <div className="cta-buttons">
+              <a href="/packages" className="cta-button primary">
+                Explore Packages
+              </a>
+              <a href="/contact" className="cta-button secondary">
+                <FaPhone /> Contact Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
