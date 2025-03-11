@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import {
   FaFacebookF,
   FaTwitter,
@@ -9,6 +9,29 @@ import {
 import "../styles/footer.css";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToSection = (sectionId: string, e: React.MouseEvent) => {
+    e.preventDefault();
+
+    if (location.pathname !== "/") {
+      navigate("/");
+      // Wait for navigation to complete before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <footer className="footer">
       <div className="footer-content">
@@ -16,17 +39,30 @@ const Footer = () => {
           <h3>Know Travel Explorers</h3>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <a href="#home" onClick={(e) => scrollToSection("home", e)}>
+                Home
+              </a>
             </li>
             <li>
               <Link to="/who-we-are">Who We Are</Link>
             </li>
             <li>
-              <Link to="/packages">Packages</Link>
+              <a
+                href="#packages"
+                onClick={(e) => scrollToSection("packages", e)}
+              >
+                Packages
+              </a>
             </li>
-            {/* <li><Link to="/cars">Cars</Link></li> */}
             <li>
-              <Link to="/contact">Contact Us</Link>
+              <a href="#cars" onClick={(e) => scrollToSection("cars", e)}>
+                Cars
+              </a>
+            </li>
+            <li>
+              <a href="#contact" onClick={(e) => scrollToSection("contact", e)}>
+                Contact Us
+              </a>
             </li>
           </ul>
         </div>
@@ -52,7 +88,7 @@ const Footer = () => {
               <a href="/testimonials">Testimonials</a>
             </li>
             <li>
-              <a href="mailto:info@travelexplorer.in">
+              <a href="mailto:tvistatour@gmail.com">
                 Email ID: tvistatour@gmail.com
               </a>
             </li>
@@ -74,7 +110,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <p> © 2024 Safar. All Rights Reserved.</p>
+        <p> © 2024 Safari. All Rights Reserved.</p>
       </div>
     </footer>
   );
