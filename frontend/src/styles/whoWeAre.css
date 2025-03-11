@@ -52,7 +52,8 @@
   font-size: 4rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-section .tagline {
@@ -532,7 +533,8 @@ section {
   font-size: 3rem;
   margin-bottom: 20px;
   font-weight: 700;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   letter-spacing: -0.5px;
 }
 

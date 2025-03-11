@@ -8,7 +8,6 @@ import {
   FaMoneyBillWave,
   FaHistory,
   FaCarSide,
-  FaPhone,
 } from "react-icons/fa";
 import "../styles/whoWeAre.css";
 
@@ -329,30 +328,6 @@ const WhoWeAre = () => {
                 src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                 alt="Our vision"
               />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section
-        className="cta-section"
-        ref={(el) => (sectionRefs.current[5] = el)}
-      >
-        <div className="container">
-          <div className="cta-content">
-            <h2>Join Our Family of Happy Travelers</h2>
-            <p>
-              Experience the Safari difference with our personalized service and
-              competitive pricing.
-            </p>
-            <div className="cta-buttons">
-              <a href="/packages" className="cta-button primary">
-                Explore Packages
-              </a>
-              <a href="/contact" className="cta-button secondary">
-                <FaPhone /> Contact Us
-              </a>
             </div>
           </div>
         </div>
