@@ -130,7 +130,7 @@ const PackageItinerary: React.FC = () => {
       <div className="itinerary-container">
         <h1 className="itinerary-title">Itinerary</h1>
         <p className="itinerary-subtitle">
-          From glorious past to vibrant cultures, explore royal Rajasthan speaking volumes in architectural grandeur.
+          {selectedPackage?.itinerary_heading}
         </p>
         
         <div className="timeline">
