@@ -60,4 +60,12 @@ public class Itinerary {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public TourPackage getTourPackage() {
+        return tourPackage;
+    }
+
+    public void setTourPackage(TourPackage tourPackage) {
+        this.tourPackage = tourPackage;
+    }
 }

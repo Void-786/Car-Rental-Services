@@ -137,6 +137,22 @@
   .add-day-button:hover {
     background-color: #1e88e5;
   }
+
+  .remove-day-button {
+    background-color: #ef4444; /* Danger red color */
+    color: #fff; /* White text */
+    font-weight: bold; /* Bold text */
+    font-size: 0.875rem; /* Slightly smaller font size */
+    padding: 6px 12px; /* Padding for a comfortable click area */
+    border: none; /* No border */
+    border-radius: 6px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+  }
+  
+  .remove-day-button:hover {
+    background-color: #dc2626; /* Darker red on hover */
+  }
   
   .package-button-container {
     display: flex;

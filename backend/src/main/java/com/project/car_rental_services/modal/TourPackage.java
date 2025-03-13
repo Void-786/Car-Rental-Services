@@ -28,7 +28,7 @@ public class TourPackage {
 
     private String itinerary_heading;
 
-    @OneToMany(mappedBy = "tourPackage", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "tourPackage", cascade = CascadeType.ALL, orphanRemoval = true ,fetch = FetchType.LAZY)
     @JsonManagedReference
     private List<Itinerary> itinerary;
 

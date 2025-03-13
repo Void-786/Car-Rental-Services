@@ -88,30 +88,38 @@ const PackageList: React.FC = () => {
     event.preventDefault();
     if (editPackage) {
       try {
-        const formData = new FormData();
-        formData.append("packageId", String(editPackage.id));
-        formData.append("title", editPackage.title);
-        formData.append("duration", editPackage.duration);
-        formData.append("tour_highlight", editPackage.tour_highlight);
-        formData.append("price", editPackage.price);
-        formData.append("locations", JSON.stringify(editPackage.locations));
-        formData.append("itinerary_heading", editPackage.itinerary_heading);
-        formData.append("itinerary", JSON.stringify(editPackage.itinerary));
+        // Create a deep copy of the editPackage to avoid mutating the state directly
+        const updatedPackage = JSON.parse(JSON.stringify(editPackage));
 
-        await axios.put(`${apiClient}/place/package/update-package`, formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
-
+        const payload: Package = {
+          id: updatedPackage.id,
+          title: updatedPackage.title,
+          duration: updatedPackage.duration,
+          tour_highlight: updatedPackage.tour_highlight,
+          price: updatedPackage.price,
+          locations: updatedPackage.locations,
+          itinerary_heading: updatedPackage.itinerary_heading,
+          itinerary: updatedPackage.itinerary,
+        };
+  
+        await axios.put(
+          `${apiClient}/place/package/update-package?packageId=${updatedPackage.id}`,
+          payload,
+          { headers: { "Content-Type": "application/json" } }
+        );
+  
         alert("Package updated successfully");
-        setPackages((prevPackages) =>
-          prevPackages.map((pkg) => (pkg.id === editPackage.id ? editPackage : pkg))
+        setPackages(prev => 
+          prev.map(p => p.id === updatedPackage.id ? payload : p)
         );
         setShowEditForm(false);
       } catch (err) {
-        setError("Error updating package");
+        setError("Error updating package: " + err.response?.data?.message);
       }
     }
   };
+  
+  
 
   // Handle changes in itinerary fields
   const handleItineraryChange = (
@@ -120,9 +128,13 @@ const PackageList: React.FC = () => {
     value: string
   ) => {
     if (editPackage) {
+      // Create a copy of the itinerary to avoid mutating the state directly
       const updatedItinerary = [...editPackage.itinerary];
       updatedItinerary[index] = { ...updatedItinerary[index], [field]: value };
-      setEditPackage({ ...editPackage, itinerary: updatedItinerary });
+      setEditPackage(prevEditPackage => ({ 
+        ...prevEditPackage, 
+        itinerary: updatedItinerary 
+      }));
     }
   };
 
@@ -134,10 +146,29 @@ const PackageList: React.FC = () => {
         heading: "",
         description: "",
       };
-      setEditPackage({
-        ...editPackage,
-        itinerary: [...editPackage.itinerary, newDay],
-      });
+      setEditPackage(prevEditPackage => ({
+        ...prevEditPackage,
+        itinerary: [...prevEditPackage.itinerary, newDay],
+      }));
+    }
+  };
+
+   // Remove a day from the itinerary
+   const handleRemoveDay = (indexToRemove: number) => {
+    if (editPackage) {
+      // Create a copy of the itinerary to avoid mutating the state directly
+      const updatedItinerary = editPackage.itinerary.filter((_, index) => index !== indexToRemove);
+
+      // Update day: property after removing the item in itinerary
+      const reorderedItinerary = updatedItinerary.map((day, index) => ({
+        ...day,
+        day: index + 1,
+      }));
+  
+      setEditPackage(prevEditPackage => ({
+        ...prevEditPackage,
+        itinerary: reorderedItinerary,
+      }));
     }
   };
 
@@ -166,9 +197,7 @@ const PackageList: React.FC = () => {
         ) : (
           <p>No packages found</p>
         )}
-      </div>
-
-      {/* Edit Form */}
+      </div>... {/* Edit Form */}
       {showEditForm && editPackage && (
         <div className="edit-package-form">
           <h2>Edit Package</h2>
@@ -241,9 +270,7 @@ const PackageList: React.FC = () => {
                 value={editPackage.itinerary_heading}
                 onChange={(e) => setEditPackage({ ...editPackage, itinerary_heading: e.target.value })}
               />
-            </div>
-
-            {/* Itinerary Fields */}
+            </div>... {/* Itinerary Fields */}
             <div className="itinerary-fields">
               <h3>Itinerary</h3>
               {editPackage.itinerary.map((day, index) => (
@@ -277,6 +304,13 @@ const PackageList: React.FC = () => {
                       required
                     />
                   </div>
+                   <button
+                    type="button"
+                    onClick={() => handleRemoveDay(index)}
+                    className="remove-day-button"
+                  >
+                    Remove Day
+                  </button>
                 </div>
               ))}
               <button type="button" onClick={handleAddNewDay} className="add-day-button">
