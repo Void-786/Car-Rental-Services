@@ -79,6 +79,58 @@
   padding-bottom: 40px;
 }
 
+.highlights-description,
+.itinerary-subtitle,
+.timeline-content p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%; /* Ensures it stays within the box */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.highlights-description {
+  max-height: 200px; /* Optional: add a max height if needed */
+  overflow-y: auto; /* Scroll if text overflows */
+}
+
+.timeline-content h3 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.route-path {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.city {
+  margin: 0 5px;
+}
+
+.itinerary-title,
+.itinerary-subtitle {
+  text-align: center;
+}
+
+.timeline {
+  max-width: 100%; /* Prevents timeline from overflowing */
+}
+
+.timeline-item {
+  word-break: break-word;
+}
+
+
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -133,7 +185,7 @@
 
 .timeline-content {
   flex: 1;
-  padding: 0 0 0 20px;
+  padding: 10px 0 0 20px;
   background: #fff;
 }
 

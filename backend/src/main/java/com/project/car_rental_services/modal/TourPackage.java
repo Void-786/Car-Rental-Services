@@ -17,6 +17,7 @@ public class TourPackage {
 
     private String duration;
 
+    @Column(columnDefinition = "TEXT")
     private String tour_highlight;
 
     private String price;
@@ -26,6 +27,7 @@ public class TourPackage {
     @Column(name = "location")
     private List<String> locations;
 
+    @Column(columnDefinition = "TEXT")
     private String itinerary_heading;
 
     @OneToMany(mappedBy = "tourPackage", cascade = CascadeType.ALL, orphanRemoval = true ,fetch = FetchType.LAZY)

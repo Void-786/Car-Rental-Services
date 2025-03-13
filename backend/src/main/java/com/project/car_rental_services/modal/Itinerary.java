@@ -12,6 +12,7 @@ public class Itinerary {
 
     private Integer day;
     private String heading;
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     @ManyToOne
