@@ -109,7 +109,7 @@ const WhoWeAre = () => {
       <div className="hero-section">
         <div className="overlay"></div>
         <div className="content">
-          <h1>Our Story</h1>
+          <h1 >Our Story</h1>
           <p className="tagline">
             A Family Journey of Passion, Service, and Excellence
           </p>
@@ -123,7 +123,7 @@ const WhoWeAre = () => {
       >
         <div className="container">
           <div className="section-header">
-            <h2>The Safari Family</h2>
+            <h2>The Vista Family</h2>
             <div className="accent-line"></div>
           </div>
           <div className="story-content">
@@ -135,7 +135,7 @@ const WhoWeAre = () => {
             </div>
             <div className="story-text">
               <p>
-                <strong>Safari</strong> began as a humble family venture in
+                <strong>Vista Tour & Travel</strong> began as a humble family venture in
                 2005, born from our deep love for travel and our home's
                 breathtaking landscapes. What started with just two cars and
                 endless enthusiasm has blossomed into one of the region's most
