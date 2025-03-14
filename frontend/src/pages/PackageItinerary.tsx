@@ -154,14 +154,14 @@ const PackageItinerary: React.FC = () => {
           />
           Include Accommodations (Extra Charges Apply)*
         </label>
-        <label>
+        {/* <label>
           <input
             type="checkbox"
             checked={includeFood}
             onChange={() => setIncludeFood(!includeFood)}
           />
           Include Food & Beverages (Extra Charges Apply)*
-        </label>
+        </label> */}
         <button className="book-now-btn" onClick={handleBookNow}>Book Now</button>
       </div>
     </div>
