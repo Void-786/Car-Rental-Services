@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { FaCalendarAlt, FaUser, FaInfoCircle, FaEnvelope, FaArrowUp, FaPaperPlane } from 'react-icons/fa';
 import '../styles/queryForm.css';
+import axios from 'axios'; // Import Axios
+import apiClient from '../api/apiClient';
 
-const QueryForm = () => {
-  const [selectedCities, setSelectedCities] = useState<string[]>([]);
+const QueryForm: React.FC = () => {
+  const [selectedCities, setSelectedCities] = useState([]);
   const [formData, setFormData] = useState({
     startDate: '',
     endDate: '',
@@ -16,16 +18,51 @@ const QueryForm = () => {
     phone: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' or 'error' or null
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    // Log the form data to the console before sending it
+    console.log("Form Data being sent:", formData);
+    console.log("Selected Cities being sent:", selectedCities);
+
+    try {
+      const response = await axios.post(`${apiClient}/query/submit-query`, { // Replace with your backend API endpoint
+        ...formData,
+        cities: selectedCities
+      });
+
+      if (response.status === 200) {
+        setSubmitStatus('success');
+        // Optionally reset the form
+        setFormData({
+          startDate: '',
+          endDate: '',
+          travelers: '',
+          childName: '',
+          childAge: '',
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+        });
+        setSelectedCities([]);
+      } else {
+        setSubmitStatus('error');
+        console.error("Form submission failed:", response.status, response.data); // Log more info
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus('error');
+    }
   };
 
   const handleAddCity = () => {
     setSelectedCities([...selectedCities, '']);
   };
 
-  const handleCityChange = (index: number, value: string) => {
+  const handleCityChange = (index, value) => {
     const updatedCities = [...selectedCities];
     updatedCities[index] = value;
     setSelectedCities(updatedCities);
@@ -33,6 +70,7 @@ const QueryForm = () => {
 
   return (
     <div className="query-form-container">
+      {/* ... rest of your form code remains mostly the same */}
       <div className="query-form-wrapper">
         <div className="form-background">
           <div className="background-images">
@@ -53,10 +91,10 @@ const QueryForm = () => {
               <div className="form-group">
                 <label>Start Date</label>
                 <div className="input-with-icon">
-                  <input 
-                    type="date" 
+                  <input
+                    type="date"
                     value={formData.startDate}
-                    onChange={(e) => setFormData({...formData, startDate: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
                   />
                   <FaCalendarAlt />
                 </div>
@@ -64,10 +102,10 @@ const QueryForm = () => {
               <div className="form-group">
                 <label>End Date</label>
                 <div className="input-with-icon">
-                  <input 
-                    type="date" 
+                  <input
+                    type="date"
                     value={formData.endDate}
-                    onChange={(e) => setFormData({...formData, endDate: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
                   />
                   <FaCalendarAlt />
                 </div>
@@ -78,11 +116,11 @@ const QueryForm = () => {
               <div className="form-group">
                 <label>No. Of Travellers</label>
                 <div className="input-with-icon">
-                  <input 
-                    type="number" 
+                  <input
+                    type="number"
                     placeholder="Enter Total No."
                     value={formData.travelers}
-                    onChange={(e) => setFormData({...formData, travelers: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, travelers: e.target.value })}
                   />
                   <FaUser />
                 </div>
@@ -90,11 +128,11 @@ const QueryForm = () => {
               <div className="form-group">
                 <label>Child Name(If Any)</label>
                 <div className="input-with-icon">
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     placeholder="Enter Child Name"
                     value={formData.childName}
-                    onChange={(e) => setFormData({...formData, childName: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, childName: e.target.value })}
                   />
                   <FaUser />
                 </div>
@@ -104,11 +142,11 @@ const QueryForm = () => {
             <div className="form-group">
               <label>Child Age</label>
               <div className="input-with-icon">
-                <input 
-                  type="number" 
+                <input
+                  type="number"
                   placeholder="Enter Child Age"
                   value={formData.childAge}
-                  onChange={(e) => setFormData({...formData, childAge: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, childAge: e.target.value })}
                 />
                 <FaInfoCircle />
               </div>
@@ -138,11 +176,11 @@ const QueryForm = () => {
                 <div className="form-group">
                   <label>First Name(As Per Passport)</label>
                   <div className="input-with-icon">
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       placeholder="Enter first name"
                       value={formData.firstName}
-                      onChange={(e) => setFormData({...formData, firstName: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                     />
                     <FaUser />
                   </div>
@@ -150,11 +188,11 @@ const QueryForm = () => {
                 <div className="form-group">
                   <label>Last Name(As Per Passport)</label>
                   <div className="input-with-icon">
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       placeholder="Enter last name"
                       value={formData.lastName}
-                      onChange={(e) => setFormData({...formData, lastName: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                     />
                     <FaUser />
                   </div>
@@ -164,11 +202,11 @@ const QueryForm = () => {
                 <div className="form-group">
                   <label>Email ID</label>
                   <div className="input-with-icon">
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
                       placeholder="Enter email"
                       value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     />
                     <FaEnvelope />
                   </div>
@@ -182,11 +220,11 @@ const QueryForm = () => {
                       <option value="+44">+44</option>
                       <option value="+81">+81</option> */}
                     </select>
-                    <input 
-                      type="tel" 
+                    <input
+                      type="tel"
                       placeholder="Enter Phone Number"
                       value={formData.phone}
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     />
                   </div>
                 </div>
@@ -198,6 +236,13 @@ const QueryForm = () => {
           </form>
         </div>
       </div>
+
+      {submitStatus === 'success' && (
+        <div className="success-message">Form submitted successfully!</div>
+      )}
+      {submitStatus === 'error' && (
+        <div className="error-message">Error submitting form. Please try again.</div>
+      )}
       <button className="scroll-top">
         <FaArrowUp />
       </button>

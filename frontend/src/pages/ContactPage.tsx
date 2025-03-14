@@ -1,21 +1,45 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 import '../styles/contact.css';
-import QueryForm from '../components/QueryForm';
 import FeedbackSection from '../components/FeedbackSection';
+import axios from 'axios'; // Import Axios
+import apiClient from '../api/apiClient';
 
-const ContactPage = () => {
+const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    service: 'luxury-rental',
+    service: 'luxury-rental', // You can keep this, or remove it from the form
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' or 'error' or null
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
+
+    try {
+      const response = await axios.post(`${apiClient}/contact/submit`, formData); // Replace with your backend API endpoint
+
+      if (response.status === 200) {
+        setSubmitStatus('success');
+        // Optionally reset the form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: 'luxury-rental',
+          message: '',
+        });
+      } else {
+        setSubmitStatus('error');
+        console.error("Form submission failed:", response.status, response.data); // Log more info
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus('error');
+    }
   };
 
   return (
@@ -116,6 +140,14 @@ const ContactPage = () => {
 
               <button type="submit" className="submit-btn">Send Message</button>
             </form>
+
+            {submitStatus === 'success' && (
+              <div className="success-message">Message sent successfully!</div>
+            )}
+            {submitStatus === 'error' && (
+              <div className="error-message">Error sending message. Please try again.</div>
+            )}
+
           </div>
         </div>
       </div>
