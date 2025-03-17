@@ -24,20 +24,21 @@ interface PackageFormData {
 
 const PackageItinerary: React.FC = () => {
   const { placeId } = useParams<{ placeId: string }>();
+  const [placeName, setPlaceName] = useState('');
   const [tourPackages, setTourPackages] = useState<PackageFormData[]>([]);
   const [selectedPackage, setSelectedPackage] = useState<PackageFormData | null>(null);
   const [includeAccommodations, setIncludeAccommodations] = useState(true);
-  const [includeFood, setIncludeFood] = useState(true);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  
+ 
   // Add state for the booking popup
   const [showBookingPopup, setShowBookingPopup] = useState(false);
   const [bookingData, setBookingData] = useState({
     fullName: '',
     mobileNumber: '',
-    emailId: '',
-    startDate: ''
+    email: '',
+    startDate: '',
+    includeAccommodations: true,
   });
 
   useEffect(() => {
@@ -62,12 +63,35 @@ const PackageItinerary: React.FC = () => {
     setSelectedPackage(pkg);
   };
 
+  useEffect(() => {
+    const fetchPlaceName = async () => {
+      try {
+        const response = await axios.get(`${apiClient}/places/get-place/${placeId}`);
+        setPlaceName(response.data.name);
+      } catch (error) {
+        console.error("Error fetching place name:", error);
+      }
+    };
+  
+    if (placeId) {
+      fetchPlaceName();
+    }
+  }, [placeId]);
+
   // Update handleBookNow to show the popup
   const handleBookNow = () => {
     if (!selectedPackage) {
       alert('Please select a package before booking.');
       return;
     }
+  
+    setBookingData((prevData) => ({
+      ...prevData,
+      placeName, // Ensure placeName is set
+      packageName: selectedPackage.title, // Ensure package name is set
+      packagePrice: selectedPackage.price, // Ensure package price is set
+    }));
+  
     setShowBookingPopup(true);
   };
 
@@ -81,27 +105,34 @@ const PackageItinerary: React.FC = () => {
   };
 
   // Handle form submission
-  const handleSubmitBooking = (e: React.FormEvent) => {
+  const handleSubmitBooking = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you can add logic to submit the booking data to your backend
-    console.log('Booking data:', {
-      ...bookingData,
-      packageId: selectedPackage?.id,
-      includeAccommodations
-    });
-    
-    // Close the popup and reset form
-    setShowBookingPopup(false);
-    setBookingData({
-      fullName: '',
-      mobileNumber: '',
-      emailId: '',
-      startDate: ''
-    });
-    
-    // Show success message
-    alert(`Booking request submitted successfully! We'll contact you shortly.`);
-  };
+    if (!selectedPackage) {
+        alert('No package selected.');
+        return;
+    }
+
+    try {
+        await axios.post(`${apiClient}/booking/submit`, {
+            ...bookingData,
+            packageId: selectedPackage.id,
+            includeAccommodations
+        });
+
+        alert("Booking request submitted successfully! Check your email for confirmation.");
+        setShowBookingPopup(false);
+        setBookingData({
+            fullName: '',
+            mobileNumber: '',
+            email: '',
+            startDate: '',
+            includeAccommodations: true,
+        })
+    } catch (error) {
+        alert("Error submitting booking. Please try again later.");
+    }
+};
+
 
   if (loading) return <div>Loading packages...</div>;
   if (error) return <div className="error-message">{error}</div>;
@@ -195,14 +226,6 @@ const PackageItinerary: React.FC = () => {
           />
           Include Accommodations (Extra Charges Apply)*
         </label>
-        {/* <label>
-          <input
-            type="checkbox"
-            checked={includeFood}
-            onChange={() => setIncludeFood(!includeFood)}
-          />
-          Include Food & Beverages (Extra Charges Apply)*
-        </label> */}
         <button className="book-now-btn" onClick={handleBookNow}>Book Now</button>
       </div>
 
@@ -259,8 +282,8 @@ const PackageItinerary: React.FC = () => {
                   <input
                     type="email"
                     id="emailId"
-                    name="emailId"
-                    value={bookingData.emailId}
+                    name="email"
+                    value={bookingData.email}
                     onChange={handleInputChange}
                     placeholder="Enter your email address"
                     required

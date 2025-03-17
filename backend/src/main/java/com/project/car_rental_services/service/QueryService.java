@@ -45,6 +45,7 @@ public class QueryService {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(sender);
         message.setTo(adminEmail);
+        message.setTo(email);
         message.setSubject("New Query Form Submission");
 
         String cityString = (cities != null) ? String.join(", ", cities) : "N/A";

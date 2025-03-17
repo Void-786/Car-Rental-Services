@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 import '../styles/contact.css';
 import FeedbackSection from '../components/FeedbackSection';
-import axios from 'axios'; // Import Axios
+import axios from 'axios';
 import apiClient from '../api/apiClient';
 
 const ContactPage: React.FC = () => {
@@ -10,17 +10,17 @@ const ContactPage: React.FC = () => {
     name: '',
     email: '',
     phone: '',
-    service: 'luxury-rental', // You can keep this, or remove it from the form
+    service: 'luxury-rental',
     message: '',
   });
 
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success' or 'error' or null
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${apiClient}/contact/submit`, formData); // Replace with your backend API endpoint
+      const response = await axios.post(`${apiClient}/contact/submit`, formData);
 
       if (response.status === 200) {
         setSubmitStatus('success');
@@ -34,7 +34,7 @@ const ContactPage: React.FC = () => {
         });
       } else {
         setSubmitStatus('error');
-        console.error("Form submission failed:", response.status, response.data); // Log more info
+        console.error("Form submission failed:", response.status, response.data);
       }
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -44,11 +44,6 @@ const ContactPage: React.FC = () => {
 
   return (
     <div className="contact-page">
-      {/* Query Form Section */}
-      {/* <div className="form-section">
-        <h2 className="main-title">Submit Your <span>Query</span></h2>
-        <QueryForm />
-      </div> */}
 
       <FeedbackSection />
 
@@ -114,19 +109,6 @@ const ContactPage: React.FC = () => {
                   required
                 />
               </div>
-
-              {/* <div className="form-group">
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                >
-                  <option value="luxury-rental">Luxury Car Rental</option>
-                  <option value="chauffeur">Chauffeur Service</option>
-                  <option value="airport">Airport Transfer</option>
-                  <option value="event">Event Transportation</option>
-                </select>
-              </div> */}
 
               <div className="form-group">
                 <textarea
