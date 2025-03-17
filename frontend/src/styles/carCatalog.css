@@ -60,11 +60,11 @@
 
 .car-option-card:hover {
   transform: translateY(-4px);
-  border-color: #ffc107;
+  border-color: #7D0A0A;
 }
 
 .car-option-card.selected {
-  border-color: #ffc107;
+  border-color: #7D0A0A;
   box-shadow: 0 8px 24px rgba(255, 193, 7, 0.2);
 }
 
@@ -112,7 +112,7 @@
   display: flex;
   align-items: center;
   gap: 2px;
-  color: #ffc107;
+  color: #7D0A0A;
   font-weight: 600;
   font-size: 1.2rem;
 }
@@ -138,7 +138,9 @@
 }
 
 .spec-icon {
-  color: #ffc107;
+  color: #7D0A0A;
+  font-size: 1.2rem;
+  margin-right: 8px;
 }
 
 .total-price {
@@ -159,23 +161,24 @@
 }
 
 .book-now-button {
-  display: block;
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
-  background: #ffc107;
-  color: black;
+  background: #7D0A0A;
+  color: white;
+  padding: 12px 24px;
   border: none;
   border-radius: 8px;
-  font-size: 1.1rem;
   font-weight: 600;
+  margin-top: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .book-now-button:hover {
-  background: #ffb300;
+  background: #BF3131;
   transform: translateY(-2px);
 }
 

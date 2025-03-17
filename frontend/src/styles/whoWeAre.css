@@ -4,9 +4,9 @@
   overflow-x: hidden;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
-  --primary-color: #ff6b6b;
-  --secondary-color: #ff9f43;
-  --accent-color: #4361ee;
+  --primary-color: #333;
+  --secondary-color: #555;
+  --accent-color: #7D0A0A;
   --light-bg: #f8f9fa;
   --dark-text: #333;
   --medium-text: #555;
@@ -287,7 +287,7 @@ section {
   bottom: 0;
   left: 50%;
   width: 4px;
-  background: linear-gradient(to bottom, #ff9f43, #4361ee);
+  background: linear-gradient(to bottom, #ff9f43, #7D0A0A);
   transform: translateX(-50%);
   border-radius: 2px;
 }
@@ -766,4 +766,12 @@ section {
   .cta-content p {
     font-size: 1rem;
   }
+}
+
+.about-timeline-item:last-child .about-timeline-connector {
+  background: linear-gradient(to bottom, #ff9f43, #7D0A0A);
+}
+
+.mission-item-accent {
+  background-color: #7D0A0A;
 }

@@ -13,7 +13,7 @@
 }
 
 .main-title span {
-  color: #C19A6B;
+  color: #7D0A0A;
 }
 
 .contact-header {
@@ -63,7 +63,7 @@
 
 .info-icon {
   font-size: 1.5rem;
-  color: #4361ee;
+  color: #7D0A0A;
   margin-bottom: 1rem;
 }
 
@@ -118,7 +118,7 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: #4361ee;
+  border-color: #7D0A0A;
   outline: none;
 }
 
@@ -130,7 +130,7 @@ textarea {
 .submit-btn {
   width: 100%;
   padding: 0.875rem;
-  background-color: #4361ee;
+  background-color: #7D0A0A;
   color: white;
   border: none;
   border-radius: 6px;
@@ -141,7 +141,7 @@ textarea {
 }
 
 .submit-btn:hover {
-  background-color: #3651d4;
+  background-color: #BF3131;
 }
 
 .whatsapp-button {

@@ -10,9 +10,15 @@
   }
   
   .header {
-    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
-    color: #222;
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 1.8rem;
   }
   
   .button-container {
@@ -24,7 +30,7 @@
     padding: 10px 25px;
     font-size: 1rem;
     color: #fff;
-    background-color: #007bff;
+    background-color: #7D0A0A;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -32,11 +38,32 @@
   }
   
   .action-button:hover {
-    background-color: #0056b3;
+    background-color: #BF3131;
     transform: scale(1.05);
   }
   
   .action-button:active {
     transform: scale(0.98);
+  }
+  
+  .container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .add-car-button {
+    padding: 10px 15px;
+    background-color: #7D0A0A;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+  }
+  
+  .add-car-button:hover {
+    background-color: #BF3131;
   }
   

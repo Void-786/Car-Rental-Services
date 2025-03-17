@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/cars.css';
-import { FaCar, FaUsers, FaArrowRight } from 'react-icons/fa';
+import { FaCar, FaUsers } from 'react-icons/fa';
 import apiClient from '../api/apiClient';
 
 const CarsPage: React.FC = () => {
@@ -75,12 +75,6 @@ const CarsPage: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {selectedCar === car.id && (
-              <button className="book-now-button">
-                Book Now <FaArrowRight />
-              </button>
-            )}
           </div>
         ))}
       </div>

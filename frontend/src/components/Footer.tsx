@@ -33,7 +33,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer">
+    <footer className="footer" style={{ backgroundColor: "#7D0A0A", backgroundImage: "linear-gradient(135deg, #7D0A0A 0%, #BF3131 100%)" }}>
       <div className="footer-content">
         <div className="footer-section">
           <h3>Know Travel Explorers</h3>

@@ -8,7 +8,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #555;
+  color: #e9e2e2;
   text-decoration: none;
   margin-bottom: 2rem;
   font-weight: 500;
@@ -26,7 +26,7 @@
 
 .itinerary-header h1 {
   font-size: 2.5rem;
-  color: #333;
+  color: #efebeb;
   margin-bottom: 1rem;
 }
 
@@ -34,7 +34,7 @@
   display: flex;
   justify-content: center;
   gap: 2rem;
-  color: #666;
+  color: #f3ecec;
 }
 
 .header-meta span {
@@ -83,7 +83,7 @@
 .day-number {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #333;
+  color: #d8cbcb;
   margin-right: 1rem;
 }
 
@@ -91,7 +91,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #666;
+  color: #e5e3e3;
 }
 
 .timeline-activities {
@@ -104,7 +104,7 @@
 .activity-item {
   padding: 0.8rem;
   border-bottom: 1px solid #eee;
-  color: #555;
+  color: #ebe6e6;
 }
 
 .activity-item:last-child {

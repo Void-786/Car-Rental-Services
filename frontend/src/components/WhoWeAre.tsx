@@ -64,32 +64,32 @@ const WhoWeAre = () => {
       title: "Seamless Experience",
       description:
         "From booking to drop-off, we ensure a smooth journey with our easy-to-use platform and professional service.",
-      color: "#4361ee",
+      color: "#7D0A0A",
     },
   ];
 
   const milestones = [
     {
-      year: "2005",
+      year: "1999",
       title: "Humble Beginnings",
       description:
-        "Started as a small family business with just 2 cars, driven by a passion for travel and quality service.",
+        "Started as a small family business with just 1 cars, driven by a passion for travel and quality service.",
       image:
         "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     },
     {
-      year: "2012",
+      year: "2005",
       title: "Growing Together",
       description:
-        "Expanded our fleet to 20 vehicles and started offering specialized tour packages across popular destinations.",
+        "Expanded our fleet from 1 to 5 vehicles and started offering specialized tour packages across popular destinations.",
       image:
         "https://images.unsplash.com/photo-1551522435-a13afa10f103?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     },
     {
-      year: "2018",
-      title: "Digital Transformation",
+      year: "2016",
+      title: "Expansion",
       description:
-        "Launched our online booking platform to make travel planning easier and more accessible for our customers.",
+        "Expanded our work to various cities to cater the mass audience with best and affordable car rentals",
       image:
         "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     },
@@ -97,7 +97,7 @@ const WhoWeAre = () => {
       year: "2023",
       title: "Looking Forward",
       description:
-        "Continuously expanding our services and destinations with a focus on sustainable tourism and authentic experiences.",
+        "Taking our buisness online for everyone to acces the best services availabke online ",
       image:
         "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     },

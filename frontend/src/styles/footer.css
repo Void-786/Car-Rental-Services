@@ -1,6 +1,6 @@
 .footer {
-  background-color: #4361ee;
-  background-image: linear-gradient(135deg, #4361ee 0%, #4361ee 100%);
+  background-color: #7D0A0A;
+  background-image: linear-gradient(135deg, #7D0A0A 0%, #BF3131 100%);
   color: rgba(255, 255, 255, 0.9);
   padding: 4rem 4rem 2rem 4rem;
   width: 100%;
@@ -126,7 +126,7 @@
 }
 
 .social-icon:hover {
-  color: #4361ee;
+  color: #7D0A0A;
   background-color: white;
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -147,7 +147,7 @@
 
 .admin-login-btn:hover {
   background-color: white;
-  color: #4361ee;
+  color: #7D0A0A;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }

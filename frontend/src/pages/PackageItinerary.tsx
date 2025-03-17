@@ -30,6 +30,15 @@ const PackageItinerary: React.FC = () => {
   const [includeFood, setIncludeFood] = useState(true);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  
+  // Add state for the booking popup
+  const [showBookingPopup, setShowBookingPopup] = useState(false);
+  const [bookingData, setBookingData] = useState({
+    fullName: '',
+    mobileNumber: '',
+    emailId: '',
+    startDate: ''
+  });
 
   useEffect(() => {
     const fetchPackages = async () => {
@@ -53,12 +62,45 @@ const PackageItinerary: React.FC = () => {
     setSelectedPackage(pkg);
   };
 
+  // Update handleBookNow to show the popup
   const handleBookNow = () => {
     if (!selectedPackage) {
       alert('Please select a package before booking.');
       return;
     }
-    alert(`Booking ${selectedPackage.title} with accommodations: ${includeAccommodations}, food & beverages: ${includeFood}`);
+    setShowBookingPopup(true);
+  };
+
+  // Handle input changes in the booking form
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setBookingData({
+      ...bookingData,
+      [name]: value
+    });
+  };
+
+  // Handle form submission
+  const handleSubmitBooking = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Here you can add logic to submit the booking data to your backend
+    console.log('Booking data:', {
+      ...bookingData,
+      packageId: selectedPackage?.id,
+      includeAccommodations
+    });
+    
+    // Close the popup and reset form
+    setShowBookingPopup(false);
+    setBookingData({
+      fullName: '',
+      mobileNumber: '',
+      emailId: '',
+      startDate: ''
+    });
+    
+    // Show success message
+    alert(`Booking request submitted successfully! We'll contact you shortly.`);
   };
 
   if (loading) return <div>Loading packages...</div>;
@@ -103,7 +145,6 @@ const PackageItinerary: React.FC = () => {
       </div>
 
       {/* Tour highlights section */}
-      {/* Tour highlights section */}
       {selectedPackage && (
         <div className="tour-highlights">
           <div className="highlights-content">
@@ -134,7 +175,7 @@ const PackageItinerary: React.FC = () => {
         </p>
         
         <div className="timeline">
-          {selectedPackage.itinerary.map((day, index) => (
+          {selectedPackage?.itinerary.map((day, index) => (
             <div key={day.day} className="timeline-item">
               <div className="day-marker">Day {day.day}</div>
               <div className="timeline-content">
@@ -164,6 +205,88 @@ const PackageItinerary: React.FC = () => {
         </label> */}
         <button className="book-now-btn" onClick={handleBookNow}>Book Now</button>
       </div>
+
+      {/* Booking Popup */}
+      {showBookingPopup && (
+        <div className="booking-popup-overlay">
+          <div className="booking-popup">
+            <div className="booking-popup-header">
+              <h2>Complete Your Booking</h2>
+              <button className="close-popup" onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setShowBookingPopup(false);
+              }}>×</button>
+            </div>
+            
+            <div className="booking-popup-content">
+              <div className="package-summary">
+                <h3>{selectedPackage?.title}</h3>
+                <p>{selectedPackage?.duration}</p>
+                <p className="package-price">{selectedPackage?.price}</p>
+                {includeAccommodations && <p className="addon">+ Accommodations</p>}
+              </div>
+              
+              <form onSubmit={handleSubmitBooking}>
+                <div className="form-group">
+                  <label htmlFor="fullName">Full Name</label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    value={bookingData.fullName}
+                    onChange={handleInputChange}
+                    placeholder="Enter your full name"
+                    required
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label htmlFor="mobileNumber">Mobile Number</label>
+                  <input
+                    type="tel"
+                    id="mobileNumber"
+                    name="mobileNumber"
+                    value={bookingData.mobileNumber}
+                    onChange={handleInputChange}
+                    placeholder="Enter your mobile number"
+                    required
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label htmlFor="emailId">Email ID</label>
+                  <input
+                    type="email"
+                    id="emailId"
+                    name="emailId"
+                    value={bookingData.emailId}
+                    onChange={handleInputChange}
+                    placeholder="Enter your email address"
+                    required
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label htmlFor="startDate">Start Date</label>
+                  <input
+                    type="date"
+                    id="startDate"
+                    name="startDate"
+                    value={bookingData.startDate}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                
+                <button type="submit" className="book-now-btn submit-booking">
+                  Confirm Booking
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 };

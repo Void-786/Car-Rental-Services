@@ -21,7 +21,8 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: faizullahkhan.com.in@gmail.com
-    password: llzk urus qxyo bxyu
+    password: Qwerty1234*
+
     properties:
       mail:
         smtp:
@@ -29,6 +30,7 @@ spring:
           starttls:
             enable: true
 
-#admin:
-##  email: www.faizullahkhan.com.in@gmail.com #write your email here for testing
+admin:
+  email: beingpriyanshu5555@gmail.com
+#  email: www.faizullahkhan.com.in@gmail.com #write your email here for testing
 #email: www.beingpriyanshu5555@gmail.com

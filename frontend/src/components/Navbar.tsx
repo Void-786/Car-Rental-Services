@@ -55,6 +55,9 @@ const Navbar = () => {
           <div onClick={() => scrollToSection("contact")} className="nav-link">
             Contact Us
           </div>
+          <div onClick={() => scrollToSection("contact")} className="nav-link">
+            Customize Trip
+          </div>
         </div>
         {/* <div className="nav-icons">
           <button className="theme-toggle" aria-label="Toggle theme">

@@ -47,7 +47,7 @@
   }
   
   .input-field:focus {
-    border-color: #007bff;
+    border-color: #7D0A0A;
   }
   
   /* Message Styles */
@@ -70,7 +70,7 @@
   }
   
   .submit-button {
-    background-color: #007bff;
+    background-color: #7D0A0A;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -81,6 +81,6 @@
   }
   
   .submit-button:hover {
-    background-color: #0056b3;
+    background-color: #BF3131;
   }
   

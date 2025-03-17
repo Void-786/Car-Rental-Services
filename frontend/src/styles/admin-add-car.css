@@ -46,7 +46,7 @@
   }
   
   .input-field:focus {
-    border-color: #007bff;
+    border-color: #7D0A0A;
   }
   
   .error-message {
@@ -67,7 +67,7 @@
   }
   
   .submit-button {
-    background-color: #007bff;
+    background-color: #7D0A0A;
     color: #fff;
     padding: 10px 20px;
     font-size: 1rem;
@@ -78,7 +78,7 @@
   }
   
   .submit-button:hover {
-    background-color: #0056b3;
+    background-color: #BF3131;
   }
   
   .submit-button:active {

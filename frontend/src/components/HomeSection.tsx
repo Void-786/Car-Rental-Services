@@ -11,21 +11,21 @@ const HomeSection = () => {
       title: 'Timeless',
       subtitle: 'Wonder',
       // car: 'Mercedes-Maybach S-Class',
-      description: 'Experience the epitome of love and architecture in Agra.'
+      description: 'Witness the breathtaking Taj Mahal, a monument of eternal love where marble dances with sunlight and history whispers tales of devotion along the sacred Yamuna River.'
     },
     {
       image: '/src/assets/images/carousel/ram-temple-1.webp',
       title: 'Royal ',
       subtitle: 'Rajasthan',
       // car: 'Rolls-Royce Phantom',
-      description: 'Embark on a majestic journey through the vibrant cities and timeless deserts of Rajasthan.'
+      description: 'Immerse yourself in the vibrant culture of Rajasthan, where magnificent palaces rise from golden sands, colorful festivals ignite your senses, and ancient traditions bring history to life.'
     },
     {
       image: '/src/assets/images/carousel/Varanasi-Ghats.jpg',
       title: "Nature's ",
       subtitle: 'Retreat',
       // car: 'Bentley Flying Spur',
-      description: 'Escape to the serene heights and embrace the tranquility of the mountains.'
+      description: 'Experience the mystical charm of Varanasi\'s ancient ghats, where sacred ceremonies illuminate the Ganges at dawn and dusk, connecting souls to traditions thousands of years old in India\'s spiritual heart.'
     }
   ];
 

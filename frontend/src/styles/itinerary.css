@@ -1,8 +1,13 @@
+body, html {
+  background-color: #EEEEEE;
+  color: #333;
+}
+
 .itinerary-container {
   max-width: 1200px;
   margin: 120px auto 60px;
   padding: 40px;
-  background: #fff;
+  background: #EEEEEE;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
   min-height: calc(100vh - 180px);
@@ -33,7 +38,7 @@
 .itinerary-title {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
-  color: #000;
+  color: #7D0A0A;
   margin-bottom: 15px;
   font-weight: 600;
 }
@@ -53,8 +58,8 @@
   height: 50vh;
   font-size: 1.5rem;
   color: #555;
-  background-color: #f8f9fa;
-  border: 1px solid #ddd;
+  background-color: #EAD196;
+  border: 1px solid #BF3131;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -153,7 +158,7 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: #C49A6C;
+  background: #BF3131;
   opacity: 0.3;
 }
 
@@ -165,16 +170,16 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #fff;
-  border: 2px solid #C49A6C;
+  background: #EEEEEE;
+  border: 2px solid #7D0A0A;
 }
 
 .day-marker {
   position: absolute;
   left: -30px;
   top: 0;
-  background: #C49A6C;
-  color: white;
+  background: #7D0A0A;
+  color: #EEEEEE;
   padding: 4px 12px;
   border-radius: 4px;
   font-size: 0.9rem;
@@ -186,11 +191,11 @@
 .timeline-content {
   flex: 1;
   padding: 10px 0 0 20px;
-  background: #fff;
+  background: #EEEEEE;
 }
 
 .timeline-content h3 {
-  color: #000;
+  color: #7D0A0A;
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 8px;
@@ -205,8 +210,8 @@
 
 .breakfast-tag {
   display: inline-block;
-  background: rgba(196, 154, 108, 0.1);
-  color: #C49A6C;
+  background: rgba(125, 10, 10, 0.1);
+  color: #7D0A0A;
   padding: 4px 12px;
   border-radius: 4px;
   font-size: 0.8rem;
@@ -287,7 +292,7 @@ section {
 }
 
 section h2 {
-  color: #444;
+  color: #7D0A0A;
   margin-bottom: 1.5rem;
   font-size: 1.8rem;
 }
@@ -301,14 +306,14 @@ section h2 {
 }
 
 .highlights-section li {
-  background: #f8f9fa;
+  background: #EAD196;
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .day-card {
-  background: white;
+  background: #EEEEEE;
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -316,7 +321,7 @@ section h2 {
 }
 
 .day-card h3 {
-  color: #2196F3;
+  color: #7D0A0A;
   margin-bottom: 1rem;
 }
 
@@ -335,11 +340,11 @@ section h2 {
   content: "✓";
   position: absolute;
   left: 0;
-  color: #4CAF50;
+  color: #7D0A0A;
 }
 
 .booking-section {
-  background: #f8f9fa;
+  background: #EAD196;
   padding: 2rem;
   border-radius: 10px;
   text-align: center;
@@ -353,8 +358,8 @@ section h2 {
 }
 
 .book-now-button {
-  background: #ff6b6b;
-  color: white;
+  background: #7D0A0A;
+  color: #EEEEEE;
   border: none;
   padding: 1rem 2rem;
   border-radius: 25px;
@@ -364,7 +369,7 @@ section h2 {
 }
 
 .book-now-button:hover {
-  background: #ff5252;
+  background: #BF3131;
 }
 
 .not-found {
@@ -375,7 +380,7 @@ section h2 {
 }
 
 .tour-highlights {
-  background: #fff;
+  background: #EEEEEE;
   border-radius: 16px;
   padding: 55px;
   margin-bottom: 60px;
@@ -398,7 +403,7 @@ section h2 {
   color: #333;
   margin-bottom: 16px;
   margin-top: 0;
-  background: linear-gradient(120deg, #f2e123 0%, #f2e123 100%);
+  background: linear-gradient(120deg, #EAD196 0%, #EAD196 100%);
   background-repeat: no-repeat;
   background-size: 100% 0.3em;
   background-position: 0 88%;
@@ -407,13 +412,13 @@ section h2 {
 
 .duration {
   display: inline-block;
-  background: rgba(242, 225, 35, 0.1);
+  background: rgba(234, 209, 150, 0.3);
   color: #333;
   padding: 8px 16px;
   border-radius: 8px;
   font-weight: 600;
   margin-bottom: 20px;
-  border: 1px solid rgba(242, 225, 35, 0.3);
+  border: 1px solid rgba(234, 209, 150, 0.5);
 }
 
 .highlights-description {
@@ -438,7 +443,7 @@ section h2 {
 }
 
 .route-dots {
-  color: #f2e123;
+  color: #BF3131;
   letter-spacing: -1px;
   margin: 0 4px;
   font-weight: bold;
@@ -483,8 +488,8 @@ section h2 {
   flex-direction: column;
   gap: 25px;
   padding: 25px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  background-color: #EAD196;
+  border: 1px solid #BF3131;
   border-radius: 8px;
   width: 300px;
   margin: 50px auto; /* Centers the whole container */
@@ -508,8 +513,8 @@ section h2 {
 
 .book-now-btn {
   padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: #7D0A0A;
+  color: #EEEEEE;
   font-size: 16px;
   font-weight: bold;
   border: none;
@@ -519,7 +524,7 @@ section h2 {
 }
 
 .book-now-btn:hover {
-  background-color: #0056b3;
+  background-color: #BF3131;
 }
 
 
@@ -585,7 +590,7 @@ section h2 {
   margin-bottom: 30px;
   margin-top: -20px;
   text-align: center;
-  background: linear-gradient(45deg, #333, #666);
+  background: linear-gradient(45deg, #7D0A0A, #BF3131);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
@@ -599,7 +604,7 @@ section h2 {
 }
 
 .package-card {
-  background: #fff;
+  background: #EEEEEE;
   border-radius: 20px;
   padding: 25px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -630,13 +635,13 @@ section h2 {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(242, 225, 35, 0.15);
+  background: rgba(234, 209, 150, 0.15);
   color: #333;
   padding: 8px 16px;
   border-radius: 30px;
   font-weight: 600;
   font-size: 0.9rem;
-  box-shadow: inset 0 0 0 1px rgba(242, 225, 35, 0.3);
+  box-shadow: inset 0 0 0 1px rgba(234, 209, 150, 0.3);
   width: fit-content;
 }
 
@@ -651,12 +656,12 @@ section h2 {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: #f8f8f8;
-  color: #666;
+  background: #EAD196;
+  color: #7D0A0A;
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 0.85rem;
-  border: 1px solid #eee;
+  border: 1px solid #BF3131;
   transition: all 0.3s ease;
 }
 
@@ -672,7 +677,7 @@ section h2 {
   align-items: center;
   gap: 8px;
   padding: 8px;
-  background: rgba(248, 248, 248, 0.5);
+  background: rgba(234, 209, 150, 0.15);
   border-radius: 12px;
 }
 
@@ -689,7 +694,7 @@ section h2 {
 
 .select-package-btn {
   background: transparent;
-  border: 2px solid #f2e123;
+  border: 2px solid #7D0A0A;
   color: #333;
   padding: 10px 20px;
   border-radius: 30px;
@@ -707,14 +712,14 @@ section h2 {
 }
 
 .selected .select-package-btn {
-  background: #f2e123;
-  color: #333;
+  background: #7D0A0A;
+  color: #EEEEEE;
 }
 
 .package-card.selected {
-  border-color: #f2e123;
+  border-color: #7D0A0A;
   transform: translateY(-8px) translateZ(20px);
-  box-shadow: 0 15px 35px rgba(242, 225, 35, 0.2);
+  box-shadow: 0 15px 35px rgba(125, 10, 10, 0.2);
 }
 
 .package-card:hover {
@@ -723,8 +728,8 @@ section h2 {
 }
 
 .package-card:hover .select-package-btn {
-  background: #f2e123;
-  color: #333;
+  background: #7D0A0A;
+  color: #EEEEEE;
 }
 
 .package-card:hover .btn-icon {
@@ -765,4 +770,194 @@ section h2 {
     width: 100%;
     justify-content: center;
   }
+}
+
+/* Booking Popup Styles */
+.booking-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(125, 10, 10, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.booking-popup {
+  background-color: #EEEEEE;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: popupFadeIn 0.3s ease-out;
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.booking-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #7D0A0A;
+  color: #EEEEEE;
+}
+
+.booking-popup-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.close-popup {
+  background: none;
+  border: none;
+  color: #EEEEEE;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 0.8;
+  padding: 0;
+  margin: 0;
+  transition: transform 0.2s;
+}
+
+.close-popup:hover {
+  transform: scale(1.2);
+}
+
+.booking-popup-content {
+  padding: 20px;
+}
+
+.package-summary {
+  background-color: #EAD196;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #7D0A0A;
+}
+
+.package-summary h3 {
+  margin: 0 0 8px;
+  color: #333;
+  font-weight: 600;
+}
+
+.package-summary p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.package-summary .package-price {
+  font-weight: bold;
+  color: #7D0A0A;
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.addon {
+  font-size: 14px;
+  color: #BF3131;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #7D0A0A;
+  box-shadow: 0 0 0 2px rgba(125, 10, 10, 0.2);
+  outline: none;
+}
+
+.submit-booking {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px !important;
+  font-size: 18px !important;
+}
+
+/* Responsive styles for the popup */
+@media (max-width: 768px) {
+  .booking-popup {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-popup-header h2 {
+    font-size: 18px;
+  }
+  
+  .booking-popup-content {
+    padding: 15px;
+  }
+  
+  .form-group input {
+    font-size: 14px;
+  }
+}
+
+/* Ensure buttons are using the correct colors */
+button {
+  background-color: #7D0A0A;
+  color: #EEEEEE;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #BF3131;
+}
+
+/* Force all inputs to use the theme colors when focused */
+input:focus, 
+textarea:focus, 
+select:focus {
+  border-color: #7D0A0A !important;
+  box-shadow: 0 0 0 2px rgba(125, 10, 10, 0.2) !important;
+  outline: none !important;
+}
+
+/* Change links to use primary color */
+a {
+  color: #7D0A0A;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #BF3131;
 }

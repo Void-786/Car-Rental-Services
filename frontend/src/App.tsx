@@ -11,6 +11,7 @@ import Car from "./admin/car/Car";
 import Place from "./admin/package/Place";
 import AddCar from "./admin/car/AddCar";
 import "./App.css";
+import "./styles/colorTheme.css";
 import CarList from "./admin/car/CarList";
 import MainPage from "./pages/MainPage";
 import AddPlace from "./admin/package/AddPlace";
