@@ -24,7 +24,7 @@ const MainPage = () => {
       </div>
 
       {/* 2. Query Form from Contact Page */}
-      <div id="who-we-are" className="query-section">
+      <div id="query" className="query-section">
         <div className="form-section">
           <h2 className="main-title">CUSTOMIZED FOR YOU, <span>SERVED BY US</span></h2>
           <QueryForm />

@@ -10,8 +10,7 @@ const ContactPage: React.FC = () => {
     name: '',
     email: '',
     phone: '',
-    service: 'luxury-rental',
-    message: '',
+    message: ''
   });
 
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -29,8 +28,7 @@ const ContactPage: React.FC = () => {
           name: '',
           email: '',
           phone: '',
-          service: 'luxury-rental',
-          message: '',
+          message: ''
         });
       } else {
         setSubmitStatus('error');

@@ -1,5 +1,4 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { FaMoon, FaUser } from "react-icons/fa";
 import "../styles/navbar.css";
 
 const Navbar = () => {
@@ -9,7 +8,6 @@ const Navbar = () => {
   const scrollToSection = (sectionId: string) => {
     if (location.pathname !== "/") {
       navigate("/");
-      // Wait for navigation to complete before scrolling
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -55,18 +53,10 @@ const Navbar = () => {
           <div onClick={() => scrollToSection("contact")} className="nav-link">
             Contact Us
           </div>
-          <div onClick={() => scrollToSection("contact")} className="nav-link">
+          <div onClick={() => scrollToSection("query")} className="nav-link">
             Customize Trip
           </div>
         </div>
-        {/* <div className="nav-icons">
-          <button className="theme-toggle" aria-label="Toggle theme">
-            <FaMoon />
-          </button>
-          {/* <button className="user-profile" aria-label="User profile">
-            <FaUser />
-          </button>
-        </div> */}
       </div>
     </nav>
   );

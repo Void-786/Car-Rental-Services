@@ -20,6 +20,8 @@ import Package from "./admin/package/Package";
 import AddPackage from "./admin/package/AddPackage";
 import PackageList from "./admin/package/PackageList";
 import FAQsPage from "./pages/FAQsPage";
+import BookingsPage from "./pages/BookingsPage";
+import QueryForm from "./components/QueryForm";
 
 const App = () => {
   return (
@@ -35,6 +37,8 @@ const App = () => {
             <Route path="/packages" element={<PackagesPage />} />
             <Route path="/itinerary/:placeId" element={<PackageItinerary />} />
             <Route path="/faqs" element={<FAQsPage />} />
+            <Route path="/bookings" element={<BookingsPage />} />
+            <Route path="/query" element={<QueryForm />} />
 
             <Route path="/admin" element={<AdminPanel />} />
             <Route path="/admin/cars" element={<Car />} />

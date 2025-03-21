@@ -1,11 +1,4 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-  FaYoutube,
-  FaInstagram,
-} from "react-icons/fa";
 import "../styles/footer.css";
 
 const Footer = () => {
@@ -96,14 +89,6 @@ const Footer = () => {
         </div>
 
         <div className="footer-section">
-          {/* <h3>Social</h3>
-          <div className="social-icons">
-            <a href="#" className="social-icon"><FaFacebookF /></a>
-            <a href="#" className="social-icon"><FaTwitter /></a>
-            <a href="#" className="social-icon"><FaLinkedinIn /></a>
-            <a href="#" className="social-icon"><FaYoutube /></a>
-            <a href="#" className="social-icon"><FaInstagram /></a>
-          </div> */}
           <Link to="/admin" className="admin-login-btn">
             Login as Admin
           </Link>

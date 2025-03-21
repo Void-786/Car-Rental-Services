@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaCalendarAlt, FaUser, FaInfoCircle, FaEnvelope, FaArrowUp, FaPaperPlane } from 'react-icons/fa';
 import '../styles/queryForm.css';
-import axios from 'axios'; // Import Axios
+import axios from 'axios';
 import apiClient from '../api/apiClient';
 
 const QueryForm: React.FC = () => {
@@ -216,9 +216,6 @@ const QueryForm: React.FC = () => {
                   <div className="phone-input">
                     <select>
                       <option value="+91">+91</option>
-                      {/* <option value="+1">+1</option>
-                      <option value="+44">+44</option>
-                      <option value="+81">+81</option> */}
                     </select>
                     <input
                       type="tel"
