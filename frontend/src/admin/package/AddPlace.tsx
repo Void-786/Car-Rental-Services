@@ -18,21 +18,21 @@ const AddPlace: React.FC = () => {
         if (image) {
           formData.append("image", image);
         }
-    
         try {
+          const token = localStorage.getItem('token');
           const response = await axios.post(
-            `${apiClient}/places/add/new-place`, // Update with your backend URL if different
+            `${apiClient}/places/admin/add/new-place`,
             formData,
             {
-              headers: { "Content-Type": "multipart/form-data" },
+              headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}` },
             }
           );
-          setMessage("Place added successfully!"); // Success message
-          setError(""); // Clear error message
+          setMessage("Place added successfully!");
+          setError("");
           resetForm();
         } catch (err) {
           setError("Error adding place. Please try again.");
-          setMessage(""); // Clear success message
+          setMessage("");
           console.error(err);
         }
       };

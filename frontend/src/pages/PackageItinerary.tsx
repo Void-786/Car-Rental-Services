@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import '../styles/itinerary.css';
 import apiClient from '../api/apiClient';
+import { FaCalendarAlt } from 'react-icons/fa';
 
 interface Itinerary {
   day: string;
@@ -292,15 +293,19 @@ const PackageItinerary: React.FC = () => {
                 
                 <div className="form-group">
                   <label htmlFor="startDate">Start Date</label>
-                  <input
-                    type="date"
-                    id="startDate"
-                    name="startDate"
-                    value={bookingData.startDate}
-                    onChange={handleInputChange}
-                    required
-                  />
+                  <div className="input-with-icon">
+                      <input
+                          type="date"
+                          id="startDate"
+                          name="startDate"
+                          value={bookingData.startDate}
+                          onChange={handleInputChange}
+                          required
+                      />
+                      <FaCalendarAlt className="calendar-icon" />
+                  </div>
                 </div>
+
                 
                 <button type="submit" className="book-now-btn submit-booking">
                   Confirm Booking

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("place/package")
+@RequestMapping("/place/package")
 public class PackageController {
 
     private final PackageService packageService;
@@ -17,7 +17,7 @@ public class PackageController {
         this.packageService = packageService;
     }
 
-    @PostMapping("/add-package")
+    @PostMapping("/admin/add-package")
     public ResponseEntity<?> addPackage(@RequestParam int placeId, @RequestBody TourPackage tourPackage) {
         System.out.println("Received tour package : " + tourPackage);
         packageService.addPackage(placeId, tourPackage);
@@ -27,13 +27,13 @@ public class PackageController {
         return ResponseEntity.ok("Package added successfully");
     }
 
-    @PutMapping("/update-package")
+    @PutMapping("/admin/update-package")
     public ResponseEntity<?> updatePackage(@RequestParam int packageId, @RequestBody TourPackage updatedPackage) {
         packageService.updatePackage(packageId, updatedPackage);
         return ResponseEntity.ok("Package updated successfully");
     }
 
-    @DeleteMapping("/remove-package")
+    @DeleteMapping("/admin/remove-package")
     public ResponseEntity<?> removePackage(@RequestParam int packageId) {
         packageService.removePackage(packageId);
         return ResponseEntity.ok("Package removed successfully");

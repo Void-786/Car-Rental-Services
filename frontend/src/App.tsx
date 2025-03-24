@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import WhoWeArePage from "./pages/WhoWeArePage";
 import CarsPage from "./pages/CarsPage";
@@ -22,14 +23,29 @@ import PackageList from "./admin/package/PackageList";
 import FAQsPage from "./pages/FAQsPage";
 import BookingsPage from "./pages/BookingsPage";
 import QueryForm from "./components/QueryForm";
+import AdminLogin from "./admin/loginForm";
+import ProtectedRoute from "./Auth/ProtectAdminRoute";
 
 const App = () => {
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+        localStorage.removeItem('token');
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+        window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
+  
   return (
     <Router>
       <div className="app">
         <Navbar />
         <main>
           <Routes>
+            {/* Public Rooutes */}
             <Route path="/" element={<MainPage />} />
             <Route path="/who-we-are" element={<WhoWeArePage />} />
             <Route path="/cars" element={<CarsPage />} />
@@ -40,24 +56,27 @@ const App = () => {
             <Route path="/bookings" element={<BookingsPage />} />
             <Route path="/query" element={<QueryForm />} />
 
-            <Route path="/admin" element={<AdminPanel />} />
-            <Route path="/admin/cars" element={<Car />} />
-            <Route path="/admin/places" element={<Place />} />
+            {/* Admin Routes */}
+            <Route path="/admin/login" element={<AdminLogin />} />
 
-            <Route path="/admin/cars/add-car" element={<AddCar />} />
-            <Route path="/admin/cars/update-car" element={<CarList />} />
+            <Route path="/admin" element={<ProtectedRoute><AdminPanel /></ProtectedRoute>} />
+            <Route path="/admin/cars" element={<ProtectedRoute><Car /></ProtectedRoute>} />
+            <Route path="/admin/places" element={<ProtectedRoute><Place /></ProtectedRoute>} />
 
-            <Route path="/admin/places/add-place" element={<AddPlace />} />
-            <Route path="/admin/places/update-place" element={<PlaceList />} />
+            <Route path="/admin/cars/add-car" element={<ProtectedRoute><AddCar /></ProtectedRoute>} />
+            <Route path="/admin/cars/update-car" element={<ProtectedRoute><CarList /></ProtectedRoute>} />
 
-            <Route path="/admin/places/:id" element={<Package />} />
+            <Route path="/admin/places/add-place" element={<ProtectedRoute><AddPlace /></ProtectedRoute>} />
+            <Route path="/admin/places/update-place" element={<ProtectedRoute><PlaceList /></ProtectedRoute>} />
+
+            <Route path="/admin/places/:id" element={<ProtectedRoute><Package /></ProtectedRoute>} />
             <Route
               path="/admin/places/packages/add-package"
-              element={<AddPackage />}
+              element={<ProtectedRoute><AddPackage /></ProtectedRoute>}
             />
             <Route
               path="/admin/places/packages/update-package"
-              element={<PackageList />}
+              element={<ProtectedRoute><PackageList /></ProtectedRoute>}
             />
           </Routes>
         </main>

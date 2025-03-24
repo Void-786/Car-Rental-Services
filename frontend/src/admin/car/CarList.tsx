@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import apiClient from "../../api/apiClient";
 import "../../styles/admin-car-list.css";
+// import token from "../../api/token";
 
 interface Car {
   id: string;
@@ -44,7 +45,11 @@ const CarsList: React.FC = () => {
   const handleDeleteConfirm = async () => {
     if (carToDelete) {
       try {
-        await axios.delete(`${apiClient}/cars/delete/delete-car?carId=${carToDelete}`);
+        const token = localStorage.getItem('token');
+        await axios.delete(
+          `${apiClient}/cars/admin/delete/delete-car?carId=${carToDelete}`,
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
         alert("Car deleted successfully");
         setCars((prevCars) => prevCars.filter((car) => car.id !== carToDelete));
       } catch (err) {
@@ -78,9 +83,9 @@ const CarsList: React.FC = () => {
         }
         formData.append("type", editCar.type);
         formData.append("seats", String(editCar.seats));
-
-        await axios.put(`${apiClient}/cars/update/update-car`, formData, {
-          headers: { "Content-Type": "multipart/form-data" },
+        const token = localStorage.getItem('token');
+        await axios.put(`${apiClient}/cars/admin/update/update-car`, formData, {
+          headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}` },
         });
 
         alert("Car updated successfully");

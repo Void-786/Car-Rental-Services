@@ -21,7 +21,7 @@ public class PlaceController {
         this.placeService = placeService;
     }
 
-    @PostMapping("/add/new-place")
+    @PostMapping("/admin/add/new-place")
     public ResponseEntity<?> addPlace(@RequestParam("name") String name,@RequestParam("image") MultipartFile image) {
         try {
             placeService.addPlace(name, image);
@@ -31,13 +31,13 @@ public class PlaceController {
         }
     }
 
-    @DeleteMapping("/delete/delete-place")
+    @DeleteMapping("/admin/delete/delete-place")
     public ResponseEntity<?> deletePlace(@RequestParam("placeId") Integer id) {
         placeService.deletePlaceById(id);
         return ResponseEntity.ok("Place deleted Successfully");
     }
 
-    @PutMapping("/update/update-place")
+    @PutMapping("/admin/update/update-place")
     public ResponseEntity<?> updatePlace(@RequestParam("placeId") Integer id,@RequestParam("name") String name,@RequestParam(value = "image", required = false) MultipartFile newImage) {
         try {
             Optional<Place> existingPlace = placeService.getPlaceById(id);
