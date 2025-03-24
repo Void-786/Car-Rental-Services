@@ -154,7 +154,7 @@ body, html {
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: -2px;
+  left: 5px;
   top: 0;
   bottom: 0;
   width: 2px;
@@ -165,7 +165,7 @@ body, html {
 .timeline-item::after {
   content: '';
   position: absolute;
-  left: -6px;
+  left: -1px;
   top: 8px;
   width: 12px;
   height: 12px;
@@ -190,7 +190,7 @@ body, html {
 
 .timeline-content {
   flex: 1;
-  padding: 10px 0 0 20px;
+  padding: 10px 0 0 30px;
   background: #EEEEEE;
 }
 

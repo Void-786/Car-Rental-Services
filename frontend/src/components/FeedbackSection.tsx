@@ -9,7 +9,7 @@ const FeedbackSection = () => {
       avatar: <FaUser />,
       rating: 5,
       date: 'Vishal Kukreja',
-      text: "I booked a Rajasthan trip through Safar, and it was one of the best travel experiences I’ve had! From Jaipur’s grand forts to Jaisalmer’s golden sand dunes, everything was well-planned. The car was comfortable, the driver was polite, and there were no hidden charges. Highly recommend for a smooth and tension-free trip!",
+      text: "I booked a Rajasthan trip through Safar, and it was one of the best travel experiences I've had! From Jaipur's grand forts to Jaisalmer's golden sand dunes, everything was well-planned. The car was comfortable, the driver was polite, and there were no hidden charges. Highly recommend for a smooth and tension-free trip!",
       readMore: "#"
     },
     {
@@ -37,7 +37,7 @@ const FeedbackSection = () => {
   };
 
   return (
-    <div className="feedback-section">
+    <div id="feedback-section" className="feedback-section">
       <h2>Thanks for giving us your feedback online.</h2>
       {/* <p> </p> */}
       {/* <p className="feedback-subtitle">Below are a few of the reviews that brought some recent issues to light for our business.</p> */}

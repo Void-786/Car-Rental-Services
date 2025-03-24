@@ -1,15 +1,14 @@
 .bookings-container {
+  padding: 60px 8% 80px;
   max-width: 1200px;
-  margin: 60px auto;
-  padding: 0 20px;
+  margin: 0 auto;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   position: relative;
 }
 
 .bookings-header {
   text-align: center;
-  margin-bottom: 60px;
-  position: relative;
+  margin-bottom: 50px;
 }
 
 .bookings-header:after {
@@ -23,19 +22,16 @@
 }
 
 .bookings-header h1 {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   color: #333;
   margin-bottom: 15px;
-  position: relative;
-  display: inline-block;
 }
 
 .bookings-header p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #666;
   max-width: 700px;
   margin: 0 auto;
-  line-height: 1.6;
 }
 
 .bookings-content {
@@ -45,159 +41,114 @@
 }
 
 .bookings-content section {
+  margin-bottom: 50px;
+  padding: 30px;
+  border-radius: 10px;
   background-color: #fff;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-  padding: 40px;
-  position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.03);
-  transition: all 0.3s ease;
-}
-
-.bookings-content section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .bookings-content h2 {
-  font-size: 1.9rem;
+  font-size: 1.8rem;
   color: #333;
-  margin-bottom: 25px;
-  padding-bottom: 15px;
-  border-bottom: 2px solid rgba(255, 107, 107, 0.3);
+  margin-bottom: 20px;
   position: relative;
-  display: inline-block;
+  padding-bottom: 10px;
 }
 
-.bookings-content h2:after {
-  content: "";
+.bookings-content h2::after {
+  content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: 0;
   left: 0;
-  width: 80px;
-  height: 2px;
-  background-color: #ff6b6b;
+  width: 50px;
+  height: 3px;
+  background-color: #4CAF50;
 }
 
 .booking-methods {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-  gap: 30px;
-  margin-top: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
 }
 
 .booking-method {
-  background-color: #f8f9fa;
-  padding: 30px;
-  border-radius: 12px;
-  border-left: 5px solid #ff6b6b;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.booking-method:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 60px;
-  height: 60px;
-  background-color: rgba(255, 107, 107, 0.1);
-  border-radius: 0 0 0 100%;
 }
 
 .booking-method:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .booking-method h3 {
   font-size: 1.3rem;
-  color: #333;
+  color: #4CAF50;
   margin-bottom: 15px;
-  font-weight: 600;
 }
 
-.booking-info p,
-.booking-method p {
-  color: #555;
-  line-height: 1.8;
-  font-size: 1.05rem;
+.booking-info {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
 }
 
-.payment-section ul {
-  margin-left: 20px;
-  margin-bottom: 20px;
-  list-style-type: none;
+.booking-info ul {
+  margin: 15px 0;
+  padding-left: 20px;
 }
 
-.payment-section li {
-  color: #555;
-  margin-bottom: 12px;
-  line-height: 1.7;
-  position: relative;
-  padding-left: 30px;
-  font-size: 1.05rem;
-}
-
-.payment-section li:before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #36ae7c;
-  font-weight: bold;
-}
-
-.refund-section {
-  background: linear-gradient(135deg, #fff, #f8f9fa) !important;
+.booking-info li {
+  margin-bottom: 8px;
 }
 
 .refund-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 30px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
 }
 
 .refund-row {
   display: flex;
   border-bottom: 1px solid #eee;
-  transition: background-color 0.2s ease;
-}
-
-.refund-row:hover:not(.header) {
-  background-color: rgba(255, 107, 107, 0.03);
 }
 
 .refund-row.header {
-  background-color: #ff6b6b;
-  font-weight: bold;
+  background-color: #4CAF50;
   color: white;
+  font-weight: bold;
 }
 
 .refund-cell {
-  padding: 20px;
+  padding: 12px 15px;
   flex: 1;
-  display: flex;
-  align-items: center;
 }
 
-.refund-row:last-child {
-  border-bottom: none;
+.refund-row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .transparency-section {
-  background: linear-gradient(135deg, #fff, #f9f9f9) !important;
-}
-
-.transparency-section p {
-  color: #555;
-  line-height: 1.8;
-  font-size: 1.05rem;
-  max-width: 850px;
+  background-color: #f0f7f0;
 }
 
 /* Decorative elements */
@@ -265,22 +216,6 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Animation for section entrance */
-.fade-in-section {
-  animation: fadeIn 0.6s ease-in-out forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Custom decoration */
 .bookings-container:before {
   content: "";
@@ -296,65 +231,36 @@
 /* Responsive styles */
 @media (max-width: 768px) {
   .bookings-container {
-    margin: 40px auto;
+    padding: 40px 5%;
   }
-
-  .bookings-header {
-    margin-bottom: 40px;
-  }
-
+  
   .bookings-header h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
-
-  .bookings-header p {
-    font-size: 1.1rem;
-  }
-
-  .bookings-content {
-    gap: 30px;
-  }
-
+  
   .bookings-content section {
-    padding: 30px 20px;
+    padding: 20px;
   }
-
-  .bookings-content h2 {
-    font-size: 1.6rem;
-    margin-bottom: 20px;
-  }
-
-  .booking-methods {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .booking-method {
-    padding: 25px 20px;
-  }
-
+  
   .refund-row {
     flex-direction: column;
   }
-
+  
   .refund-cell {
-    padding: 15px;
+    padding: 10px;
   }
-
-  .refund-row.header {
-    display: none;
+  
+  .refund-row.header .refund-cell:first-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
+}
 
-  .refund-cell:first-child {
-    font-weight: bold;
-    background-color: rgba(255, 107, 107, 0.1);
+@media (max-width: 480px) {
+  .bookings-header h1 {
+    font-size: 1.8rem;
   }
-
-  section:before {
-    right: 20px;
-    top: -10px;
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
+  
+  .bookings-content h2 {
+    font-size: 1.5rem;
   }
 }

@@ -16,7 +16,7 @@ const Footer = () => {
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
-      }, 100);
+      }, 300); // Increased timeout to ensure page loads completely
     } else {
       const element = document.getElementById(sectionId);
       if (element) {
@@ -78,7 +78,9 @@ const Footer = () => {
           <h3>Customer Reviews</h3>
           <ul>
             <li>
-              <a href="/testimonials">Testimonials</a>
+              <a href="#feedback-section" onClick={(e) => scrollToSection("feedback-section", e)}>
+                Testimonials
+              </a>
             </li>
             <li>
               <a href="mailto:tvistatour@gmail.com">

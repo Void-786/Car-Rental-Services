@@ -10,8 +10,8 @@ const QueryForm: React.FC = () => {
     startDate: '',
     endDate: '',
     travelers: '',
-    childName: '',
-    childAge: '',
+    childrenCount: '',
+    tripType: 'roundTrip', // Default to round trip
     firstName: '',
     lastName: '',
     email: '',
@@ -40,8 +40,8 @@ const QueryForm: React.FC = () => {
           startDate: '',
           endDate: '',
           travelers: '',
-          childName: '',
-          childAge: '',
+          childrenCount: '',
+          tripType: 'roundTrip',
           firstName: '',
           lastName: '',
           email: '',
@@ -126,13 +126,13 @@ const QueryForm: React.FC = () => {
                 </div>
               </div>
               <div className="form-group">
-                <label>Child Name(If Any)</label>
+                <label>Number of Children (below 12)</label>
                 <div className="input-with-icon">
                   <input
-                    type="text"
-                    placeholder="Enter Child Name"
-                    value={formData.childName}
-                    onChange={(e) => setFormData({ ...formData, childName: e.target.value })}
+                    type="number"
+                    placeholder="Enter Number of Children"
+                    value={formData.childrenCount}
+                    onChange={(e) => setFormData({ ...formData, childrenCount: e.target.value })}
                   />
                   <FaUser />
                 </div>
@@ -140,15 +140,28 @@ const QueryForm: React.FC = () => {
             </div>
 
             <div className="form-group">
-              <label>Child Age</label>
-              <div className="input-with-icon">
-                <input
-                  type="number"
-                  placeholder="Enter Child Age"
-                  value={formData.childAge}
-                  onChange={(e) => setFormData({ ...formData, childAge: e.target.value })}
-                />
-                <FaInfoCircle />
+              <label>Trip Type</label>
+              <div className="trip-type-selector">
+                <label className={`radio-label ${formData.tripType === 'roundTrip' ? 'selected' : ''}`}>
+                  <input
+                    type="radio"
+                    name="tripType"
+                    value="roundTrip"
+                    checked={formData.tripType === 'roundTrip'}
+                    onChange={(e) => setFormData({ ...formData, tripType: e.target.value })}
+                  />
+                  Round Trip
+                </label>
+                <label className={`radio-label ${formData.tripType === 'oneWay' ? 'selected' : ''}`}>
+                  <input
+                    type="radio"
+                    name="tripType"
+                    value="oneWay"
+                    checked={formData.tripType === 'oneWay'}
+                    onChange={(e) => setFormData({ ...formData, tripType: e.target.value })}
+                  />
+                  One Way Trip
+                </label>
               </div>
             </div>
 

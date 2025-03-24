@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/faq.css";
 
 interface FaqItem {
@@ -8,6 +8,11 @@ interface FaqItem {
 
 const FAQsPage: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  // Add effect to scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const toggleFaq = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);

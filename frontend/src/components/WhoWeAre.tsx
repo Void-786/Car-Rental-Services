@@ -94,7 +94,7 @@ const WhoWeAre = () => {
         "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     },
     {
-      year: "2023",
+      year: "2025",
       title: "Looking Forward",
       description:
         "Taking our buisness online for everyone to acces the best services availabke online ",
