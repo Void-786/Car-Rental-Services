@@ -24,21 +24,20 @@ const AddCar: React.FC = () => {
     formData.append("seats", seats?.toString() || "");
 
     try {
+      const token = localStorage.getItem('token');
       const response = await axios.post(
-        `${apiClient}/cars/add/new-car`, // Update with your backend URL if different
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
+          `${apiClient}/cars/admin/add/new-car`,
+          formData,
+          { headers: { Authorization: `Bearer ${token}` } }
       );
-      setMessage("Car added successfully!"); // Success message
-      setError(""); // Clear error message
+      setMessage("Car added successfully!");
+      setError("");
       resetForm();
-    } catch (err) {
+  } catch (err) {
       setError("Error adding car. Please try again.");
-      setMessage(""); // Clear success message
+      setMessage("");
       console.error(err);
-    }
+  }  
   };
 
   const resetForm = () => {

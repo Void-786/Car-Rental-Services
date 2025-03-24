@@ -89,7 +89,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-section">
-          <Link to="/admin" className="admin-login-btn">
+          <Link to="/admin/login" className="admin-login-btn">
             Login as Admin
           </Link>
         </div>

@@ -21,7 +21,7 @@ public class CarController {
         this.carService = carService;
     }
 
-    @PostMapping("/add/new-car")
+    @PostMapping("/admin/add/new-car")
     public ResponseEntity<?> addCar(@RequestParam("name") String name, @RequestParam("image") MultipartFile image, @RequestParam("type") String type, @RequestParam("seats") Integer seats) {
         try {
             carService.addCar(name, image, type, seats);
@@ -37,7 +37,7 @@ public class CarController {
         return car.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
     }
 
-    @DeleteMapping("/delete/delete-car")
+    @DeleteMapping("/admin/delete/delete-car")
     public ResponseEntity<?> deleteCar(@RequestParam("carId") Integer id) {
         carService.deleteCarById(id);
         return ResponseEntity.ok("Car deleted Successfully");
@@ -59,7 +59,7 @@ public class CarController {
         return ResponseEntity.ok(cars);
     }
 
-    @PutMapping("/update/update-car")
+    @PutMapping("/admin/update/update-car")
     public ResponseEntity<?> updateCar(
             @RequestParam("carId") Integer id,
             @RequestParam("name") String name,

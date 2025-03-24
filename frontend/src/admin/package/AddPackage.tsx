@@ -79,8 +79,9 @@ const AddPackageForm: React.FC = () => {
     e.preventDefault();
     try {
       const formattedData = { ...formData };
-      console.log('Submitting form data:', formattedData);
-      await axios.post(`${apiClient}/place/package/add-package?placeId=${formData.placeId}`, formattedData);
+      const token = localStorage.getItem('token');
+      await axios.post(`${apiClient}/place/package/admin/add-package?placeId=${formData.placeId}`
+        , formattedData, { headers: { Authorization: `Bearer ${token}` } });
       alert('Package added successfully');
     } catch (error) {
       console.error('Failed to add package:', error);

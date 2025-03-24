@@ -33,8 +33,8 @@ public class BookingService {
 
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setFrom(sender);
-        mailMessage.setTo(adminEmail);
-        mailMessage.setTo(booking.getEmail());
+        String[] recipients = {adminEmail, booking.getEmail()};
+        mailMessage.setTo(recipients);
         mailMessage.setSubject(subject);
         mailMessage.setText(message);
 

@@ -62,7 +62,10 @@ const PackageList: React.FC = () => {
   const handleDeleteConfirm = async () => {
     if (packageToDelete) {
       try {
-        await axios.delete(`${apiClient}/place/package/remove-package?packageId=${packageToDelete}`);
+        const token = localStorage.getItem('token');
+        await axios.delete(`${apiClient}/place/package/admin/remove-package?packageId=${packageToDelete}`,
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
         alert("Package deleted successfully");
         setPackages((prevPackages) => prevPackages.filter((pkg) => pkg.id !== packageToDelete));
       } catch (err) {
@@ -101,13 +104,13 @@ const PackageList: React.FC = () => {
           itinerary_heading: updatedPackage.itinerary_heading,
           itinerary: updatedPackage.itinerary,
         };
-  
+        const token = localStorage.getItem('token');
         await axios.put(
-          `${apiClient}/place/package/update-package?packageId=${updatedPackage.id}`,
+          `${apiClient}/place/package/admin/update-package?packageId=${updatedPackage.id}`,
           payload,
-          { headers: { "Content-Type": "application/json" } }
+          { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` }}
         );
-  
+        
         alert("Package updated successfully");
         setPackages(prev => 
           prev.map(p => p.id === updatedPackage.id ? payload : p)

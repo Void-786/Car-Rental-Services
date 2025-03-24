@@ -42,7 +42,9 @@ const PlacesList: React.FC = () => {
   const handleDeleteConfirm = async () => {
     if (placeToDelete) {
       try {
-        await axios.delete(`${apiClient}/places/delete/delete-place?placeId=${placeToDelete}`);
+        const token = localStorage.getItem('token');
+        await axios.delete(`${apiClient}/places/admin/delete/delete-place?placeId=${placeToDelete}
+          `, { headers: { Authorization: `Bearer ${token}` } });
         alert("Place deleted successfully");
         setPlaces((prevPlaces) => prevPlaces.filter((place) => place.id !== placeToDelete));
       } catch (err) {
@@ -74,9 +76,9 @@ const PlacesList: React.FC = () => {
         if (editPlace.image instanceof File) {
           formData.append("image", editPlace.image); // Handle image as a File object
         }
-
-        await axios.put(`${apiClient}/places/update/update-place`, formData, {
-          headers: { "Content-Type": "multipart/form-data" },
+        const token = localStorage.getItem('token');
+        await axios.put(`${apiClient}/places/admin/update/update-place`, formData, {
+          headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}` },
         });
 
         alert("Place updated successfully");
