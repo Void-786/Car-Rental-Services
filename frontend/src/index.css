@@ -104,9 +104,16 @@ h1 {
 }
 
 #root {
-  max-width: 100%;
+  max-width: 100%; /* Ensure root doesn't exceed viewport width */
+  overflow-x: hidden; /* Prevent horizontal overflow */
   margin: 0;
   padding: 0;
-  text-align: left;
-  background-color: var(--background-color);
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.app {
+  overflow-x: hidden;
 }

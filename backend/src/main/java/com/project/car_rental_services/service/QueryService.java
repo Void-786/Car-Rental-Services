@@ -27,8 +27,8 @@ public class QueryService {
         String startDate = (String) formData.get("startDate");
         String endDate = (String) formData.get("endDate");
         String travelersStr = (String) formData.get("travelers");
-        String childName = (String) formData.get("childName");
-        String childAge = (String) formData.get("childAge");
+        String childCountStr = (String) formData.get("childrenCount");
+        String tripType = (String) formData.get("tripType");
         List<String> cities = (List<String>) formData.get("cities");
         String firstName = (String) formData.get("firstName");
         String lastName = (String) formData.get("lastName");
@@ -36,8 +36,10 @@ public class QueryService {
         String phone = (String) formData.get("phone");
 
         int travelers = 0;
+        int childCount = 0;
         try {
             travelers = Integer.parseInt(travelersStr);
+            childCount = Integer.parseInt(childCountStr);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Invalid number of travelers: " + travelersStr, e);
         }
@@ -54,8 +56,8 @@ public class QueryService {
                         "Start Date: " + startDate + "\n" +
                         "End Date: " + endDate + "\n" +
                         "Travelers: " + travelers + "\n" +
-                        "Child Name: " + (childName != null ? childName : "N/A") + "\n" +
-                        "Child Age: " + (childAge != null ? childAge : "N/A") + "\n" +
+                        "Children: " + childCount + "\n" +
+                        "Trip Type: " + tripType + "\n" +
                         "Cities: " + cityString + "\n\n" +
                         "Personal Details:\n" +
                         "First Name: " + firstName + "\n" +

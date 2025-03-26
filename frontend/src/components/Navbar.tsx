@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { FaMoon, FaUser, FaBars } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import "../styles/navbar.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const location = useLocation();
@@ -34,6 +34,17 @@ const Navbar = () => {
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (mobileMenuOpen && !e.target.closest('.navbar')) {
+        setMobileMenuOpen(false);
+      }
+    };
+  
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [mobileMenuOpen]);
 
   return (
     <nav className="navbar">
@@ -73,7 +84,7 @@ const Navbar = () => {
       
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="mobile-nav-links">
+        <div className="mobile-nav-links open">
           <div onClick={() => scrollToSection("home")} className="mobile-nav-link">
             Home
           </div>

@@ -11,7 +11,7 @@ const QueryForm: React.FC = () => {
     endDate: '',
     travelers: '',
     childrenCount: '',
-    tripType: 'roundTrip', // Default to round trip
+    tripType: 'Round Trip', // Default to round trip.  Capitalized for consistency
     firstName: '',
     lastName: '',
     email: '',
@@ -41,7 +41,7 @@ const QueryForm: React.FC = () => {
           endDate: '',
           travelers: '',
           childrenCount: '',
-          tripType: 'roundTrip',
+          tripType: 'Round Trip', // Keep capitalized and consistent on reset
           firstName: '',
           lastName: '',
           email: '',
@@ -67,6 +67,12 @@ const QueryForm: React.FC = () => {
     updatedCities[index] = value;
     setSelectedCities(updatedCities);
   };
+
+  // Function to handle trip type change
+    const handleTripTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData({ ...formData, tripType: e.target.value });
+    };
+
 
   return (
     <div className="query-form-container">
@@ -138,27 +144,26 @@ const QueryForm: React.FC = () => {
                 </div>
               </div>
             </div>
-
             <div className="form-group">
               <label>Trip Type</label>
               <div className="trip-type-selector">
-                <label className={`radio-label ${formData.tripType === 'roundTrip' ? 'selected' : ''}`}>
+                <label className={`radio-label ${formData.tripType === 'Round Trip' ? 'selected' : ''}`}>
                   <input
                     type="radio"
                     name="tripType"
-                    value="roundTrip"
-                    checked={formData.tripType === 'roundTrip'}
-                    onChange={(e) => setFormData({ ...formData, tripType: e.target.value })}
+                    value="Round Trip"
+                    checked={formData.tripType === 'Round Trip'}
+                    onChange={handleTripTypeChange}
                   />
                   Round Trip
                 </label>
-                <label className={`radio-label ${formData.tripType === 'oneWay' ? 'selected' : ''}`}>
+                <label className={`radio-label ${formData.tripType === 'One Way Trip' ? 'selected' : ''}`}>
                   <input
                     type="radio"
                     name="tripType"
-                    value="oneWay"
-                    checked={formData.tripType === 'oneWay'}
-                    onChange={(e) => setFormData({ ...formData, tripType: e.target.value })}
+                    value="One Way Trip"
+                    checked={formData.tripType === 'One Way Trip'}
+                    onChange={handleTripTypeChange}
                   />
                   One Way Trip
                 </label>
@@ -246,7 +251,6 @@ const QueryForm: React.FC = () => {
           </form>
         </div>
       </div>
-
       {submitStatus === 'success' && (
         <div className="success-message">Form submitted successfully!</div>
       )}

@@ -1,4 +1,3 @@
-import React from 'react';
 import HomeSection from '../components/HomeSection';
 import QueryForm from '../components/QueryForm';
 import CarsPage from './CarsPage';

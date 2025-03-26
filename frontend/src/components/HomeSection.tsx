@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { FaCalendarAlt, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
 import '../styles/homeSection.css';
 
 const HomeSection = () => {
@@ -53,22 +52,11 @@ const HomeSection = () => {
                   <span className="subtitle">{slide.subtitle}</span>
                 </h1>
                 <p>{slide.description}</p>
-                {/* <button className="open-fleet-btn">Open Fleet</button> */}
               </div>
             </div>
           </div>
         ))}
       </div>
-
-      {/* <div className="slide-indicators">
-        {slides.map((_, index) => (
-          <div
-            key={index}
-            className={`indicator ${index === currentSlide ? 'active' : ''}`}
-            onClick={() => setCurrentSlide(index)}
-          ></div>
-        ))}
-      </div> */}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 .cars-page {
   padding: 2rem;
-  max-width: 1200px;
+  max-width: 95%; /* Ensure cars-page doesn't exceed viewport width */
   margin: 80px auto 0;
   min-height: calc(100vh - 80px);
 }
@@ -152,9 +152,11 @@
 
 .cars-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 2rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  padding: 2rem 2rem 6rem; /* Reduce horizontal padding */
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .cars-grid:has(.car-card:only-child) {
@@ -170,8 +172,9 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease;
   cursor: pointer;
-  width: 450px;
-  max-width: 100%;
+  /* width: 450px; */      /* Remove fixed width */
+  max-width: 100%;       /* Ensure it scales correctly */
+  height: auto;           /* Adjust the height correctly */
 }
 
 .car-card:hover {
@@ -388,32 +391,12 @@
   margin: 0 auto;
 }
 
-.car-card {
-  background: #EEEEEE;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.car-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-
 .car-image-wrapper {
   position: relative;
   height: 280px;
   overflow: hidden;
   background-color: #f8f9fa;
   border-radius: 12px 12px 0 0;
-}
-
-.car-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
 }
 
 .car-image-wrapper:hover .car-image {
@@ -639,6 +622,7 @@
   background: linear-gradient(90deg, #7D0A0A, #BF3131);
   border-radius: 2px;
 }
+
 
 @media (max-width: 1200px) {
   .cars-grid {

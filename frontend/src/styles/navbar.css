@@ -266,5 +266,120 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: #7D0A0A;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.5px;/* navbar.css */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 0 40px; /* Keep original padding */
+  }
+  
+  .nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .nav-logo {
+    text-decoration: none;
+    padding: 0.5rem;
+  }
+  
+  .nav-links {
+    cursor: pointer;
+    display: flex;
+    gap: 3.5rem; /* Maintain original gap */
+  }
+  
+  /* Mobile menu icon */
+  .mobile-menu-icon {
+    display: none; /* Hidden by default */
+  }
+  
+  /* Mobile navigation links */
+  .mobile-nav-links {
+    display: none; /* Hidden by default */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .navbar {
+      padding: 0.5rem; /* Reduced padding for smaller screens */
+      height: auto; /* Adjust height for smaller screens */
+      flex-direction: column; /* Stack items vertically if needed */
+      align-items: flex-start; /* Align items to the start */
+      box-shadow: none; /* Remove shadow for a cleaner look */
+      z-index:999 ; 
+     }
+  
+     .nav-links {
+       gap:2rem ; 
+     }
+  }
+  
+  @media (max-width: 768px) {
+    
+     .nav-links {
+       display: none; /* Hide desktop links on mobile */
+     }
+  
+     .mobile-menu-icon {
+       display: flex; /* Show mobile menu icon on small screens */
+       font-size:1.5rem ; 
+       cursor:pointer ; 
+     }
+  
+     .mobile-nav-links {
+       display:flex ; 
+       flex-direction : column ; 
+       position : absolute ; 
+       top :64px ; 
+       left :0 ; 
+       width :100% ; 
+       background : rgba(255,255,255,0.98) ; 
+       backdrop-filter : blur(8px) ; 
+       box-shadow : rgba(0,0,0,0.1) 0px -4px 10px ; 
+       z-index :999 ; 
+       padding-top :1rem ; 
+       padding-bottom :1rem ; 
+     }
+     
+     .mobile-nav-link {
+        padding :1rem ; 
+        font-size :1rem ; 
+        font-weight :600 ; 
+        cursor:pointer ; 
+        transition : all .3s ease ;
+        border-left :3px solid transparent ;
+     }
+  
+     .mobile-nav-link:hover,
+     .mobile-nav-link.active {
+        color:#7D0A0A ;
+        background-color :rgba(125,10,10,.05) ;
+        border-left :3px solid #7D0A0A ;
+     }
+  }
+  
+  @media (max-width:480px) {
+     .nav-logo {
+        margin-right :0 ; 
+        padding : .5rem ; 
+     }
+  
+     .mobile-menu-icon {
+        font-size :1.3rem ; 
+        padding :10px ; 
+     }
+  }
+  
 }
