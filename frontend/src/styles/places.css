@@ -101,7 +101,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 20px;
+  padding: 10px; /* Reduced padding for smaller screens */
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.8) 0%,
@@ -141,12 +141,24 @@
 }
 
 @media (max-width: 768px) {
-  .best-places-grid {
-    grid-template-columns: 1fr;
+  .best-places-card {
+    height: 250px; /* Adjusted height for better visibility */
   }
   
-  .best-places-card {
-    height: 200px;
+  .best-places-overlay h3 {
+    font-size: 1.2rem; /* Reduced font size for smaller screens */
+    margin-bottom: 20px; /* Adjusted margin for better spacing */
+  }
+  
+  .best-places-overlay .view-places {
+    padding: 4px 10px; /* Reduced padding for smaller screens */
+    font-size: 0.9rem; /* Reduced font size for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .best-places-grid {
+    grid-template-columns: 1fr;
   }
 }
 

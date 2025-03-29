@@ -20,7 +20,7 @@ public class BookingService {
     private String adminEmail;
 
     public void sendBookingEmail(BookingDto booking) {
-        String subject = "New Booking Request from " + booking.getFullName();
+        String subject = "New Booking Request " + booking.getFullName();
         String message = "Booking Details:\n\n"
                 + "Full Name: " + booking.getFullName() + "\n"
                 + "Mobile: " + booking.getMobileNumber() + "\n"
