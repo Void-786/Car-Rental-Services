@@ -20,12 +20,14 @@
   transition: opacity 0.8s ease-in-out;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   background-color: #2d2420;
   filter: brightness(1.2) contrast(1.1);
 }
 
 .slide.active {
   opacity: 1;
+  z-index: 1;
   animation: shineEffect 2s ease-in-out;
 }
 
@@ -49,9 +51,9 @@
   height: 100%;
   background: linear-gradient(
     to right,
-    rgba(45, 36, 32, 0.7) 0%,
-    rgba(45, 36, 32, 0.4) 50%,
-    rgba(45, 36, 32, 0.2) 100%
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.2) 100%
   );
 }
 
@@ -444,7 +446,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   }
   
   .text-content .subtitle {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
+  }
+  
+  .text-content p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
   
   .booking-bar form {
@@ -453,6 +460,28 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   
   .book-now-btn {
     grid-column: auto;
+  }
+
+  .slide {
+    background-position: center center;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .text-content .subtitle {
+    font-size: 2rem;
+  }
+
+  .text-content p {
+    font-size: 0.9rem;
+  }
+
+  .slide-content {
+    padding: 0 5%;
   }
 }
 
@@ -525,4 +554,68 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .service-icon.accent {
   box-shadow: 0 0 5px rgba(125, 10, 10, 0.2);
+}
+
+.home-section.loading {
+  background: #2d2420;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.home-section.loading::after {
+  content: '';
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #7D0A0A;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.slide-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: #7D0A0A;
+  border-color: #7D0A0A;
+  transform: scale(1.2);
+}
+
+.indicator:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 480px) {
+  .slide-indicators {
+    bottom: 10px;
+  }
+  
+  .indicator {
+    width: 10px;
+    height: 10px;
+  }
 }

@@ -50,7 +50,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="nav-content">
         <div className="nav-logo" onClick={() => scrollToSection("home")}>
-          <span className="logo-text">Vista Tours</span>
+          <span className="logo-text">Vista Tours & Travels</span>
         </div>
         <div className="nav-links">
           <div onClick={() => scrollToSection("home")} className="nav-link">

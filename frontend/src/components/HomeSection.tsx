@@ -1,39 +1,77 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/homeSection.css';
 
+// Import images
+import lakePalace from '../assets/rajasthan/Lake-Palace-Udaipur.jpg';
+import rajasthanImage from '../assets/rajasthan/rajasthan-image.webp';
+import kusumSarovar from '../assets/rajasthan/Kusum-Sarover-Mathura.webp';
+import rajasthanTravel from '../assets/rajasthan/rajasthan-travel.jpg';
+import tajMahal from '../assets/rajasthan/TAJ-MAHAL-INDIA-FAMILY-CHILDREN.webp';
+
 const HomeSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   const slides = [
     {
-      image: '/src/assets/images/carousel/taj-photo-yamuna-river-scaled.webp',
-      title: 'Timeless',
-      subtitle: 'Wonder',
-      // car: 'Mercedes-Maybach S-Class',
-      description: 'Witness the breathtaking Taj Mahal, a monument of eternal love where marble dances with sunlight and history whispers tales of devotion along the sacred Yamuna River.'
+      image: lakePalace,
+      title: 'Royal',
+      subtitle: 'Udaipur',
+      description: 'Experience the grandeur of the Lake Palace in Udaipur, a majestic white marble wonder floating on Lake Pichola, where Rajasthani royalty meets timeless luxury and romance.'
     },
     {
-      image: '/src/assets/images/carousel/ram-temple-1.webp',
-      title: 'Royal ',
-      subtitle: 'Rajasthan',
-      // car: 'Rolls-Royce Phantom',
-      description: 'Immerse yourself in the vibrant culture of Rajasthan, where magnificent palaces rise from golden sands, colorful festivals ignite your senses, and ancient traditions bring history to life.'
+      image: rajasthanImage,
+      title: 'Majestic',
+      subtitle: 'Jodhpur',
+      description: 'Discover the magnificent Mehrangarh Fort rising above the blue city of Jodhpur, where ancient sandstone walls tell tales of Rajput valor and architectural brilliance.'
     },
     {
-      image: '/src/assets/images/carousel/Varanasi-Ghats.jpg',
-      title: "Nature's ",
-      subtitle: 'Retreat',
-      // car: 'Bentley Flying Spur',
-      description: 'Experience the mystical charm of Varanasi\'s ancient ghats, where sacred ceremonies illuminate the Ganges at dawn and dusk, connecting souls to traditions thousands of years old in India\'s spiritual heart.'
+      image: tajMahal,
+      title: 'Eternal',
+      subtitle: 'Agra',
+      description: 'Witness the iconic Taj Mahal at sunset, where silhouettes dance and stories of eternal love come alive against the backdrop of architectural perfection.'
+    },
+    {
+      image: rajasthanTravel,
+      title: 'Regal',
+      subtitle: 'Udaipur',
+      description: 'Marvel at the City Palace of Udaipur, where ornate architecture meets serene waters, creating a testament to Rajasthan\'s royal heritage and artistic mastery.'
+    },
+    {
+      image: kusumSarovar,
+      title: 'Serene',
+      subtitle: 'Mathura',
+      description: 'Experience the tranquil beauty of Kusum Sarovar, where ancient architecture reflects in still waters, creating a perfect harmony of heritage and natural splendor.'
     }
   ];
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [slides.length]);
+    // Preload images
+    Promise.all(
+      slides.map((slide) => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.src = slide.image;
+          img.onload = resolve;
+        });
+      })
+    ).then(() => {
+      setIsLoading(false);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!isLoading) {
+      const timer = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+      }, 5000);
+      return () => clearInterval(timer);
+    }
+  }, [isLoading, slides.length]);
+
+  if (isLoading) {
+    return <div className="home-section loading"></div>;
+  }
 
   return (
     <div className="home-section">
@@ -56,6 +94,16 @@ const HomeSection = () => {
             </div>
           </div>
         ))}
+        <div className="slide-indicators">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              className={`indicator ${index === currentSlide ? 'active' : ''}`}
+              onClick={() => setCurrentSlide(index)}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
